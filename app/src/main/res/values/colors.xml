@@ -7,4 +7,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="lynx_white">#F7F7F7</color>
+    <color name="glass_etched">#DDE2E3</color>
+    <color name="brown_dwarfpony">#B37C57</color>
+    <color name="black_raven">#3D3D3B</color>
+    <color name="pink_orchid">#DA7CA3</color>
+    <color name="black_lead">#202020</color>
+    <color name="urban_pigeon">#9AACB8</color>
+    <color name="blue_diplomatic">#3C445C</color>
+    <color name="blue_bering_sea">#4C5870</color>
+    <color name="green_greek_garden">#93CE8A</color>
 </resources>
