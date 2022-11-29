@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "480370435746",
+    "project_id": "capstone-artion",
+    "storage_bucket": "capstone-artion.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:480370435746:android:c1b7cff2109819fe6819fb",
+        "android_client_info": {
+          "package_name": "com.dicoding.picodiploma.capstoneartion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "480370435746-4dctia6a0t1gpa1vuk40g3rbmplon77u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2bCaJ6v7nVP6h4NLkt91ioI2174x62xo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "480370435746-4dctia6a0t1gpa1vuk40g3rbmplon77u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
