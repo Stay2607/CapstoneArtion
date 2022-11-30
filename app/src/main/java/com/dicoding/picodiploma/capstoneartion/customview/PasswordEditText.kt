@@ -7,7 +7,6 @@ import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatEditText
 
 class PasswordEditText : AppCompatEditText {
-
     constructor(context: Context) : super(context) {
         init()
     }
@@ -41,5 +40,4 @@ class PasswordEditText : AppCompatEditText {
             }
         })
     }
-
 }

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Capstone Artion</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
 </resources>
