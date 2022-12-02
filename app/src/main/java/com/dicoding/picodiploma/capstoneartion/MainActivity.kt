@@ -2,10 +2,9 @@ package com.dicoding.picodiploma.capstoneartion
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.picodiploma.capstoneartion.databinding.ActivityMainBinding
+import com.dicoding.picodiploma.capstoneartion.home.HomeActivity
 import com.dicoding.picodiploma.capstoneartion.login.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -23,16 +22,16 @@ class MainActivity : AppCompatActivity() {
         auth = Firebase.auth
         val firebaseUser = auth.currentUser
 
-        binding.imageLogo.setOnClickListener {
-            startActivity(Intent(this, LoginActivity::class.java))
-        }
+
         
         //Intent to Login or Register
-        /*if (firebaseUser == null){
+        if (firebaseUser == null) {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
             return
-        }*/
+        } else {
+            startActivity(Intent(this, HomeActivity::class.java))
+        }
 
     }
 
@@ -52,7 +51,7 @@ class MainActivity : AppCompatActivity() {
         }
     }*/
 
-    private fun signOut() {
+    fun signOut() {
         auth.signOut()
         startActivity(Intent(this, LoginActivity::class.java))
         finish()
