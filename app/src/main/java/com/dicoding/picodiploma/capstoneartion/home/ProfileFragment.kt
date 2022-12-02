@@ -2,7 +2,6 @@ package com.dicoding.picodiploma.capstoneartion.home
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,7 +32,7 @@ class ProfileFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    /*override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
@@ -41,17 +40,24 @@ class ProfileFragment : Fragment() {
         }
 
         auth = Firebase.auth
+        onViewCreate()
 
+    }*/
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        auth = Firebase.auth
         btnLogout()
     }
 
     private fun btnLogout() {
         binding?.buttonLogout?.setOnClickListener {
-            //auth.signOut()
-            Log.d("BtnClicked ", "Clicked")
-            val intent = Intent(activity, LoginActivity::class.java)
-            activity?.startActivity(intent)
-            activity?.finish()
+            auth.signOut()
+            //startActivity(Intent(requireActivity(), LoginActivity::class.java))
+            val intent = Intent(requireActivity(), LoginActivity::class.java)
+            startActivity(intent)
+            requireActivity().finish()
         }
     }
 

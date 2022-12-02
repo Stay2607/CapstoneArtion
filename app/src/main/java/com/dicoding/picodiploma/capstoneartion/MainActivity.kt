@@ -22,8 +22,12 @@ class MainActivity : AppCompatActivity() {
         auth = Firebase.auth
         val firebaseUser = auth.currentUser
 
+        binding.imageLogo.setOnClickListener {
+            startActivity(Intent(this, HomeActivity::class.java))
+            finish()
+        }
 
-        
+
         //Intent to Login or Register
         if (firebaseUser == null) {
             startActivity(Intent(this, LoginActivity::class.java))
