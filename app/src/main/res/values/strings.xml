@@ -8,4 +8,10 @@
     <string name="btnRegister">Register</string>
     <string name="btnLogin">Login</string>
     <string name="emailAndPhone">Email or Phone Number</string>
+    <string name="title_activity_bottom_navigation">BottomNavigation</string>
+    <string name="title_home">Home</string>
+    <string name="title_my_auction">My Auction</string>
+    <string name="title_profile">Profile</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

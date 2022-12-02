@@ -11,6 +11,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.picodiploma.capstoneartion.R
 import com.dicoding.picodiploma.capstoneartion.databinding.ActivityLoginBinding
+import com.dicoding.picodiploma.capstoneartion.home.HomeActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -87,7 +88,7 @@ class LoginActivity : AppCompatActivity() {
     }
     private fun updateUI(currentUser: FirebaseUser?) {
         if (currentUser != null){
-            startActivity(Intent(this@LoginActivity, LoginActivity::class.java))
+            startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
             finish()
         }
     }
