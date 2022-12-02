@@ -2,4 +2,10 @@
     <string name="app_name">Capstone Artion</string>
     <string name="login">Login</string>
     <string name="email">Email</string>
+    <string name="register">Register</string>
+    <string name="phone">Phone Number</string>
+    <string name="password">Password</string>
+    <string name="btnRegister">Register</string>
+    <string name="btnLogin">Login</string>
+    <string name="emailAndPhone">Email or Phone Number</string>
 </resources>
