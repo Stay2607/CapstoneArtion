@@ -11,7 +11,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.picodiploma.capstoneartion.R
 import com.dicoding.picodiploma.capstoneartion.databinding.ActivityLoginBinding
-import com.dicoding.picodiploma.capstoneartion.home.HomeActivity
+import com.dicoding.picodiploma.capstoneartion.main.HomeActivity
 import com.dicoding.picodiploma.capstoneartion.register.RegisterActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient

@@ -1,4 +1,4 @@
-package com.dicoding.picodiploma.capstoneartion.home
+package com.dicoding.picodiploma.capstoneartion.main
 
 import android.content.Intent
 import android.os.Bundle
