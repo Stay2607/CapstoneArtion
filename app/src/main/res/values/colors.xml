@@ -17,4 +17,7 @@
     <color name="blue_diplomatic">#3C445C</color>
     <color name="blue_bering_sea">#4C5870</color>
     <color name="green_greek_garden">#93CE8A</color>
+    <color name="bluegray">#3c465f</color>
+    <color name="pink">#da7ca3</color>
+    <color name="light_gray">#d9d9d9</color>
 </resources>
