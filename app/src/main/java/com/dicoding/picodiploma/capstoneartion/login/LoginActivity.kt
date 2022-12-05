@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.WindowInsets
 import android.view.WindowManager
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.picodiploma.capstoneartion.R
@@ -49,7 +50,38 @@ class LoginActivity : AppCompatActivity() {
 
         binding.signInButton.setOnClickListener { signIn() }
         btnRegister()
+        btnLogin()
 
+    }
+
+    private fun btnLogin() {
+        binding.button.setOnClickListener {
+            val email = binding.edtEmail.text.toString()
+            val pass = binding.edtPassword.text.toString()
+            if (email == "" || pass == "") {
+                Toast.makeText(
+                    baseContext, "Login failed.",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                auth.signInWithEmailAndPassword(email, pass)
+                    .addOnCompleteListener(this) { task ->
+                        if (task.isSuccessful) {
+                            Log.d(TAG, "createUserWithEmail:success")
+                            val user = auth.currentUser
+                            updateUI(user)
+                        } else {
+                            Toast.makeText(
+                                baseContext, "Email or Password Wrong.",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            Log.w(TAG, "createUserWithEmail:failure", task.exception)
+                            updateUI(null)
+                        }
+                    }
+            }
+
+        }
     }
 
 

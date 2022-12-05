@@ -31,7 +31,6 @@ class EmailEditText : AppCompatEditText {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 val email = s.toString()
                 when {
-
                     email.isBlank() -> error = "Please Insert Your Email"
                     !email.isValidEmail() -> error = "Email is Invalid"
                 }
