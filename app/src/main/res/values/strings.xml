@@ -14,6 +14,19 @@
     <string name="title_profile">Profile</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="have_account">Have account?</string>
+    <string name="login_here">Login Here</string>
+    <string name="buyout_price">Buyout price</string>
+    <string name="bid">Bid</string>
+    <string name="bid_price">Bid price</string>
+    <string name="running_time">Running time</string>
+    <string name="buyout">Buyout</string>
+    <string name="artist">Artist</string>
+    <string name="title">Title</string>
+    <string name="product_photo">Product photo</string>
+    <string name="category">Category</string>
+    <string name="add_auction">Add Auction</string>
+    <string name="home">Home</string>
     <string name="profile_card">Profile Card</string>
     <string name="profile_avatar">Profile Avatar</string>
 </resources>
