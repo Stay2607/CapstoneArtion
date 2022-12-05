@@ -54,7 +54,6 @@ class ProfileFragment : Fragment() {
     private fun btnLogout() {
         binding?.buttonLogout?.setOnClickListener {
             Firebase.auth.signOut()
-            //startActivity(Intent(requireActivity(), LoginActivity::class.java))
             val intent = Intent(requireActivity(), LoginActivity::class.java)
             startActivity(intent)
             requireActivity().finish()
