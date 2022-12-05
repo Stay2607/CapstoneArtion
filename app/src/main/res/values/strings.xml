@@ -42,5 +42,6 @@
     <string name="account_setting">Account setting</string>
     <string name="btn_logout">Logout</string>
     <string name="location">Indonesia, Yogyakarta</string>
+    <string name="QR_Code">QR Code Pembayaran</string>
     >>>>>>> Stashed changes
 </resources>
