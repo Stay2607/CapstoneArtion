@@ -80,8 +80,10 @@ class LoginActivity : AppCompatActivity() {
                         }
                     }
             }
+
         }
     }
+
 
     private fun btnRegister() {
         binding.registerHere.setOnClickListener {
@@ -112,7 +114,6 @@ class LoginActivity : AppCompatActivity() {
             }
         }
     }
-
     private fun firebaseAuthWithGoogle(idToken: String) {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
         auth.signInWithCredential(credential)
@@ -129,7 +130,6 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
     }
-
     private fun updateUI(currentUser: FirebaseUser?) {
         if (currentUser != null) {
             startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
