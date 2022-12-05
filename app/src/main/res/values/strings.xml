@@ -29,4 +29,7 @@
     <string name="home">Home</string>
     <string name="profile_card">Profile Card</string>
     <string name="profile_avatar">Profile Avatar</string>
+    <string name="following">Following</string>
+    <string name="follower">Follower</string>
+    <string name="auction">Auction</string>
 </resources>
