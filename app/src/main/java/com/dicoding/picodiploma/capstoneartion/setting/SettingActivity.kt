@@ -1,7 +1,7 @@
 package com.dicoding.picodiploma.capstoneartion.setting
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.picodiploma.capstoneartion.R
 
 class SettingActivity : AppCompatActivity() {

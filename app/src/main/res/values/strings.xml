@@ -1,8 +1,13 @@
 <resources>
+<<<<<<< Updated upstream
     <string name="app_name">Capstone Artion</string>
     <string name="login">Login</string>
+=======
+    <string name="app_name">Artion</string>
+    <string name="login">LOGIN</string>
+>>>>>>> Stashed changes
     <string name="email">Email</string>
-    <string name="register">Register</string>
+    <string name="register">REGISTER</string>
     <string name="phone">Phone Number</string>
     <string name="password">Password</string>
     <string name="btnRegister">Register</string>
@@ -27,6 +32,7 @@
     <string name="category">Category</string>
     <string name="add_auction">Add Auction</string>
     <string name="home">Home</string>
+<<<<<<< Updated upstream
     <string name="profile_card">Profile Card</string>
     <string name="profile_avatar">Profile Avatar</string>
     <string name="following">Following</string>
@@ -41,4 +47,11 @@
     <string name="edit_your_personal_information">Edit your personal information</string>
     <string name="your_info">Your info</string>
     <string name="account_setting">Account setting</string>
+=======
+    <string name="btn_logout">Logout</string>
+    <string name="account_setting">Account Setting</string>
+    <string name="your_info">Your info</string>
+    <string name="edit_your_personal_information">Edit your personal information</string>
+    <string name="location">Indonesia, Yogyakarta</string>
+    >>>>>>> Stashed changes
 </resources>

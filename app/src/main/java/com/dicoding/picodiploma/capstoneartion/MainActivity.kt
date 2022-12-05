@@ -19,26 +19,15 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         checkCurrentUser()
 
         binding.imageLogo.setOnClickListener {
             startActivity(Intent(this, HomeActivity::class.java))
             finish()
         }
-
-
-<<<<<<< Updated upstream
     }
 
     private fun checkCurrentUser() {
-=======
-
-
-    }
-
-    private fun checkCurrentUser(){
->>>>>>> Stashed changes
         val firebaseUser = Firebase.auth.currentUser
 
         //Intent to Login or Register
@@ -49,7 +38,6 @@ class MainActivity : AppCompatActivity() {
         } else {
             startActivity(Intent(this, HomeActivity::class.java))
         }
-
     }
 
     /*override fun onCreateOptionsMenu(menu: Menu): Boolean {

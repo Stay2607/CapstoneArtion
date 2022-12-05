@@ -23,9 +23,8 @@ private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
 /**
- * A simple [Fragment] subclass.
- * Use the [ProfileFragment.newInstance] factory method to
- * create an instance of this fragment.
+ * A simple [Fragment] subclass. Use the [ProfileFragment.newInstance]
+ * factory method to create an instance of this fragment.
  */
 class ProfileFragment : Fragment() {
     // TODO: Rename and change types of parameters
@@ -47,7 +46,6 @@ class ProfileFragment : Fragment() {
 
         auth = Firebase.auth
         onViewCreate()
-
     }*/
 
 
@@ -70,7 +68,7 @@ class ProfileFragment : Fragment() {
             Firebase.auth.signOut()
 
             CoroutineScope(Dispatchers.IO).launch {
-                withContext(Dispatchers.Main){
+                withContext(Dispatchers.Main) {
                     Firebase.auth.signOut()
                     user.signOut()
                 }
@@ -91,6 +89,4 @@ class ProfileFragment : Fragment() {
         return _binding!!.root
         //return inflater.inflate(R.layout.fragment_profile, container, false)
     }
-
-
 }

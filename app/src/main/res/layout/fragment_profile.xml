@@ -12,121 +12,124 @@
         android:layout_height="411dp"
         android:contentDescription="@string/profile_card"
         android:src="@drawable/card_layout_navy_white"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/profile_avatar"
         android:layout_width="130dp"
         android:layout_height="130dp"
-        android:contentDescription="@string/profile_avatar"
         android:layout_marginTop="100dp"
+        android:contentDescription="@string/profile_avatar"
         android:src="@drawable/avatar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/profile_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        tools:text="John Doe"
         android:layout_marginTop="30dp"
-        app:layout_constraintTop_toBottomOf="@+id/profile_avatar"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@+id/profile_avatar"
+        tools:text="John Doe" />
 
     <TextView
         android:id="@+id/profile_regional"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        tools:text="Indonesia, Yogyakarta"
         android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/profile_name"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@+id/profile_name"
+        tools:text="@string/location" />
 
     <TextView
         android:id="@+id/profile_following_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        tools:text="158"
         android:layout_marginTop="18dp"
-        app:layout_constraintTop_toBottomOf="@+id/profile_regional"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@+id/profile_regional"
+        tools:text="158" />
 
     <TextView
         android:id="@+id/profile_follower_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        tools:text="795"
         android:layout_marginTop="18dp"
-        app:layout_constraintTop_toBottomOf="@+id/profile_regional"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/profile_following_number"/>
+        app:layout_constraintStart_toEndOf="@id/profile_following_number"
+        app:layout_constraintTop_toBottomOf="@+id/profile_regional"
+        tools:text="795" />
 
     <TextView
         android:id="@+id/profile_auction_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        tools:text="795"
         android:layout_marginTop="18dp"
-        app:layout_constraintTop_toBottomOf="@+id/profile_regional"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/profile_following_number"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/profile_following_number"/>
+        app:layout_constraintTop_toBottomOf="@+id/profile_regional"
+        tools:text="795" />
 
     <TextView
         android:id="@+id/profile_following"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:text="@string/following"
         android:layout_marginTop="4dp"
-        app:layout_constraintTop_toBottomOf="@+id/profile_follower_number"
+        android:text="@string/following"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@+id/profile_follower_number" />
 
     <TextView
         android:id="@+id/profile_follower"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:text="@string/follower"
         android:layout_marginTop="4dp"
-        app:layout_constraintTop_toBottomOf="@+id/profile_follower_number"
+        android:text="@string/follower"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/profile_following_number"/>
+        app:layout_constraintStart_toEndOf="@id/profile_following_number"
+        app:layout_constraintTop_toBottomOf="@+id/profile_follower_number" />
 
     <TextView
         android:id="@+id/profile_auction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:text="@string/auction"
         android:layout_marginTop="4dp"
-        app:layout_constraintTop_toBottomOf="@+id/profile_auction_number"
+        android:text="@string/auction"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@id/profile_following_number"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/profile_following_number"/>
-
+        app:layout_constraintTop_toBottomOf="@+id/profile_auction_number" />
 
     <Button
         android:id="@+id/buttonLogout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="83dp"
+        android:layout_height="49dp"
         android:layout_marginTop="24dp"
-        android:text="Logout"
+        android:background="@drawable/rounded_ui"
+        android:backgroundTint="#d9d9d9"
+        android:text="@string/btn_logout"
+        android:textColor="@color/bluegray"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -136,11 +139,11 @@
         android:id="@+id/btn_setting"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:background="#00000000"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:background="@color/transparant"
         android:drawableBottom="@drawable/ic_baseline_settings_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="12dp"/>
-
+        app:layout_goneMarginEnd="20dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,6 +20,11 @@
     <color name="bluegray">#3c465f</color>
     <color name="pink">#da7ca3</color>
     <color name="light_gray">#d9d9d9</color>
+
     <color name="lighter_gray">#EFEFEF</color>
     <color name="invicible">#00FFFFFF</color>
+
+    <color name="gray">#8b8b8b</color>
+    <color name="transparant">#00000000</color>
+
 </resources>
