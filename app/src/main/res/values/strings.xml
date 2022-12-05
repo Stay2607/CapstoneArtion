@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Artion</string>
+    <string name="app_name">Capstone Artion</string>
     <string name="login">Login</string>
     <string name="email">Email</string>
     <string name="register">Register</string>
@@ -27,4 +27,6 @@
     <string name="category">Category</string>
     <string name="add_auction">Add Auction</string>
     <string name="home">Home</string>
+    <string name="profile_card">Profile Card</string>
+    <string name="profile_avatar">Profile Avatar</string>
 </resources>

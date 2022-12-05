@@ -1,4 +1,4 @@
-package com.dicoding.picodiploma.capstoneartion.home
+package com.dicoding.picodiploma.capstoneartion.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
