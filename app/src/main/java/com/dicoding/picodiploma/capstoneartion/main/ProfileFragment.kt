@@ -11,6 +11,10 @@ import com.dicoding.picodiploma.capstoneartion.login.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -28,6 +32,7 @@ class ProfileFragment : Fragment() {
     private val binding get() = _binding
 
     private lateinit var auth: FirebaseAuth
+    val user = FirebaseAuth.getInstance()
 
     private var param1: String? = null
     private var param2: String? = null
@@ -47,13 +52,26 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         auth = Firebase.auth
+
         btnLogout()
+
     }
 
     private fun btnLogout() {
         binding?.buttonLogout?.setOnClickListener {
+<<<<<<< Updated upstream:app/src/main/java/com/dicoding/picodiploma/capstoneartion/main/ProfileFragment.kt
             Firebase.auth.signOut()
+=======
+            CoroutineScope(Dispatchers.IO).launch {
+                withContext(Dispatchers.Main){
+                    Firebase.auth.signOut()
+                    user.signOut()
+                }
+            }
+            //startActivity(Intent(requireActivity(), LoginActivity::class.java))
+>>>>>>> Stashed changes:app/src/main/java/com/dicoding/picodiploma/capstoneartion/home/ProfileFragment.kt
             val intent = Intent(requireActivity(), LoginActivity::class.java)
             startActivity(intent)
             requireActivity().finish()

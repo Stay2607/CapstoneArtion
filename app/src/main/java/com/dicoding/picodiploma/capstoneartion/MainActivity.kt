@@ -28,9 +28,17 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+<<<<<<< Updated upstream
     }
 
     private fun checkCurrentUser() {
+=======
+
+
+    }
+
+    private fun checkCurrentUser(){
+>>>>>>> Stashed changes
         val firebaseUser = Firebase.auth.currentUser
 
         //Intent to Login or Register

@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.WindowInsets
 import android.view.WindowManager
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.picodiploma.capstoneartion.R
@@ -53,6 +54,10 @@ class LoginActivity : AppCompatActivity() {
     }
 
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
     private fun btnRegister() {
         binding.registerHere.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
