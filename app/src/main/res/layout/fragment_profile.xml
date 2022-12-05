@@ -9,7 +9,7 @@
     <ImageView
         android:id="@+id/profile_card"
         android:layout_width="match_parent"
-        android:layout_height="412dp"
+        android:layout_height="411dp"
         android:contentDescription="@string/profile_card"
         android:src="@drawable/card_layout_navy_white"
         app:layout_constraintTop_toTopOf="parent"
