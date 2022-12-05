@@ -9,8 +9,12 @@ import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.picodiploma.capstoneartion.databinding.ActivityRegisterBinding
+import com.dicoding.picodiploma.capstoneartion.home.HomeActivity
 import com.dicoding.picodiploma.capstoneartion.login.LoginActivity
+<<<<<<< Updated upstream
 import com.dicoding.picodiploma.capstoneartion.main.HomeActivity
+=======
+>>>>>>> Stashed changes
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
@@ -62,7 +66,11 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun updateUI(currentUser: FirebaseUser?) {
+<<<<<<< Updated upstream
         if (currentUser != null) {
+=======
+        if (currentUser != null){
+>>>>>>> Stashed changes
             startActivity(Intent(this@RegisterActivity, HomeActivity::class.java))
             finish()
         }
@@ -80,10 +88,15 @@ class RegisterActivity : AppCompatActivity() {
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithEmail:failure", task.exception)
+<<<<<<< Updated upstream
                     Toast.makeText(
                         baseContext, "Authentication failed.",
                         Toast.LENGTH_SHORT
                     ).show()
+=======
+                    Toast.makeText(baseContext, "Authentication failed.",
+                        Toast.LENGTH_SHORT).show()
+>>>>>>> Stashed changes
                     updateUI(null)
                 }
             }
@@ -100,7 +113,11 @@ class RegisterActivity : AppCompatActivity() {
         // [END send_email_verification]
     }
 
+<<<<<<< Updated upstream
     private fun getUserProfile() {
+=======
+    private fun getUserProfile(){
+>>>>>>> Stashed changes
         val user = Firebase.auth.currentUser
         user?.let {
             //Name email url

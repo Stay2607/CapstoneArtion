@@ -12,6 +12,10 @@ import com.dicoding.picodiploma.capstoneartion.setting.SettingActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -29,6 +33,23 @@ class ProfileFragment : Fragment() {
     private val binding get() = _binding
 
     private lateinit var auth: FirebaseAuth
+    val user = FirebaseAuth.getInstance()
+
+    private var param1: String? = null
+    private var param2: String? = null
+
+    /*override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+            param1 = it.getString(ARG_PARAM1)
+            param2 = it.getString(ARG_PARAM2)
+        }
+
+        auth = Firebase.auth
+        onViewCreate()
+
+    }*/
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -47,6 +68,14 @@ class ProfileFragment : Fragment() {
     private fun btnLogout() {
         binding?.buttonLogout?.setOnClickListener {
             Firebase.auth.signOut()
+
+            CoroutineScope(Dispatchers.IO).launch {
+                withContext(Dispatchers.Main){
+                    Firebase.auth.signOut()
+                    user.signOut()
+                }
+            }
+            //startActivity(Intent(requireActivity(), LoginActivity::class.java))
             val intent = Intent(requireActivity(), LoginActivity::class.java)
             startActivity(intent)
             requireActivity().finish()
