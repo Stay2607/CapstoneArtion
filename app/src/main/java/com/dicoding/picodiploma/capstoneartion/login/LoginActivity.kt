@@ -52,6 +52,7 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
+
     private fun btnRegister() {
         binding.registerHere.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
@@ -105,7 +106,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     companion object {
-        private const val TAG = "LoginActivity"
+        private const val TAG = "EmailPassword"
     }
 
     private fun setupView() {

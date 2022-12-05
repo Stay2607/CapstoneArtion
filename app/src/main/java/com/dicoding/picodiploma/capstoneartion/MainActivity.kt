@@ -4,8 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.picodiploma.capstoneartion.databinding.ActivityMainBinding
-import com.dicoding.picodiploma.capstoneartion.main.HomeActivity
 import com.dicoding.picodiploma.capstoneartion.login.LoginActivity
+import com.dicoding.picodiploma.capstoneartion.main.HomeActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -19,14 +19,19 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        auth = Firebase.auth
-        val firebaseUser = auth.currentUser
+
+        checkCurrentUser()
 
         binding.imageLogo.setOnClickListener {
             startActivity(Intent(this, HomeActivity::class.java))
             finish()
         }
 
+
+    }
+
+    private fun checkCurrentUser() {
+        val firebaseUser = Firebase.auth.currentUser
 
         //Intent to Login or Register
         if (firebaseUser == null) {
