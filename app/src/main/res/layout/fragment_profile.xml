@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/profile_card"
-        android:layout_width="match_parent"
-        android:layout_height="411dp"
+        android:layout_width="wrap_content"
+        android:layout_height="350dp"
         android:contentDescription="@string/profile_card"
         android:src="@drawable/card_layout_navy_white"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,75 +50,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profile_name"
         tools:text="@string/location" />
-
-    <TextView
-        android:id="@+id/profile_following_number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_regional"
-        tools:text="158" />
-
-    <TextView
-        android:id="@+id/profile_follower_number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/profile_following_number"
-        app:layout_constraintTop_toBottomOf="@+id/profile_regional"
-        tools:text="795" />
-
-    <TextView
-        android:id="@+id/profile_auction_number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@id/profile_following_number"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_regional"
-        tools:text="795" />
-
-    <TextView
-        android:id="@+id/profile_following"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="@string/following"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_follower_number" />
-
-    <TextView
-        android:id="@+id/profile_follower"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="@string/follower"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/profile_following_number"
-        app:layout_constraintTop_toBottomOf="@+id/profile_follower_number" />
-
-    <TextView
-        android:id="@+id/profile_auction"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="@string/auction"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@id/profile_following_number"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_auction_number" />
 
     <Button
         android:id="@+id/buttonLogout"

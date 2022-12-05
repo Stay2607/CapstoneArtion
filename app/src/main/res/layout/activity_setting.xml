@@ -67,7 +67,7 @@
             android:id="@+id/btn_language"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/bahasa_indonesia"
+            android:text="@string/english"
             android:textStyle=""
             style="@style/Base.Widget.AppCompat.Button.Borderless.ListTile"/>
     </LinearLayout>
