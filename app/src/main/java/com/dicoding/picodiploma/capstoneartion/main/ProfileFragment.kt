@@ -2,9 +2,11 @@ package com.dicoding.picodiploma.capstoneartion.main
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
 import androidx.fragment.app.Fragment
 import com.dicoding.picodiploma.capstoneartion.databinding.FragmentProfileBinding
 import com.dicoding.picodiploma.capstoneartion.login.LoginActivity
@@ -16,6 +18,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import kotlin.math.log
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -43,6 +46,7 @@ class ProfileFragment : Fragment() {
         auth = Firebase.auth
         btnLogout()
         btnSetting()
+        showUser()
     }
 
     private fun btnSetting() {
@@ -65,6 +69,30 @@ class ProfileFragment : Fragment() {
             val intent = Intent(requireActivity(), LoginActivity::class.java)
             startActivity(intent)
             requireActivity().finish()
+        }
+    }
+
+    private fun showUser(){
+        val user = Firebase.auth.currentUser
+        user?.let {
+            val name = user.displayName
+            val email = user.email
+            binding?.profileName?.text = name.toString()
+            val photo = user.photoUrl
+
+            Log.d("photo", photo.toString())
+            Log.d("name", name.toString())
+            if (photo != null){
+                binding?.profileAvatar?.let { it1 ->
+                    Glide.with(this)
+                        .load(photo)
+                        .into(it1)
+                }
+            }
+
+            val emailVerif = user.isEmailVerified
+
+            val uid = user.uid
         }
     }
 

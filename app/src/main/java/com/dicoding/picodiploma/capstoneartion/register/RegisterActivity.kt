@@ -19,8 +19,10 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
@@ -44,6 +46,7 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun creteAccount() {
         binding.button.setOnClickListener {
+            val username = binding.edtPhone.text.toString()
             val email = binding.edtEmail.text.toString()
             val password = binding.edtPassword.text.toString()
             auth.createUserWithEmailAndPassword(email, password)
@@ -51,6 +54,9 @@ class RegisterActivity : AppCompatActivity() {
                     if (task.isSuccessful) {
                         Log.d(TAG, "createUserWithEmail:success")
                         val user = auth.currentUser
+                        val profileUpdates =
+                            UserProfileChangeRequest.Builder().setDisplayName(username).build()
+                        user?.updateProfile(profileUpdates)
                         updateUI(user)
                     } else {
                         Log.w(TAG, "createUserWithEmail:failure", task.exception)
