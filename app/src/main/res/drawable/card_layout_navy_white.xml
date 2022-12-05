@@ -2,6 +2,7 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 <item>
     <shape android:shape="rectangle">
+        <size android:height="300dp"/>
         <corners
             android:bottomLeftRadius="130dp"
             android:bottomRightRadius="130dp" />

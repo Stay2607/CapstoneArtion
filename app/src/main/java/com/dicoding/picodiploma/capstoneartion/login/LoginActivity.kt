@@ -85,6 +85,10 @@ class LoginActivity : AppCompatActivity() {
     }
 
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
     private fun btnRegister() {
         binding.registerHere.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)

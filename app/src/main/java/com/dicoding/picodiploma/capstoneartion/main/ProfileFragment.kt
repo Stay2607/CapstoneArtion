@@ -8,9 +8,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.dicoding.picodiploma.capstoneartion.databinding.FragmentProfileBinding
 import com.dicoding.picodiploma.capstoneartion.login.LoginActivity
+import com.dicoding.picodiploma.capstoneartion.setting.SettingActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -28,6 +33,7 @@ class ProfileFragment : Fragment() {
     private val binding get() = _binding
 
     private lateinit var auth: FirebaseAuth
+    val user = FirebaseAuth.getInstance()
 
     private var param1: String? = null
     private var param2: String? = null
@@ -49,11 +55,27 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         auth = Firebase.auth
         btnLogout()
+        btnSetting()
+    }
+
+    private fun btnSetting() {
+        binding?.btnSetting?.setOnClickListener {
+            val intent = Intent(activity, SettingActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun btnLogout() {
         binding?.buttonLogout?.setOnClickListener {
             Firebase.auth.signOut()
+
+            CoroutineScope(Dispatchers.IO).launch {
+                withContext(Dispatchers.Main){
+                    Firebase.auth.signOut()
+                    user.signOut()
+                }
+            }
+            //startActivity(Intent(requireActivity(), LoginActivity::class.java))
             val intent = Intent(requireActivity(), LoginActivity::class.java)
             startActivity(intent)
             requireActivity().finish()
@@ -63,31 +85,12 @@ class ProfileFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         return _binding!!.root
         //return inflater.inflate(R.layout.fragment_profile, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ProfileFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ProfileFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 
 }
