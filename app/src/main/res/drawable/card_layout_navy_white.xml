@@ -2,7 +2,6 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 <item>
     <shape android:shape="rectangle">
-        <size android:height="300dp"/>
         <corners
             android:bottomLeftRadius="130dp"
             android:bottomRightRadius="130dp" />
@@ -17,5 +16,5 @@
             <solid android:color="@color/white"/>
         </shape>
     </item>
-    <item android:drawable="@drawable/background_navy_wave"/>
+    <item android:drawable="@drawable/background_navy_wave" android:width="2230dp"/>
 </layer-list>
