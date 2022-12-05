@@ -21,7 +21,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Account setting"
+            android:text="@string/account_setting"
             android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="20sp"
@@ -30,7 +30,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Your info"
+            android:text="@string/your_info"
             android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="16sp"/>
@@ -39,7 +39,7 @@
             android:id="@+id/btn_edit_profile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Edit your personal information"
+            android:text="@string/edit_your_personal_information"
             style="@style/Base.Widget.AppCompat.Button.Borderless.ListTile"/>
     </LinearLayout>
 
@@ -57,7 +57,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Language"
+            android:text="@string/language"
             android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="20sp"
@@ -67,7 +67,7 @@
             android:id="@+id/btn_language"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Bahasa Indonesia"
+            android:text="@string/bahasa_indonesia"
             android:textStyle=""
             style="@style/Base.Widget.AppCompat.Button.Borderless.ListTile"/>
     </LinearLayout>
@@ -86,7 +86,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Extra"
+            android:text="@string/extra"
             android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="20sp"
@@ -96,7 +96,7 @@
             android:id="@+id/btn_help"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Help"
+            android:text="@string/help"
             style="@style/Base.Widget.AppCompat.Button.Borderless.ListTile"/>
 
         <ImageView
@@ -109,7 +109,7 @@
             android:id="@+id/btn_privacy_policy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Privacy &amp; Policy"
+            android:text="@string/privacy_and_policy"
             style="@style/Base.Widget.AppCompat.Button.Borderless.ListTile"/>
     </LinearLayout>
 
@@ -118,7 +118,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Logout"
+        android:text="@string/logout"
         android:layout_gravity="center"/>
 
 
