@@ -1,12 +1,20 @@
 package com.dicoding.picodiploma.capstoneartion.detail
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.dicoding.picodiploma.capstoneartion.R
+import androidx.appcompat.app.AppCompatActivity
+import com.dicoding.picodiploma.capstoneartion.databinding.ActivityAuctionItemDetailsBinding
+import com.google.firebase.database.FirebaseDatabase
 
 class AuctionItemDetails : AppCompatActivity() {
+    private lateinit var binding: ActivityAuctionItemDetailsBinding
+    private lateinit var db: FirebaseDatabase
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_auction_item_details)
+        binding = ActivityAuctionItemDetailsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
     }
+
+
 }

@@ -28,6 +28,8 @@ class SettingActivity : AppCompatActivity(), View.OnClickListener {
 
         binding.buttonLogout.setOnClickListener(this)
         binding.btnEditProfile.setOnClickListener(this)
+
+
     }
 
     override fun onClick(v: View) {
