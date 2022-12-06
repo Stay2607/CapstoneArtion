@@ -63,4 +63,10 @@
     <string name="arrange">Arrange</string>
     <string name="buyout_at">Buyout at</string>
     <string name="time_range">Time Range *</string>
+    <string name="content_tab_auction">My Auction</string>
+    <string name="content_tab_bid">My Bid</string>
+    <string name="content_tab_history">History</string>
+    <string name="tab_text_1">My Auction</string>
+    <string name="tab_text_2">My Bid</string>
+    <string name="tab_text_3">History</string>
 </resources>
