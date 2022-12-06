@@ -70,6 +70,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:textStyle="bold"
             android:text="@string/title_of_the_work"
             android:textColor="@color/black"
             android:textSize="14sp"
@@ -102,6 +103,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
+
+            android:textStyle="bold"
             android:text="@string/description_of_the_work"
             android:textColor="@color/black"
             android:textSize="14sp"
@@ -110,10 +113,11 @@
 
         <EditText
             android:id="@+id/et_description_work"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
+            android:layout_margin="10dp"
             android:hint="@string/enter_a_work_description"
             android:textColor="@color/black"
             android:textSize="12sp"
@@ -138,6 +142,8 @@
             android:layout_marginTop="15dp"
             android:layout_marginBottom="15dp"
             android:text="@string/category_title"
+            android:text="@string/category"
+            android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -149,6 +155,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
+            android:text="@string/_2d"
             android:onClick="radio_button_click"
             android:text="@string/_2d"
             app:layout_constraintBottom_toBottomOf="@+id/tv_add_category_work"
@@ -181,26 +188,64 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="15dp"
             android:text="@string/price"
+            android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/et_price_work"
+        <TextView
+            android:id="@+id/tv_starting_price"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="15dp"
+            android:text="@string/starting_at"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@id/tv_add_price"
+            app:layout_constraintTop_toTopOf="@id/et_starting_price"
+            app:layout_constraintBottom_toBottomOf="@id/et_starting_price"/>
+
+        <EditText
+            android:id="@+id/et_starting_price"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
             android:hint="@string/arrange"
+            android:inputType="number"
             android:textColor="@color/black"
             android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_add_price"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tv_add_price" />
+            app:layout_constraintStart_toEndOf="@id/tv_starting_price"
+            app:layout_constraintTop_toBottomOf="@id/tv_add_price"/>
+
+        <TextView
+            android:id="@+id/tv_buyout_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="15dp"
+            android:text="@string/buyout_at"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@id/tv_add_price"
+            app:layout_constraintBottom_toBottomOf="@id/et_buyout_price"
+            app:layout_constraintTop_toTopOf="@id/et_buyout_price"/>
+
+        <EditText
+            android:id="@+id/et_buyout_price"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:hint="@string/arrange"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/tv_starting_price"
+            app:layout_constraintTop_toBottomOf="@id/et_starting_price"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -219,6 +264,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="15dp"
+            android:textStyle="bold"
             android:text="@string/time_range"
             android:textColor="@color/black"
             android:textSize="14sp"
