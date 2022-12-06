@@ -50,4 +50,17 @@
     >>>>>>> Stashed changes
     <string name="google_sign_in_failed">Google sign in failed</string>
     <string name="content_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="create_auction">Create Auction</string>
+    <string name="add_photo">+ Add Photo</string>
+    <string name="title_of_the_work">Title of the work *</string>
+    <string name="enter_a_title_of_the_work">Enter a title of the work</string>
+    <string name="description_of_the_work">Description of the work *</string>
+    <string name="enter_a_work_description">Enter a Work Description</string>
+    <string name="_2d">2D</string>
+    <string name="_3d">3D</string>
+    <string name="price">Price *</string>
+    <string name="starting_at">Starting at</string>
+    <string name="arrange">Arrange</string>
+    <string name="buyout_at">Buyout at</string>
+    <string name="time_range">Time Range *</string>
 </resources>
