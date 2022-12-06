@@ -7,6 +7,6 @@ import com.dicoding.picodiploma.capstoneartion.R
 class NewAuctionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_new_product)
+        setContentView(R.layout.activity_new_auction)
     }
 }
