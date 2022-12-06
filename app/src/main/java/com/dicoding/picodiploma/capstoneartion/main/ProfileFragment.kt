@@ -20,16 +20,6 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kotlin.math.log
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ProfileFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ProfileFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var _binding: FragmentProfileBinding? = null
@@ -38,13 +28,9 @@ class ProfileFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
     val user = FirebaseAuth.getInstance()
 
-    private var param1: String? = null
-    private var param2: String? = null
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         auth = Firebase.auth
-        btnLogout()
         btnSetting()
         showUser()
     }
@@ -53,22 +39,6 @@ class ProfileFragment : Fragment() {
         binding?.btnSetting?.setOnClickListener {
             val intent = Intent(activity, SettingActivity::class.java)
             startActivity(intent)
-        }
-    }
-
-    private fun btnLogout() {
-        binding?.buttonLogout?.setOnClickListener {
-            Firebase.auth.signOut()
-
-            CoroutineScope(Dispatchers.IO).launch {
-                withContext(Dispatchers.Main) {
-                    Firebase.auth.signOut()
-                    user.signOut()
-                }
-            }
-            val intent = Intent(requireActivity(), LoginActivity::class.java)
-            startActivity(intent)
-            requireActivity().finish()
         }
     }
 

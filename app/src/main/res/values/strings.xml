@@ -41,8 +41,13 @@
     <string name="your_info">Your info</string>
     <string name="account_setting">Account setting</string>
     <string name="btn_logout">Logout</string>
-    <string name="location">Indonesia, Yogyakarta</string>
+    <string name="location_hint">Indonesia, Yogyakarta</string>
     <string name="QR_Code">QR Code Pembayaran</string>
+    <string name="name">Name</string>
+    <string name="name_hint">John Doe</string>
+    <string name="location">Location</string>
+    <string name="save">Save</string>
+    >>>>>>> Stashed changes
     <string name="google_sign_in_failed">Google sign in failed</string>
     <string name="content_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
 </resources>

@@ -2,7 +2,10 @@ package com.dicoding.picodiploma.capstoneartion.setting
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import com.dicoding.picodiploma.capstoneartion.R
 import com.dicoding.picodiploma.capstoneartion.databinding.ActivitySettingBinding
 import com.dicoding.picodiploma.capstoneartion.login.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -13,31 +16,39 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class SettingActivity : AppCompatActivity() {
+
+class SettingActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivitySettingBinding
-    val user = FirebaseAuth.getInstance()
+    private val user = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySettingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        btnLogout()
+        binding.buttonLogout.setOnClickListener(this)
+        binding.btnEditProfile.setOnClickListener(this)
     }
 
-    private fun btnLogout() {
-        binding?.buttonLogout?.setOnClickListener {
-            Firebase.auth.signOut()
+    override fun onClick(v: View) {
+        when (v.id) {
+            R.id.buttonLogout -> {
+                Firebase.auth.signOut()
 
-            CoroutineScope(Dispatchers.IO).launch {
-                withContext(Dispatchers.Main) {
-                    Firebase.auth.signOut()
-                    user.signOut()
+                CoroutineScope(Dispatchers.IO).launch {
+                    withContext(Dispatchers.Main) {
+                        Firebase.auth.signOut()
+                        user.signOut()
+                    }
                 }
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+                finish()
             }
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-            finish()
+            R.id.btn_edit_profile -> setFragment(EditProfileFragment())
         }
     }
+
+    private fun setFragment(fragment: Fragment) =
+        supportFragmentManager.beginTransaction().replace(R.id.setting_frame, fragment, "fragment").addToBackStack("fragment").commit()
 }
