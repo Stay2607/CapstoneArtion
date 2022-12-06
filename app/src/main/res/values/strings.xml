@@ -79,4 +79,7 @@
     <string name="content_tab_profile">Change your Profile here</string>
     <string name="content_tab_text">This is Tab %1$d</string>
     <string name="search_hint">Search di Artion</string>
+    <string name="zero">0</string>
+    <string name="hours">hours</string>
+    <string name="days">days</string>
 </resources>
