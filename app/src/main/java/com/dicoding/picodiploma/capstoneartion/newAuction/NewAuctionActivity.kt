@@ -66,8 +66,6 @@ class NewAuctionActivity : AppCompatActivity() {
                 Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
             }
         }
-
-
     }
 
     private fun getTimeCounter(): Int {

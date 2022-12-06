@@ -6,19 +6,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.bumptech.glide.Glide
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import com.dicoding.picodiploma.capstoneartion.databinding.FragmentProfileBinding
-import com.dicoding.picodiploma.capstoneartion.login.LoginActivity
 import com.dicoding.picodiploma.capstoneartion.setting.SettingActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import kotlin.math.log
 
 class ProfileFragment : Fragment() {
     // TODO: Rename and change types of parameters
@@ -42,7 +36,7 @@ class ProfileFragment : Fragment() {
         }
     }
 
-    private fun showUser(){
+    private fun showUser() {
         val user = Firebase.auth.currentUser
         user?.let {
             val name = user.displayName
@@ -52,7 +46,7 @@ class ProfileFragment : Fragment() {
 
             Log.d("photo", photo.toString())
             Log.d("name", name.toString())
-            if (photo != null){
+            if (photo != null) {
                 binding?.profileAvatar?.let { it1 ->
                     Glide.with(this)
                         .load(photo)
