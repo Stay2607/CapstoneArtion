@@ -9,7 +9,9 @@ data class AuctionItem(
     val description: String,
     val photoUrl: String,
     val category: String,
-    val price: String,
+    val startingPrice: Int,
+    val buyoutPrice: Int,
+    val currentPrice: Int,
     val timeCounter: String
 ) {
 }

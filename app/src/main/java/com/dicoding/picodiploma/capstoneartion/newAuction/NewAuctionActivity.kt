@@ -35,11 +35,15 @@ class NewAuctionActivity : AppCompatActivity() {
                 binding.etDescriptionWork.text.toString(),
                 binding.frAddPhoto.toString(), //Masih belum sesuai buat foto
                 "2D", //Ada if dulu,
-                binding.etPriceWork.text.toString(),
+                binding.etStartingPrice.text.toString().toInt(),
+                binding.etBuyoutPrice.text.toString().toInt(),
+                binding.etStartingPrice.text.toString().toInt(),
                 "700000" // Belum sesuai
             )
             itemRef.child(item.title).setValue(item).addOnSuccessListener {
-                binding.etPriceWork.text.clear()
+                binding.etStartingPrice.text.clear()
+                binding.etBuyoutPrice.text.clear()
+                binding.etStartingPrice.text.clear()
                 binding.etDescriptionWork.text.clear()
                 binding.etWorkTitle.text.clear()
 
