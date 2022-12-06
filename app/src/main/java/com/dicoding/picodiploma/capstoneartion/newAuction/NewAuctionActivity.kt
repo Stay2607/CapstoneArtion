@@ -22,11 +22,11 @@ class NewAuctionActivity : AppCompatActivity() {
         binding = ActivityNewAuctionBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        db = Firebase.database
+        db = FirebaseDatabase.getInstance()
         auth = Firebase.auth
         val user = auth.currentUser
 
-        val itemRef = db.reference.child(ITEM_CHILD)
+        val itemRef = db.getReference(TABLE_AUCTION_ITEMS)
 
         binding.createAuctionButton.setOnClickListener {
             val item = AuctionItem(
@@ -38,12 +38,14 @@ class NewAuctionActivity : AppCompatActivity() {
                 binding.etPriceWork.text.toString(),
                 "700000" // Belum sesuai
             )
-            itemRef.push().setValue(item) { error, _ ->
-                if (error != null) {
-                    Toast.makeText(this, "Error :   " + error.message, Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
-                }
+            itemRef.child(item.title).setValue(item).addOnSuccessListener {
+                binding.etPriceWork.text.clear()
+                binding.etDescriptionWork.text.clear()
+                binding.etWorkTitle.text.clear()
+
+                Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
+            }.addOnFailureListener {
+                Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -91,7 +93,7 @@ class NewAuctionActivity : AppCompatActivity() {
     }*/
 
     companion object {
-        const val ITEM_CHILD = "item"
+        const val TABLE_AUCTION_ITEMS = "AuctionItems"
     }
 
     fun radio_button_click(view: View) {}
