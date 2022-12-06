@@ -1,11 +1,10 @@
-package com.dicoding.picodiploma.capstoneartion
+package com.dicoding.picodiploma.capstoneartion.main
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.picodiploma.capstoneartion.databinding.ActivityMainBinding
 import com.dicoding.picodiploma.capstoneartion.login.LoginActivity
-import com.dicoding.picodiploma.capstoneartion.main.HomeActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -39,5 +38,4 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, HomeActivity::class.java))
         }
     }
-
 }
