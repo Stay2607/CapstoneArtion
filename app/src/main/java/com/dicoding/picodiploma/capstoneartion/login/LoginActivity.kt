@@ -110,10 +110,11 @@ class LoginActivity : AppCompatActivity() {
                 firebaseAuthWithGoogle(account.idToken!!)
             } catch (e: ApiException) {
                 // Google Sign In failed, update UI appropriately
-                Log.w(TAG, "Google sign in failed", e)
+                Log.w(TAG, getString(R.string.google_sign_in_failed), e)
             }
         }
     }
+
     private fun firebaseAuthWithGoogle(idToken: String) {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
         auth.signInWithCredential(credential)
@@ -130,15 +131,12 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
     }
+
     private fun updateUI(currentUser: FirebaseUser?) {
         if (currentUser != null) {
             startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
             finish()
         }
-    }
-
-    companion object {
-        private const val TAG = "EmailPassword"
     }
 
     private fun setupView() {
@@ -152,5 +150,9 @@ class LoginActivity : AppCompatActivity() {
             )
         }
         supportActionBar?.hide()
+    }
+
+    companion object {
+        private const val TAG = "EmailPassword"
     }
 }
