@@ -250,29 +250,19 @@
             app:layout_constraintStart_toEndOf="@id/tv_starting_price"
             app:layout_constraintTop_toBottomOf="@id/et_starting_price"
             android:autofillHints="0" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/auction_time"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@color/white"
-        app:layout_constraintTop_toBottomOf="@+id/fr_add_price"
-        tools:layout_editor_absoluteX="0dp">
 
         <TextView
             android:id="@+id/tv_auction_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginStart="200dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="15dp"
             android:textStyle="bold"
             android:text="@string/time_range"
             android:textColor="@color/black"
             android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_add_price"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -328,8 +318,6 @@
             app:layout_constraintStart_toStartOf="@id/tv_auction_time"
             app:layout_constraintTop_toBottomOf="@id/et_auction_day"
             android:autofillHints="0" />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
@@ -343,5 +331,5 @@
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/auction_time" />
+        app:layout_constraintTop_toBottomOf="@+id/fr_add_price" />
 </androidx.constraintlayout.widget.ConstraintLayout>
