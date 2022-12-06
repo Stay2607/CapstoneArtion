@@ -9,7 +9,7 @@
     <ImageView
         android:id="@+id/profile_card"
         android:layout_width="wrap_content"
-        android:layout_height="350dp"
+        android:layout_height="349dp"
         android:contentDescription="@string/profile_card"
         android:src="@drawable/card_layout_navy_white"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,21 +50,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profile_name"
         tools:text="@string/location" />
-
-    <Button
-        android:id="@+id/buttonLogout"
-        android:layout_width="83dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/rounded_ui"
-        android:backgroundTint="#d9d9d9"
-        android:text="@string/btn_logout"
-        android:textColor="@color/bluegray"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_card" />
 
     <Button
         android:id="@+id/btn_setting"

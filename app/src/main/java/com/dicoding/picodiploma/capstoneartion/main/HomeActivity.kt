@@ -22,7 +22,6 @@ class HomeActivity : AppCompatActivity() {
 
         binding.bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
-
                 R.id.navigation_home -> setCurrentFragment(homeFragment)
                 R.id.navigation_my_auction -> setCurrentFragment(myAuctionFragment)
                 R.id.navigation_profile -> setCurrentFragment(profileFragment)

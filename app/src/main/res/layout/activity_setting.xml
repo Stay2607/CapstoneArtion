@@ -1,125 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".setting.SettingActivity"
-    android:orientation="vertical">
-
-    <LinearLayout
+    android:id="@+id/setting_frame"
+    tools:context=".setting.SettingActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="12dp"
-        android:background="@drawable/card_layout_gray"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginBottom="6dp"
-        android:orientation="vertical">
-
-        <TextView
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/account_setting"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/account_setting"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:layout_marginBottom="8dp"/>
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginBottom="6dp"
+            android:background="@drawable/card_layout_gray"
+            android:orientation="vertical"
+            android:padding="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/account_setting"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/your_info"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_edit_profile"
+                style="@style/Base.Widget.AppCompat.Button.Borderless.ListTile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/edit_your_personal_information" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/language"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/your_info"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textSize="16sp"/>
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginBottom="6dp"
+            android:background="@drawable/card_layout_gray"
+            android:orientation="vertical"
+            android:padding="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/account_setting">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/language"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_language"
+                style="@style/Base.Widget.AppCompat.Button.Borderless.ListTile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/english"
+                android:textStyle="" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/extra"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginBottom="6dp"
+            android:background="@drawable/card_layout_gray"
+            android:orientation="vertical"
+            android:padding="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/language">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/extra"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_help"
+                style="@style/Base.Widget.AppCompat.Button.Borderless.ListTile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="6dp"
+                android:src="@color/light_gray" />
+
+            <Button
+                android:id="@+id/btn_privacy_policy"
+                style="@style/Base.Widget.AppCompat.Button.Borderless.ListTile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/privacy_and_policy" />
+        </LinearLayout>
 
         <Button
-            android:id="@+id/btn_edit_profile"
-            android:layout_width="match_parent"
+            android:id="@+id/buttonLogout"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/edit_your_personal_information"
-            style="@style/Base.Widget.AppCompat.Button.Borderless.ListTile"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="12dp"
-        android:background="@drawable/card_layout_gray"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginBottom="6dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/language"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:layout_marginBottom="8dp"/>
-
-        <Button
-            android:id="@+id/btn_language"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/english"
-            android:textStyle=""
-            style="@style/Base.Widget.AppCompat.Button.Borderless.ListTile"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="12dp"
-        android:background="@drawable/card_layout_gray"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginBottom="6dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/extra"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:layout_marginBottom="8dp"/>
-
-        <Button
-            android:id="@+id/btn_help"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/help"
-            style="@style/Base.Widget.AppCompat.Button.Borderless.ListTile"/>
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:src="@color/light_gray"
-            android:layout_margin="6dp"/>
-
-        <Button
-            android:id="@+id/btn_privacy_policy"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/privacy_and_policy"
-            style="@style/Base.Widget.AppCompat.Button.Borderless.ListTile"/>
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/buttonLogout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/logout"
-        android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:layout_marginTop="24dp"
+            android:text="@string/logout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/extra" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+</FrameLayout>

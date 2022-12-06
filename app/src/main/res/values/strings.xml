@@ -41,7 +41,11 @@
     <string name="your_info">Your info</string>
     <string name="account_setting">Account setting</string>
     <string name="btn_logout">Logout</string>
-    <string name="location">Indonesia, Yogyakarta</string>
+    <string name="location_hint">Indonesia, Yogyakarta</string>
     <string name="QR_Code">QR Code Pembayaran</string>
+    <string name="name">Name</string>
+    <string name="name_hint">John Doe</string>
+    <string name="location">Location</string>
+    <string name="save">Save</string>
     >>>>>>> Stashed changes
 </resources>
