@@ -56,6 +56,7 @@ class ProfileFragment : Fragment() {
                 binding?.profileAvatar?.let { it1 ->
                     Glide.with(this)
                         .load(photo)
+                        .circleCrop()
                         .into(it1)
                 }
             }
