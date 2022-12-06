@@ -12,6 +12,6 @@ data class AuctionItem(
     val startingPrice: Int,
     val buyoutPrice: Int,
     val currentPrice: Int,
-    val timeCounter: String
+    val timeCounter: Int
 ) {
 }

@@ -63,4 +63,7 @@
     <string name="arrange">Arrange</string>
     <string name="buyout_at">Buyout at</string>
     <string name="time_range">Time Range *</string>
+    <string name="zero">0</string>
+    <string name="hours">hours</string>
+    <string name="days">days</string>
 </resources>
