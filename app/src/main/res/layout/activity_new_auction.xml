@@ -123,7 +123,9 @@
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/tv_description_work"
-            app:layout_constraintTop_toBottomOf="@+id/tv_description_work" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_description_work"
+            android:autofillHints=" "
+            android:inputType="text" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -141,7 +143,6 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="15dp"
-            android:text="@string/category_title"
             android:text="@string/category"
             android:textStyle="bold"
             android:textColor="@color/black"
@@ -150,27 +151,28 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <RadioButton
-            android:id="@+id/rb_2d"
+        <RadioGroup
+            android:id="@+id/radio_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:text="@string/_2d"
-            android:onClick="radio_button_click"
-            android:text="@string/_2d"
+            android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="@+id/tv_add_category_work"
             app:layout_constraintStart_toEndOf="@+id/tv_add_category_work"
-            app:layout_constraintTop_toTopOf="@+id/tv_add_category_work" />
+            app:layout_constraintTop_toTopOf="@+id/tv_add_category_work">
+            <RadioButton
+                android:id="@+id/rb_2d"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:text="@string/_2d"/>
 
-        <RadioButton
-            android:id="@+id/rb_3d"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:text="@string/_3d"
-            app:layout_constraintBottom_toBottomOf="@+id/rb_2d"
-            app:layout_constraintStart_toEndOf="@+id/rb_2d"
-            app:layout_constraintTop_toTopOf="@+id/rb_2d" />
+            <RadioButton
+                android:id="@+id/rb_3d"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:text="@string/_3d"/>
+        </RadioGroup>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -220,7 +222,8 @@
             android:textColor="@color/black"
             android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@id/tv_starting_price"
-            app:layout_constraintTop_toBottomOf="@id/tv_add_price"/>
+            app:layout_constraintTop_toBottomOf="@id/tv_add_price"
+            android:autofillHints="0" />
 
         <TextView
             android:id="@+id/tv_buyout_price"
@@ -245,7 +248,8 @@
             android:textColor="@color/black"
             android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@id/tv_starting_price"
-            app:layout_constraintTop_toBottomOf="@id/et_starting_price"/>
+            app:layout_constraintTop_toBottomOf="@id/et_starting_price"
+            android:autofillHints="0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -268,96 +272,64 @@
             android:text="@string/time_range"
             android:textColor="@color/black"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <RadioGroup
-            android:id="@+id/radioGroup"
+        <TextView
+            android:id="@+id/tv_auction_day"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:text="@string/_1_days"
-            app:layout_constraintBottom_toBottomOf="@+id/auction_time"
-            app:layout_constraintStart_toEndOf="@+id/tv_auction_time"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="15dp"
+            android:text="@string/days"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@id/et_auction_day"
+            app:layout_constraintTop_toTopOf="@id/et_auction_day"
+            app:layout_constraintBottom_toBottomOf="@id/et_auction_day"/>
 
+        <EditText
+            android:id="@+id/et_auction_day"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:hint="@string/zero"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textAlignment="center"
+            app:layout_constraintStart_toStartOf="@id/tv_auction_time"
+            app:layout_constraintTop_toBottomOf="@id/tv_auction_time"
+            android:autofillHints="0" />
 
-            <RadioButton
-                android:id="@+id/rb_1day"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:text="@string/_1_days"
-                app:layout_constraintBottom_toBottomOf="@+id/auction_time"
-                app:layout_constraintStart_toEndOf="@+id/tv_auction_time"
-                app:layout_constraintTop_toTopOf="@+id/auction_time"
-                app:layout_constraintVertical_bias="0.47" />
-
-
-            <RadioButton
-                android:id="@+id/rb_3day"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:text="@string/_3_days"
-                app:layout_constraintBottom_toBottomOf="@+id/auction_time"
-                app:layout_constraintStart_toEndOf="@+id/rb_1day"
-                app:layout_constraintTop_toTopOf="@+id/auction_time"
-                app:layout_constraintVertical_bias="0.47" />
-
-            <RadioButton
-                android:id="@+id/rb_7day"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:text="@string/_7_days"
-                app:layout_constraintBottom_toBottomOf="@+id/auction_time"
-                app:layout_constraintStart_toEndOf="@+id/rb_3day"
-                app:layout_constraintTop_toTopOf="@+id/auction_time"
-                app:layout_constraintVertical_bias="0.47" />
-        </RadioGroup>
-
-        <RadioGroup
+        <TextView
+            android:id="@+id/tv_auction_hour"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/radioGroup"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="15dp"
+            android:text="@string/hours"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@id/et_auction_day"
+            app:layout_constraintTop_toTopOf="@id/et_auction_hour"
+            app:layout_constraintBottom_toBottomOf="@id/et_auction_hour"/>
 
-            <RadioButton
-                android:id="@+id/rb_15day"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:text="@string/_15_days"
-                app:layout_constraintBottom_toBottomOf="@+id/auction_time"
-                app:layout_constraintStart_toEndOf="@+id/tv_auction_time"
-                app:layout_constraintTop_toTopOf="@+id/auction_time"
-                app:layout_constraintVertical_bias="0.47" />
+        <EditText
+            android:id="@+id/et_auction_hour"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:hint="@string/zero"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@id/tv_auction_time"
+            app:layout_constraintTop_toBottomOf="@id/et_auction_day"
+            android:autofillHints="0" />
 
-            <RadioButton
-                android:id="@+id/rb_30day"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:text="@string/_30_days"
-                app:layout_constraintBottom_toBottomOf="@+id/auction_time"
-                app:layout_constraintStart_toEndOf="@+id/rb_1day"
-                app:layout_constraintTop_toTopOf="@+id/auction_time"
-                app:layout_constraintVertical_bias="0.47" />
 
-            <RadioButton
-                android:id="@+id/rb_90day"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:text="@string/_90_days"
-                app:layout_constraintBottom_toBottomOf="@+id/auction_time"
-                app:layout_constraintStart_toEndOf="@+id/rb_3day"
-                app:layout_constraintTop_toTopOf="@+id/auction_time"
-                app:layout_constraintVertical_bias="0.47" />
-        </RadioGroup>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
