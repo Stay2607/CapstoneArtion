@@ -13,3 +13,8 @@
 .externalNativeBuild
 .cxx
 local.properties
+app/src/main/res/layout/fragment_my_auction_page.xml
+app/src/main/res/layout/fragment_my_bid_page.xml
+app/src/main/java/com/dicoding/picodiploma/capstoneartion/main/myAuction/MyBidPage.kt
+app/src/main/java/com/dicoding/picodiploma/capstoneartion/main/myAuction/MyAuctionPage.kt
+app/src/main/java/com/dicoding/picodiploma/capstoneartion/main/adapter/SectionsPageAdapter.kt
