@@ -2,6 +2,7 @@ package com.dicoding.picodiploma.capstoneartion.setting
 
 import android.content.Intent
 import android.os.Bundle
+import android.provider.Settings
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -16,7 +17,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-
 class SettingActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivitySettingBinding
     private val user = FirebaseAuth.getInstance()
@@ -28,8 +28,7 @@ class SettingActivity : AppCompatActivity(), View.OnClickListener {
 
         binding.buttonLogout.setOnClickListener(this)
         binding.btnEditProfile.setOnClickListener(this)
-
-
+        binding.btnLanguage.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -48,6 +47,7 @@ class SettingActivity : AppCompatActivity(), View.OnClickListener {
                 finish()
             }
             R.id.btn_edit_profile -> setFragment(EditProfileFragment())
+            R.id.btn_language -> startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
         }
     }
 
