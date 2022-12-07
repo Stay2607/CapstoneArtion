@@ -1,36 +1,21 @@
 package com.dicoding.picodiploma.capstoneartion.newAuction
 
-import android.Manifest
-import android.app.ProgressDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.widget.ImageView
-import android.widget.ProgressBar
 import android.widget.RadioButton
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
-import com.dicoding.picodiploma.capstoneartion.R
 import com.dicoding.picodiploma.capstoneartion.data.AuctionItem
 import com.dicoding.picodiploma.capstoneartion.databinding.ActivityNewAuctionBinding
-import com.dicoding.picodiploma.capstoneartion.newAuction.util.uriToFile
 import com.dicoding.picodiploma.capstoneartion.utils.Helper
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import com.google.firebase.storage.ktx.storage
-import com.squareup.picasso.Picasso
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
-import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -39,21 +24,10 @@ class NewAuctionActivity : AppCompatActivity() {
     private lateinit var binding: ActivityNewAuctionBinding
     private lateinit var db: FirebaseDatabase
     private lateinit var auth: FirebaseAuth
-    val storageRef = Firebase.storage.reference
-
-    private val imageView: ImageView? = null
-
     private lateinit var selectedImg: Uri
     private var storageUri: String = ""
-
-    // Uri indicates, where the image will be picked from
-    private val filePath: Uri? = null
-
-    // instance for firebase storage and StorageReference
     var storage: FirebaseStorage? = null
     private lateinit var storageReference: StorageReference
-
-    //var radioGroup: RadioGroup? = null
     private lateinit var radioButton: RadioButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -76,19 +50,14 @@ class NewAuctionActivity : AppCompatActivity() {
     private fun createAuctionBtn() {
         val user = auth.currentUser
         val itemRef = db.getReference(TABLE_AUCTION_ITEMS).push()
-        //val db = FirebaseDatabase.getInstance()
 
         binding.createAuctionButton.setOnClickListener {
-
-            //val imgSelected : Uri = binding.btAddPhoto as Uri
-            //setToFireStorage(imgSelected)
-
             val intSelectButton: Int = binding.radioGroup.checkedRadioButtonId
             radioButton = findViewById(intSelectButton)
             val category = radioButton.text.toString()
             val timeCounter: Int = getTimeCounter()
             val photo = selectedImg
-            val postId = itemRef.key
+            val postId = itemRef.key //get post ID
             setToFireStorage(photo, postId!!)
             val item = AuctionItem(
                 user?.displayName.toString(),
@@ -118,22 +87,6 @@ class NewAuctionActivity : AppCompatActivity() {
         }
     }
 
-    private fun retrieveData() {
-        val user = auth.currentUser
-        val db = FirebaseDatabase.getInstance().getReference("auction_db")
-            .child("AuctionImages").child(user?.displayName.toString())
-        db.addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists()) {
-                    Picasso.with(this@NewAuctionActivity).load(Uri.parse(snapshot.value.toString()))
-                        .into(binding.btAddPhoto)
-                }
-            }
-
-            override fun onCancelled(error: DatabaseError) {}
-        })
-    }
-
     //Buat set storage
     private fun setToFireStorage(imageUri: Uri, postId: String){
         val formatter = SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.getDefault())
@@ -145,6 +98,8 @@ class NewAuctionActivity : AppCompatActivity() {
         storageReference.putFile(imageUri).addOnSuccessListener {
             storageReference.downloadUrl.addOnSuccessListener { uri ->
                 storageUri = uri.toString()
+
+                //update RTD
                 itemRef.child(postId).child("photoUrl").setValue(storageUri)
             }
             binding.btAddPhoto.setImageURI(null)
@@ -152,28 +107,6 @@ class NewAuctionActivity : AppCompatActivity() {
         }.addOnFailureListener {
             Toast.makeText(this, "Upload Failed!", Toast.LENGTH_SHORT).show()
         }
-        /*val imgReference = storageReference.child(binding.etWorkTitle.toString())
-        imgReference.putFile(imageUri).addOnSuccessListener {
-            imgReference.downloadUrl.addOnSuccessListener { uri ->
-                val db =
-                    FirebaseDatabase.getInstance().getReference("auction_db")
-                        .child("AuctionImages").child(user?.displayName.toString())
-                db.child("newImage").setValue(uri.toString())
-                Toast.makeText(
-                    this@NewAuctionActivity,
-                    "Successfully added to real time",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }.addOnFailureListener { e ->
-                Toast.makeText(
-                    this@NewAuctionActivity,
-                    e.message,
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-        }.addOnFailureListener { e ->
-            Toast.makeText(this@NewAuctionActivity, e.message, Toast.LENGTH_SHORT).show()
-        }*/
     }
 
 
@@ -183,10 +116,7 @@ class NewAuctionActivity : AppCompatActivity() {
     ) { result ->
         if (result.resultCode == RESULT_OK) {
             selectedImg = result.data?.data as Uri
-            /*val myFile = uriToFile(selectedImg, this@NewAuctionActivity)
-            var getFile = myFile*/
             binding.btAddPhoto.setImageURI(selectedImg)
-            //setToFireStorage(selectedImg)
         }
     }
 
@@ -212,10 +142,5 @@ class NewAuctionActivity : AppCompatActivity() {
 
     companion object {
         const val TABLE_AUCTION_ITEMS = "AuctionItems"
-
-        const val CAMERA_X_RESULT = 200
-
-        private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
-        private const val REQUEST_CODE_PERMISSIONS = 10
     }
 }
