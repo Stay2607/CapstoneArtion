@@ -50,7 +50,7 @@
         android:background="@color/white"
         app:layout_constraintTop_toBottomOf="@+id/title_frame">
 
-        <Button
+        <ImageView
             android:id="@+id/bt_add_photo"
             android:layout_width="75dp"
             android:layout_height="75dp"
@@ -63,7 +63,8 @@
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_place_holder" />
 
         <TextView
             android:id="@+id/tv_work_title"
