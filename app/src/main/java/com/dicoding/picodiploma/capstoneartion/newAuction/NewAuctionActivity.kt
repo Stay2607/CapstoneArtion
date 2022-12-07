@@ -1,19 +1,15 @@
 package com.dicoding.picodiploma.capstoneartion.newAuction
 
 import android.os.Bundle
-import android.view.View
 import android.widget.RadioButton
-import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.dicoding.picodiploma.capstoneartion.R
 import com.dicoding.picodiploma.capstoneartion.data.AuctionItem
 import com.dicoding.picodiploma.capstoneartion.databinding.ActivityNewAuctionBinding
 import com.dicoding.picodiploma.capstoneartion.utils.Helper
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
 class NewAuctionActivity : AppCompatActivity() {
@@ -21,7 +17,7 @@ class NewAuctionActivity : AppCompatActivity() {
     private lateinit var db: FirebaseDatabase
     private lateinit var auth: FirebaseAuth
 
-    var radioGroup: RadioGroup? = null
+    //var radioGroup: RadioGroup? = null
     lateinit var radioButton: RadioButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,10 +27,14 @@ class NewAuctionActivity : AppCompatActivity() {
 
         db = FirebaseDatabase.getInstance()
         auth = Firebase.auth
+
+        createAuctionBtn()
+
+    }
+
+    private fun createAuctionBtn() {
         val user = auth.currentUser
-
         val itemRef = db.getReference(TABLE_AUCTION_ITEMS)
-
         binding.createAuctionButton.setOnClickListener {
             val intSelectButton: Int = binding.radioGroup.checkedRadioButtonId
             radioButton = findViewById(intSelectButton)
