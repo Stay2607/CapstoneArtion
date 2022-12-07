@@ -75,6 +75,9 @@
     <string name="tab_text_1">Home</string>
     <string name="tab_text_2">Profile</string>
     <string name="tab_text_3">Setting</string>
+    <string name="tab_auction_1">My Auction</string>
+    <string name="tab_auction_2">My Bid</string>
+    <string name="tab_auction_3">History</string>
     <string name="content_tab_home">Welcome Home</string>
     <string name="content_tab_profile">Change your Profile here</string>
     <string name="content_tab_text">This is Tab %1$d</string>
@@ -82,4 +85,7 @@
     <string name="zero">0</string>
     <string name="hours">hours</string>
     <string name="days">days</string>
+    <string name="content_tab_bid">My Bid</string>
+    <string name="content_tab_auction">My Auction</string>
+    <string name="content_tab_history">History</string>
 </resources>
