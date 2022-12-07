@@ -40,7 +40,7 @@ class ProfileFragment : Fragment() {
         val user = Firebase.auth.currentUser
         user?.let {
             val name = user.displayName
-            //val email = user.email
+            val email = user.email
             binding?.profileName?.text = name.toString()
             val photo = user.photoUrl
 
