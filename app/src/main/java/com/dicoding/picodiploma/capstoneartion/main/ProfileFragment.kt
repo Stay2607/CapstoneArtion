@@ -1,5 +1,6 @@
 package com.dicoding.picodiploma.capstoneartion.main
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -7,17 +8,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.dicoding.picodiploma.capstoneartion.databinding.FragmentProfileBinding
+import com.dicoding.picodiploma.capstoneartion.myauction.MyAuctionAdapter
 import com.dicoding.picodiploma.capstoneartion.setting.SettingActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 class ProfileFragment : Fragment() {
-    // TODO: Rename and change types of parameters
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding
+    private lateinit var auctionAdapter: MyAuctionAdapter
 
     private lateinit var auth: FirebaseAuth
     val user = FirebaseAuth.getInstance()
@@ -67,7 +70,12 @@ class ProfileFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         return _binding!!.root
-        //return inflater.inflate(R.layout.fragment_profile, container, false)
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    private fun initView(){
+        binding?.recyclerView?.layoutManager = LinearLayoutManager(context)
+//        val lisProduct = MyAuctionAdapter()
     }
 
 }

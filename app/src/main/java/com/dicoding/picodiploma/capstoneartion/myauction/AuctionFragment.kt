@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.picodiploma.capstoneartion.R
 import com.dicoding.picodiploma.capstoneartion.databinding.FragmentAuctionBinding
 
@@ -30,10 +31,8 @@ class AuctionFragment : Fragment() {
 
     @SuppressLint("NotifyDataSetChanged")
     private fun initView(){
-//        binding.recyclerView.apply {
-//            layoutManager = LinearLayoutManager(activity)
-//            adapter = auctionAdapter
-//        }
+        binding.recyclerView.layoutManager = LinearLayoutManager(context)
+//        val lisProduct = MyAuctionAdapter()
     }
 
 }
