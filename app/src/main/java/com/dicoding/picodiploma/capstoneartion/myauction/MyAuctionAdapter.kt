@@ -32,6 +32,7 @@ class MyAuctionAdapter(private val listProduct: ArrayList<AuctionItem>): Recycle
                 tvAuctionTime.text = user.timeCounter.toString()
                 tvBidPrice.text = user.startingPrice.toString()
                 tvBuyoutPrice.text = user.buyoutPrice.toString()
+                tvCategory.text = user.category
                 tvArtist.text = user.owner
                 Glide.with(itemView.context)
                     .load(user.photoUrl)
