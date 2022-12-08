@@ -102,4 +102,7 @@
     <string name="auction_image">AUCTION IMAGE</string>
     <string name="divider">DIVIDER</string>
     <string name="pay_now">Pay Now</string>
+    <string name="search">Search in Artion</string>
+    <string name="search_in_artion">Search in Artion</string>
+    <string name="search_icon">search icon</string>
 </resources>
