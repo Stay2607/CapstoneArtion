@@ -9,6 +9,10 @@ class AuctionItemDetails : AppCompatActivity() {
     private lateinit var binding: ActivityAuctionItemDetailsBinding
     private lateinit var db: FirebaseDatabase
 
+    companion object {
+        var USERNAME_NAME = "username"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAuctionItemDetailsBinding.inflate(layoutInflater)
