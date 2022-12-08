@@ -17,8 +17,5 @@ class AuctionItemDetails : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityAuctionItemDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
     }
-
-
 }

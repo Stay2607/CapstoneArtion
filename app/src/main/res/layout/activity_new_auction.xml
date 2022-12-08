@@ -71,10 +71,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:textStyle="bold"
             android:text="@string/title_of_the_work"
             android:textColor="@color/black"
             android:textSize="14sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/bt_add_photo"
             app:layout_constraintTop_toTopOf="@+id/bt_add_photo" />
 
@@ -105,10 +105,10 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
 
-            android:textStyle="bold"
             android:text="@string/description_of_the_work"
             android:textColor="@color/black"
             android:textSize="14sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -116,17 +116,17 @@
             android:id="@+id/et_description_work"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:layout_margin="10dp"
+            android:autofillHints=" "
             android:hint="@string/enter_a_work_description"
+            android:inputType="text"
             android:textColor="@color/black"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/tv_description_work"
-            app:layout_constraintTop_toBottomOf="@+id/tv_description_work"
-            android:autofillHints=" "
-            android:inputType="text" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_description_work" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -145,9 +145,9 @@
             android:layout_marginTop="15dp"
             android:layout_marginBottom="15dp"
             android:text="@string/category"
-            android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="14sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -160,19 +160,20 @@
             app:layout_constraintBottom_toBottomOf="@+id/tv_add_category_work"
             app:layout_constraintStart_toEndOf="@+id/tv_add_category_work"
             app:layout_constraintTop_toTopOf="@+id/tv_add_category_work">
+
             <RadioButton
                 android:id="@+id/rb_2d"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:text="@string/_2d"/>
+                android:text="@string/_2d" />
 
             <RadioButton
                 android:id="@+id/rb_3d"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:text="@string/_3d"/>
+                android:text="@string/_3d" />
         </RadioGroup>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -194,9 +195,9 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="15dp"
             android:text="@string/price"
-            android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="14sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -209,22 +210,22 @@
             android:text="@string/starting_at"
             android:textColor="@color/black"
             android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/et_starting_price"
             app:layout_constraintStart_toStartOf="@id/tv_add_price"
-            app:layout_constraintTop_toTopOf="@id/et_starting_price"
-            app:layout_constraintBottom_toBottomOf="@id/et_starting_price"/>
+            app:layout_constraintTop_toTopOf="@id/et_starting_price" />
 
         <EditText
             android:id="@+id/et_starting_price"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
+            android:autofillHints="0"
             android:hint="@string/arrange"
             android:inputType="number"
             android:textColor="@color/black"
             android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@id/tv_starting_price"
-            app:layout_constraintTop_toBottomOf="@id/tv_add_price"
-            android:autofillHints="0" />
+            app:layout_constraintTop_toBottomOf="@id/tv_add_price" />
 
         <TextView
             android:id="@+id/tv_buyout_price"
@@ -235,22 +236,22 @@
             android:text="@string/buyout_at"
             android:textColor="@color/black"
             android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="@id/tv_add_price"
             app:layout_constraintBottom_toBottomOf="@id/et_buyout_price"
-            app:layout_constraintTop_toTopOf="@id/et_buyout_price"/>
+            app:layout_constraintStart_toStartOf="@id/tv_add_price"
+            app:layout_constraintTop_toTopOf="@id/et_buyout_price" />
 
         <EditText
             android:id="@+id/et_buyout_price"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
+            android:autofillHints="0"
             android:hint="@string/arrange"
             android:inputType="number"
             android:textColor="@color/black"
             android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@id/tv_starting_price"
-            app:layout_constraintTop_toBottomOf="@id/et_starting_price"
-            android:autofillHints="0" />
+            app:layout_constraintTop_toBottomOf="@id/et_starting_price" />
 
         <TextView
             android:id="@+id/tv_auction_time"
@@ -259,10 +260,10 @@
             android:layout_marginStart="200dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="15dp"
-            android:textStyle="bold"
             android:text="@string/time_range"
             android:textColor="@color/black"
             android:textSize="14sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/tv_add_price"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -275,23 +276,23 @@
             android:text="@string/days"
             android:textColor="@color/black"
             android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/et_auction_day"
             app:layout_constraintStart_toEndOf="@id/et_auction_day"
-            app:layout_constraintTop_toTopOf="@id/et_auction_day"
-            app:layout_constraintBottom_toBottomOf="@id/et_auction_day"/>
+            app:layout_constraintTop_toTopOf="@id/et_auction_day" />
 
         <EditText
             android:id="@+id/et_auction_day"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
+            android:autofillHints="0"
             android:hint="@string/zero"
             android:inputType="number"
+            android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="12sp"
-            android:textAlignment="center"
             app:layout_constraintStart_toStartOf="@id/tv_auction_time"
-            app:layout_constraintTop_toBottomOf="@id/tv_auction_time"
-            android:autofillHints="0" />
+            app:layout_constraintTop_toBottomOf="@id/tv_auction_time" />
 
         <TextView
             android:id="@+id/tv_auction_hour"
@@ -302,23 +303,23 @@
             android:text="@string/hours"
             android:textColor="@color/black"
             android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/et_auction_hour"
             app:layout_constraintStart_toEndOf="@id/et_auction_day"
-            app:layout_constraintTop_toTopOf="@id/et_auction_hour"
-            app:layout_constraintBottom_toBottomOf="@id/et_auction_hour"/>
+            app:layout_constraintTop_toTopOf="@id/et_auction_hour" />
 
         <EditText
             android:id="@+id/et_auction_hour"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
+            android:autofillHints="0"
             android:hint="@string/zero"
             android:inputType="number"
-            android:textColor="@color/black"
             android:textAlignment="center"
+            android:textColor="@color/black"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="@id/tv_auction_time"
-            app:layout_constraintTop_toBottomOf="@id/et_auction_day"
-            android:autofillHints="0" />
+            app:layout_constraintTop_toBottomOf="@id/et_auction_day" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button

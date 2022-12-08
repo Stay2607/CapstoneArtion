@@ -10,7 +10,6 @@ import com.dicoding.picodiploma.capstoneartion.databinding.FragmentHomeBinding
 import com.dicoding.picodiploma.capstoneartion.newAuction.NewAuctionActivity
 
 class HomeFragment : Fragment() {
-
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding
 

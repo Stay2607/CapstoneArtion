@@ -21,7 +21,6 @@ import com.google.firebase.storage.StorageReference
 import java.text.SimpleDateFormat
 import java.util.*
 
-
 class NewAuctionActivity : AppCompatActivity() {
     private lateinit var binding: ActivityNewAuctionBinding
     private lateinit var db: FirebaseDatabase
@@ -40,7 +39,6 @@ class NewAuctionActivity : AppCompatActivity() {
         db = FirebaseDatabase.getInstance()
         auth = Firebase.auth
 
-
         storage = FirebaseStorage.getInstance()
         storageReference = storage!!.reference
 
@@ -55,7 +53,7 @@ class NewAuctionActivity : AppCompatActivity() {
             val itemRef = db.getReference(TABLE_AUCTION_ITEMS).push()
             val postId = itemRef.key //get post ID
 
-            if (selectedImg != null){
+            if (selectedImg != null) {
                 val radioGroup = binding.radioGroup.checkedRadioButtonId
                 val photo = selectedImg!!
                 val owner = user?.displayName.toString()
@@ -67,21 +65,31 @@ class NewAuctionActivity : AppCompatActivity() {
                 val hour = binding.etAuctionHour.text.toString()
                 val currentPrice = startingPrice
 
-                when{
-                    title.isEmpty() -> binding.etWorkTitle.error = getString(R.string.field_required)
-                    description.isEmpty() -> binding.etDescriptionWork.error = getString(R.string.field_required)
+                when {
+                    title.isEmpty() -> binding.etWorkTitle.error =
+                        getString(R.string.field_required)
+                    description.isEmpty() -> binding.etDescriptionWork.error =
+                        getString(R.string.field_required)
                     radioGroup < 0 -> binding.rb3d.error = getString(R.string.choose_catagory)
-                    startingPrice.isEmpty() -> binding.etStartingPrice.error = getString(R.string.field_required)
-                    buyoutPrice.isEmpty() -> binding.etBuyoutPrice.error = getString(R.string.field_required)
+                    startingPrice.isEmpty() -> binding.etStartingPrice.error =
+                        getString(R.string.field_required)
+                    buyoutPrice.isEmpty() -> binding.etBuyoutPrice.error =
+                        getString(R.string.field_required)
                     day.isEmpty() -> binding.etAuctionDay.error = getString(R.string.field_required)
-                    hour.isEmpty() -> binding.etAuctionHour.error = getString(R.string.field_required)
+                    hour.isEmpty() -> binding.etAuctionHour.error =
+                        getString(R.string.field_required)
 
-                    startingPrice.isNotValidNumber() -> binding.etStartingPrice.error = getString(R.string.must_be_number)
-                    buyoutPrice.isNotValidNumber() -> binding.etBuyoutPrice.error = getString(R.string.must_be_number)
-                    day.isNotValidNumber() -> binding.etBuyoutPrice.error = getString(R.string.must_be_number)
-                    hour.isNotValidNumber() -> binding.etAuctionHour.error = getString(R.string.must_be_number)
+                    startingPrice.isNotValidNumber() -> binding.etStartingPrice.error =
+                        getString(R.string.must_be_number)
+                    buyoutPrice.isNotValidNumber() -> binding.etBuyoutPrice.error =
+                        getString(R.string.must_be_number)
+                    day.isNotValidNumber() -> binding.etBuyoutPrice.error =
+                        getString(R.string.must_be_number)
+                    hour.isNotValidNumber() -> binding.etAuctionHour.error =
+                        getString(R.string.must_be_number)
 
-                    startingPrice.toInt() >= buyoutPrice.toInt() -> binding.etBuyoutPrice.error = "Buy out price harus lebih besar daripada starting price!"
+                    startingPrice.toInt() >= buyoutPrice.toInt() -> binding.etBuyoutPrice.error =
+                        getString(R.string.warn_buy_out_over_start_price)
 
 
                     else -> {
@@ -103,7 +111,8 @@ class NewAuctionActivity : AppCompatActivity() {
                         itemRef.setValue(item).addOnSuccessListener {
 
                             val intent = Intent(this, HomeActivity::class.java)
-                            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+                            intent.flags =
+                                Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
                             startActivity(intent)
                             finish()
 
@@ -113,7 +122,7 @@ class NewAuctionActivity : AppCompatActivity() {
                         }
                     }
                 }
-            }else{
+            } else {
                 Toast.makeText(
                     this@NewAuctionActivity,
                     getString(R.string.image_required),
@@ -124,13 +133,15 @@ class NewAuctionActivity : AppCompatActivity() {
     }
 
     //Buat set storage
-    private fun setToFireStorage(imageUri: Uri, postId: String){
+    private fun setToFireStorage(imageUri: Uri, postId: String) {
         val formatter = SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.getDefault())
         val now = Date()
         val fileName = formatter.format(now)
         val user = auth.currentUser
         val itemRef = db.getReference(TABLE_AUCTION_ITEMS)
-        val storageReference = FirebaseStorage.getInstance().getReference("ImageFolder").child(user!!.uid).child(fileName)
+        val storageReference =
+            FirebaseStorage.getInstance().getReference("ImageFolder").child(user!!.uid)
+                .child(fileName)
         storageReference.putFile(imageUri).addOnSuccessListener {
             storageReference.downloadUrl.addOnSuccessListener { uri ->
                 storageUri = uri.toString()
@@ -180,7 +191,7 @@ class NewAuctionActivity : AppCompatActivity() {
 }
 
 private fun String.isNotValidNumber(): Boolean {
-    return when(toIntOrNull()){
+    return when (toIntOrNull()) {
         null -> true
         else -> false
     }

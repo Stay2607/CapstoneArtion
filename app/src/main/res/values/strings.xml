@@ -92,4 +92,7 @@
     <string name="must_be_number">Field ini harus diisi dengan angka!</string>
     <string name="image_required">Masukkan gambar telebih dahulu!</string>
     <string name="choose_catagory">Pilih kategori!</string>
+    <string name="warn_buy_out_over_start_price">Buy out price harus lebih besar daripada starting price!</string>
+    <string name="_2d_category_button">2D category button</string>
+    <string name="_3d_category_button">3D category button</string>
 </resources>
