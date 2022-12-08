@@ -88,4 +88,8 @@
     <string name="content_tab_bid">My Bid</string>
     <string name="content_tab_auction">My Auction</string>
     <string name="content_tab_history">History</string>
+    <string name="field_required">Field tidak boleh kosong!</string>
+    <string name="must_be_number">Field ini harus diisi dengan angka!</string>
+    <string name="image_required">Masukkan gambar telebih dahulu!</string>
+    <string name="choose_catagory">Pilih kategori!</string>
 </resources>
