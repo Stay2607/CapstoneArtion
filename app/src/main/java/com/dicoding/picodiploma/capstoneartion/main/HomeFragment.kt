@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.dicoding.picodiploma.capstoneartion.R
 import com.dicoding.picodiploma.capstoneartion.databinding.FragmentHomeBinding
 import com.dicoding.picodiploma.capstoneartion.newAuction.NewAuctionActivity
 
@@ -31,6 +30,10 @@ class HomeFragment : Fragment() {
             val intent = Intent(activity, NewAuctionActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    companion object {
+        const val TABLE_AUCTION_ITEMS = "AuctionItems"
     }
 
 }
