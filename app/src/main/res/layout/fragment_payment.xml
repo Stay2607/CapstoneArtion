@@ -10,7 +10,7 @@
         android:id="@+id/profile_card"
         android:layout_width="match_parent"
         android:layout_height="411dp"
-        android:background="@color/blue_diplomatic"
+        android:src="@drawable/card_layout_white"
         android:contentDescription="@string/profile_card"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -41,13 +41,37 @@
         app:layout_constraintTop_toBottomOf="@id/profile_card"
         tools:text="Detail Payment" />
 
+    <ImageView
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_marginTop="6dp"
+        android:src="@color/bluegray"
+        app:layout_constraintTop_toBottomOf="@id/detail_name"
+        android:contentDescription="@string/divider" />
+
+    <Button
+        android:id="@+id/btn_pay_now"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="@string/pay_now"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:background="@drawable/rounded_ui"
+        android:backgroundTint="@color/bluegray"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="410dp"
         android:layout_height="406dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detail_name"
+        app:layout_constraintTop_toBottomOf="@+id/divider"
         tools:listitem="@layout/item_product" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -100,4 +100,6 @@
     <string name="price_now">PRICE NOW</string>
     <string name="join_auction">Join Auction</string>
     <string name="auction_image">AUCTION IMAGE</string>
+    <string name="divider">DIVIDER</string>
+    <string name="pay_now">Pay Now</string>
 </resources>
