@@ -18,14 +18,6 @@ class MyAuctionFragment : Fragment() {
     private var _binding: FragmentMyAuctionBinding? = null
     private val binding get() = _binding
 
-    companion object {
-        @StringRes
-        private val TAB_TITLES = intArrayOf(
-            R.string.tab_auction_1,
-            R.string.tab_auction_2,
-            R.string.tab_auction_3
-        )
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -46,7 +38,14 @@ class MyAuctionFragment : Fragment() {
         TabLayoutMediator(tabs, viewPager) { tab, position ->
             tab.text = resources.getString(TAB_TITLES[position])
         }.attach()
-
     }
 
+    companion object {
+        @StringRes
+        private val TAB_TITLES = intArrayOf(
+            R.string.tab_auction_1,
+            R.string.tab_auction_2,
+            R.string.tab_auction_3
+        )
+    }
 }

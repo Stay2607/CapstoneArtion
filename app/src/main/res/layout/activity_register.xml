@@ -93,7 +93,8 @@
             android:hint="@string/password"
             android:inputType="textPassword"
             android:padding="16dp"
-            android:translationZ="0dp" />
+            android:translationZ="0dp"
+            tools:ignore="SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button

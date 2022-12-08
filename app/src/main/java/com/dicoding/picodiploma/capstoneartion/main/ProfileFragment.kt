@@ -56,7 +56,6 @@ class ProfileFragment : Fragment() {
             }
 
             val emailVerif = user.isEmailVerified
-
             val uid = user.uid
         }
     }
