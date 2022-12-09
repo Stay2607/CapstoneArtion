@@ -117,4 +117,7 @@
     <string name="buy_out_">Buy Out : </string>
     <string name="highest_bid">Highest Bid : </string>
     <string name="price_">Price : </string>
+    <string name="danger_sign">DANGER SIGN</string>
+    <string name="cancel_auction">Cancel Auction!</string>
+    <string name="subtitle_cancel">Are you sure want to cancel this auction?</string>
 </resources>

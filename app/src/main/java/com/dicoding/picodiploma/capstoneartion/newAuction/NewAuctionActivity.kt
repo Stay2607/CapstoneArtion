@@ -7,6 +7,7 @@ import android.widget.RadioButton
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.dicoding.picodiploma.capstoneartion.R
 import com.dicoding.picodiploma.capstoneartion.data.AuctionItem
 import com.dicoding.picodiploma.capstoneartion.databinding.ActivityNewAuctionBinding
@@ -18,6 +19,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -50,8 +52,10 @@ class NewAuctionActivity : AppCompatActivity() {
     private fun createAuctionBtn() {
         binding.createAuctionButton.setOnClickListener {
             val user = auth.currentUser
+            val uid = user!!.uid
             val itemRef = db.getReference(TABLE_AUCTION_ITEMS).push()
             val postId = itemRef.key //get post ID
+            val myAuctionRef = db.getReference(USER_TABLE).child(uid).child(AUCTION).child(postId!!)
 
             if (selectedImg != null) {
                 val radioGroup = binding.radioGroup.checkedRadioButtonId
@@ -102,7 +106,7 @@ class NewAuctionActivity : AppCompatActivity() {
                         val timeCounter: Int = getTimeCounter(day.toInt(), hour.toInt())
                         radioButton = findViewById(radioGroup)
                         val category = radioButton.text.toString()
-                        setToFireStorage(photo, postId!!)
+                        setToFireStorage(photo, postId)
                         val item = AuctionItem(
                             postId,
                             owner,
@@ -118,18 +122,10 @@ class NewAuctionActivity : AppCompatActivity() {
                             timeCounter,
                             ""
                         )
-                        itemRef.setValue(item).addOnSuccessListener {
-
-                            val intent = Intent(this, HomeActivity::class.java)
-                            intent.flags =
-                                Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
-                            startActivity(intent)
-                            finish()
-
-                            Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
-                        }.addOnFailureListener {
-                            Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
+                        lifecycleScope.launch{
+                            myAuctionRef.setValue(item)
                         }
+                        itemRef.setValue(item)
                     }
                 }
             } else {
@@ -149,6 +145,7 @@ class NewAuctionActivity : AppCompatActivity() {
         val fileName = formatter.format(now)
         val user = auth.currentUser
         val itemRef = db.getReference(TABLE_AUCTION_ITEMS)
+        val myAuctionRef = db.getReference(USER_TABLE).child(user!!.uid).child(AUCTION)
         val storageReference =
             FirebaseStorage.getInstance().getReference("ImageFolder").child(user!!.uid)
                 .child(fileName)
@@ -158,6 +155,13 @@ class NewAuctionActivity : AppCompatActivity() {
 
                 //update RTD
                 itemRef.child(postId).child("photoUrl").setValue(storageUri)
+                myAuctionRef.child(postId).child("photoUrl").setValue(storageUri)
+
+                val intent = Intent(this, HomeActivity::class.java)
+                intent.flags =
+                    Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(intent)
+                finish()
             }
             binding.btAddPhoto.setImageURI(null)
             Toast.makeText(this, "Successfully Uploaded!", Toast.LENGTH_SHORT).show()
@@ -197,6 +201,8 @@ class NewAuctionActivity : AppCompatActivity() {
 
     companion object {
         const val TABLE_AUCTION_ITEMS = "AuctionItems"
+        const val USER_TABLE = "User"
+        const val AUCTION = "Auction"
     }
 }
 
