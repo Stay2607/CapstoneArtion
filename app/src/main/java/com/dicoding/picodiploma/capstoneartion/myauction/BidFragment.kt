@@ -9,10 +9,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dicoding.picodiploma.capstoneartion.data.AuctionItem
 import com.dicoding.picodiploma.capstoneartion.databinding.FragmentBidBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.ktx.Firebase
 
 class BidFragment : Fragment() {
 
@@ -21,6 +24,7 @@ class BidFragment : Fragment() {
     private lateinit var rvProduct: RecyclerView
     private lateinit var db: FirebaseDatabase
     private lateinit var listProduct: ArrayList<AuctionItem>
+    private lateinit var auth: FirebaseAuth
     private val list = ArrayList<AuctionItem>()
 
     override fun onCreateView(
@@ -30,6 +34,7 @@ class BidFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentBidBinding.inflate(inflater, container, false)
         db = FirebaseDatabase.getInstance()
+        auth = Firebase.auth
         return binding!!.root
     }
 
@@ -41,7 +46,8 @@ class BidFragment : Fragment() {
     }
 
     private fun getListProduct() {
-        db.getReference(TABLE_AUCTION_ITEMS).addValueEventListener(object :
+        val userId = auth.currentUser!!.uid
+        db.getReference(TABLE_USER).child(userId).child(BID).addValueEventListener(object :
             ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
 
@@ -74,6 +80,8 @@ class BidFragment : Fragment() {
     }
 
     companion object {
+        const val TABLE_USER = "User"
+        const val BID = "Bid"
         const val TABLE_AUCTION_ITEMS = "AuctionItems"
     }
 }
