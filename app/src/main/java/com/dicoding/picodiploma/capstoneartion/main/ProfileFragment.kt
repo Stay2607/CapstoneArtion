@@ -88,7 +88,7 @@ class ProfileFragment : Fragment() {
                     for (auctionItem in snapshot.children) {
 
                         val item = auctionItem.getValue(AuctionItem::class.java)
-                        listProduct.clear()
+                        list.clear()
                         listProduct.add(item!!)
                     }
                     showRecyclerList()

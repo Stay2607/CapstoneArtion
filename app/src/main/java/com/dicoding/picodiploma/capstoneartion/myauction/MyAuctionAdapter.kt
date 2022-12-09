@@ -32,7 +32,7 @@ class MyAuctionAdapter(private val listProduct: ArrayList<AuctionItem>) :
             with(binding) {
                 tvTitle.text = user.title
                 tvAuctionTime.text = user.timeCounter.toString()
-                tvBidPrice.text = user.startingPrice.toString()
+                tvBidPrice.text = user.currentPrice.toString()
                 tvBuyoutPrice.text = user.buyoutPrice.toString()
                 tvCategory.text = user.category
                 tvArtist.text = user.owner
