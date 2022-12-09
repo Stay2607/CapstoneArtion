@@ -19,7 +19,6 @@ import com.google.firebase.database.ValueEventListener
 class HistoryFragment : Fragment() {
 	private var _binding: FragmentHistoryBinding? = null
 	private val binding get() = _binding
-	private lateinit var auctionAdapter: MyAuctionAdapter
 	private lateinit var db: FirebaseDatabase
 	private lateinit var rvProduct: RecyclerView
 	private lateinit var listProduct: ArrayList<AuctionItem>
@@ -48,7 +47,6 @@ class HistoryFragment : Fragment() {
 
 				if (snapshot.exists()) {
 					for (auctionItem in snapshot.children) {
-
 						val item = auctionItem.getValue(AuctionItem::class.java)
 						list.clear()
 						listProduct.add(item!!)
@@ -60,7 +58,6 @@ class HistoryFragment : Fragment() {
 			override fun onCancelled(error: DatabaseError) {
 				//nothing to do
 			}
-
 
 		})
 	}
@@ -74,6 +71,7 @@ class HistoryFragment : Fragment() {
 		val listProductAdapter = MyAuctionAdapter(list)
 		rvProduct.adapter = listProductAdapter
 	}
+
 	companion object{
 		const val TABLE_AUCTION_ITEMS = "AuctionItems"
 	}

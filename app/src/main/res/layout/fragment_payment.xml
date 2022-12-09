@@ -32,7 +32,7 @@
         android:id="@+id/detail_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="0dp"
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="bold"

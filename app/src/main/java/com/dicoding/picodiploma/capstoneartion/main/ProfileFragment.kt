@@ -25,7 +25,6 @@ import com.google.firebase.ktx.Firebase
 class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding
-    private lateinit var auctionAdapter: MyAuctionAdapter
     private lateinit var db: FirebaseDatabase
     private lateinit var rvProduct: RecyclerView
     private lateinit var listProduct: ArrayList<AuctionItem>
@@ -85,7 +84,6 @@ class ProfileFragment : Fragment() {
         db.getReference(TABLE_AUCTION_ITEMS).addValueEventListener(object :
             ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-
                 if (snapshot.exists()) {
                     for (auctionItem in snapshot.children) {
 
@@ -101,7 +99,6 @@ class ProfileFragment : Fragment() {
                 //nothing to do
             }
 
-
         })
     }
 
@@ -111,8 +108,8 @@ class ProfileFragment : Fragment() {
         list.clear()
         list.addAll(listProduct)
         rvProduct.layoutManager = LinearLayoutManager(context)
-        val listHeroAdapter = MyAuctionAdapter(list)
-        rvProduct.adapter = listHeroAdapter
+        val listProductAdapter = MyAuctionAdapter(list)
+        rvProduct.adapter = listProductAdapter
     }
 
     companion object {

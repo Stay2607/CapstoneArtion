@@ -20,7 +20,6 @@ import com.google.firebase.database.ValueEventListener
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding
-    private lateinit var auctionAdapter: MyAuctionAdapter
     private lateinit var rvProduct: RecyclerView
     private val list = ArrayList<AuctionItem>()
     private lateinit var listProduct: ArrayList<AuctionItem>
@@ -46,7 +45,6 @@ class HomeFragment : Fragment() {
 
         listProduct = arrayListOf()
         getListProduct()
-
     }
 
     private fun getListProduct() {
@@ -72,7 +70,6 @@ class HomeFragment : Fragment() {
         })
     }
 
-
     private fun showRecyclerList() {
         rvProduct = binding!!.recyclerView
         rvProduct.setHasFixedSize(true)
@@ -81,12 +78,6 @@ class HomeFragment : Fragment() {
         rvProduct.layoutManager = LinearLayoutManager(context)
         val listHeroAdapter = MyAuctionAdapter(list)
         rvProduct.adapter = listHeroAdapter
-//        val activity = activity as AuctionItemDetails
-//        auctionAdapter = MyAuctionAdapter(listProduct)
-//        binding!!.recyclerView.apply {
-//            layoutManager = LinearLayoutManager(activity)
-//            adapter = auctionAdapter
-//        }
     }
 
     companion object {

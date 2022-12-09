@@ -18,7 +18,6 @@ class AuctionFragment : Fragment() {
 
     private var _binding: FragmentAuctionBinding? = null
     private val binding get() = _binding
-    private lateinit var auctionAdapter: MyAuctionAdapter
     private lateinit var rvProduct: RecyclerView
     private lateinit var listProduct: ArrayList<AuctionItem>
     private lateinit var db: FirebaseDatabase
@@ -62,7 +61,6 @@ class AuctionFragment : Fragment() {
                 //nothing to do
             }
 
-
         })
     }
 
@@ -72,8 +70,8 @@ class AuctionFragment : Fragment() {
         list.clear()
         list.addAll(listProduct)
         rvProduct.layoutManager = LinearLayoutManager(context)
-        val listHeroAdapter = MyAuctionAdapter(list)
-        rvProduct.adapter = listHeroAdapter
+        val listProductAdapter = MyAuctionAdapter(list)
+        rvProduct.adapter = listProductAdapter
     }
 
     companion object {

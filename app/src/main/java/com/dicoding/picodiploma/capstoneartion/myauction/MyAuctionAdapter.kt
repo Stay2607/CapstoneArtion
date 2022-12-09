@@ -26,15 +26,6 @@ class MyAuctionAdapter(private val listProduct: ArrayList<AuctionItem>) :
 
     override fun getItemCount(): Int = listProduct.size
 
-//    class MyAuctionViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-//        var tvOwner: TextView = itemView.findViewById(R.id.tv_artist)
-//        var tvTitle: TextView = itemView.findViewById(R.id.tv_title)
-//        var imgPhoto: ImageView = itemView.findViewById(R.id.imageView)
-//        var tvCategory: TextView = itemView.findViewById(R.id.tv_category)
-//        var tvBidPrice: TextView = itemView.findViewById(R.id.tv_bid_price)
-//        var tvBuyOut: TextView = itemView.findViewById(R.id.tv_buyout_price)
-//    }
-
     class MyAuctionViewHolder(val binding: ItemProductBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(user: AuctionItem) {
