@@ -4,13 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
-import androidx.viewpager2.widget.ViewPager2
-import com.dicoding.picodiploma.capstoneartion.R
 import com.dicoding.picodiploma.capstoneartion.databinding.FragmentMyAuctionBinding
 import com.dicoding.picodiploma.capstoneartion.myauction.SectionsPagerAdapter
-import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
 class MyAuctionFragment : Fragment() {
@@ -37,7 +33,7 @@ class MyAuctionFragment : Fragment() {
         initView()
     }
 
-    private fun initView(){
+    private fun initView() {
         val viewPager = binding!!.viewPager
         val tabLayout = binding!!.tabs
         val adapter = SectionsPagerAdapter(parentFragmentManager, lifecycle)

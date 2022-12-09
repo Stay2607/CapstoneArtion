@@ -1,6 +1,5 @@
 package com.dicoding.picodiploma.capstoneartion.register
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -8,19 +7,14 @@ import android.util.Log
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.picodiploma.capstoneartion.R
 import com.dicoding.picodiploma.capstoneartion.data.User
 import com.dicoding.picodiploma.capstoneartion.databinding.ActivityRegisterBinding
 import com.dicoding.picodiploma.capstoneartion.login.LoginActivity
 import com.dicoding.picodiploma.capstoneartion.main.HomeActivity
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.FirebaseDatabase
@@ -52,7 +46,7 @@ class RegisterActivity : AppCompatActivity() {
             val username = binding.edtUsername.text.toString()
             val email = binding.edtEmail.text.toString()
             val password = binding.edtPassword.text.toString()
-            when{
+            when {
                 username.isEmpty() -> binding.edtUsername.error = getString(R.string.field_required)
                 else -> {
                     auth.createUserWithEmailAndPassword(email, password)
@@ -61,8 +55,9 @@ class RegisterActivity : AppCompatActivity() {
                                 Log.d(TAG, "createUserWithEmail:success")
                                 val user = auth.currentUser
                                 val profileUpdates =
-                                    UserProfileChangeRequest.Builder().setDisplayName(username).build()
-                                user?.updateProfile(profileUpdates)?.addOnCompleteListener{
+                                    UserProfileChangeRequest.Builder().setDisplayName(username)
+                                        .build()
+                                user?.updateProfile(profileUpdates)?.addOnCompleteListener {
                                     updateUI(user)
                                 }
                             } else {

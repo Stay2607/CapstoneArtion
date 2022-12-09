@@ -1,6 +1,5 @@
 package com.dicoding.picodiploma.capstoneartion.main
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,13 +8,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.dicoding.picodiploma.capstoneartion.R
 import com.dicoding.picodiploma.capstoneartion.data.AuctionItem
-import com.dicoding.picodiploma.capstoneartion.databinding.FragmentAuctionBinding
 import com.dicoding.picodiploma.capstoneartion.databinding.FragmentHomeBinding
-import com.dicoding.picodiploma.capstoneartion.detail.AuctionItemDetails
 import com.dicoding.picodiploma.capstoneartion.myauction.MyAuctionAdapter
-import com.dicoding.picodiploma.capstoneartion.myauction.SectionsPagerAdapter
 import com.dicoding.picodiploma.capstoneartion.newAuction.NewAuctionActivity
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -55,7 +50,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun getListProduct() {
-        db.getReference(TABLE_AUCTION_ITEMS).addValueEventListener(object : ValueEventListener{
+        db.getReference(TABLE_AUCTION_ITEMS).addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
 
                 if (snapshot.exists()) {

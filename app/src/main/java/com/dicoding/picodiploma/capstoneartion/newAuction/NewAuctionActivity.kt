@@ -80,7 +80,8 @@ class NewAuctionActivity : AppCompatActivity() {
                     day.isEmpty() -> binding.etAuctionDay.error = getString(R.string.field_required)
                     hour.isEmpty() -> binding.etAuctionHour.error =
                         getString(R.string.field_required)
-                    priceIncrement.isEmpty() -> binding.etPriceIncrement.error = getString(R.string.field_required)
+                    priceIncrement.isEmpty() -> binding.etPriceIncrement.error =
+                        getString(R.string.field_required)
 
                     startingPrice.isNotValidNumber() -> binding.etStartingPrice.error =
                         getString(R.string.must_be_number)
