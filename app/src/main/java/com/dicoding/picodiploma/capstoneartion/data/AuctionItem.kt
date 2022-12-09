@@ -7,16 +7,16 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 @IgnoreExtraProperties
 data class AuctionItem(
-    val owner: String,
-    val ownerId: String,
-    val title: String,
-    val description: String,
-    val photoUrl: String,
-    val category: String,
-    val startingPrice: Int,
-    val buyoutPrice: Int,
-    val currentPrice: Int,
-    val priceIncrement: Int,
-    val timeCounter: Int,
-    val winner: String?
+    val owner: String = "",
+    val ownerId: String = "",
+    val title: String = "",
+    val description: String = "",
+    val photoUrl: String = "",
+    val category: String = "",
+    val startingPrice: Int = 0,
+    val buyoutPrice: Int = 0,
+    val currentPrice: Int = 0,
+    val priceIncrement: Int = 0,
+    val timeCounter: Int = 0,
+    val winner: String? = ""
 ) : Parcelable

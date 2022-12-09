@@ -19,7 +19,10 @@ import com.dicoding.picodiploma.capstoneartion.myauction.MyAuctionAdapter
 import com.dicoding.picodiploma.capstoneartion.setting.SettingActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.ktx.Firebase
 
 class ProfileFragment : Fragment() {
@@ -28,6 +31,7 @@ class ProfileFragment : Fragment() {
     private lateinit var auctionAdapter: MyAuctionAdapter
     private lateinit var db: FirebaseDatabase
     private lateinit var rvProduct: RecyclerView
+    private lateinit var listProduct: ArrayList<AuctionItem>
     private val list = ArrayList<AuctionItem>()
 
     private lateinit var auth: FirebaseAuth
@@ -39,7 +43,8 @@ class ProfileFragment : Fragment() {
         db = FirebaseDatabase.getInstance()
         btnSetting()
         showUser()
-        showRecyclerList()
+        listProduct = arrayListOf()
+        getListProduct()
     }
 
     private fun btnSetting() {
@@ -50,7 +55,7 @@ class ProfileFragment : Fragment() {
     }
 
     private fun showUser() {
-        val user = db.getReference("User").child(auth.currentUser!!.uid)
+        val user = db.getReference(TABLE_USER).child(auth.currentUser!!.uid)
         val name = auth.currentUser!!.displayName.toString()
         binding?.profileName?.text = name
         user.get().addOnSuccessListener {
@@ -79,23 +84,28 @@ class ProfileFragment : Fragment() {
         return _binding!!.root
     }
 
-    private val listProduct: ArrayList<AuctionItem>
-        get() {
-            val owner = "Rudy Atmadja"
-            val title = "Karya Lukis"
-            val description = "Karya ini dibuat dengan menggunakan metode .....Karya ini dibuat dengan menggunakan metode ....." +
-                    "Karya ini dibuat dengan menggunakan metode .....Karya ini dibuat dengan menggunakan metode .....Karya ini dibuat dengan menggunakan metode ....."
-            val photoUrl = ""
-            val category = "2D"
-            val starting = 123
-            val buyout = 123
-            val current = 123
-            val time = 123
-            val listProduct = ArrayList<AuctionItem>()
-            val product = AuctionItem(owner, "",title, description, photoUrl, category, starting, buyout, current, 123,time, "")
-            listProduct.add(product)
-            return listProduct
-        }
+    private fun getListProduct() {
+        db.getReference(TABLE_AUCTION_ITEMS).addValueEventListener(object :
+            ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+
+                if (snapshot.exists()) {
+                    for (auctionItem in snapshot.children) {
+
+                        val item = auctionItem.getValue(AuctionItem::class.java)
+                        listProduct.add(item!!)
+                    }
+                    showRecyclerList()
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                //nothing to do
+            }
+
+
+        })
+    }
 
     private fun showRecyclerList() {
         rvProduct = binding!!.recyclerView
@@ -106,4 +116,8 @@ class ProfileFragment : Fragment() {
         rvProduct.adapter = listHeroAdapter
     }
 
+    companion object{
+        const val TABLE_USER = "User"
+        const val TABLE_AUCTION_ITEMS = "AuctionItems"
+    }
 }

@@ -88,7 +88,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="350dp">
+            android:minHeight="380dp">
             <TextView
                 android:id="@+id/tv_number_price_now"
                 android:layout_width="0dp"
