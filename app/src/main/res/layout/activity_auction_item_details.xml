@@ -78,14 +78,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@id/content_description">
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/content_description"
+        app:layout_constraintBottom_toBottomOf="parent">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp">
+            android:layout_height="wrap_content"
+            android:minHeight="350dp">
             <TextView
                 android:id="@+id/tv_number_price_now"
                 android:layout_width="0dp"
@@ -97,12 +100,12 @@
                 android:textStyle="bold"
                 android:textAlignment="center"
                 android:gravity="center"
-                android:layout_marginBottom="16dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginEnd="24dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintTop_toBottomOf="@id/tv_price_now"/>
 
             <TextView
                 android:id="@+id/tv_price_now"
@@ -111,9 +114,9 @@
                 android:text="@string/price_now"
                 android:textStyle="bold"
                 android:textSize="16sp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginStart="10dp"
-                app:layout_constraintBottom_toTopOf="@id/tv_number_price_now"
+                app:layout_constraintTop_toBottomOf="@id/tv_number_buy_out"
                 app:layout_constraintStart_toStartOf="@id/tv_number_price_now"
                 app:layout_constraintEnd_toEndOf="@id/tv_number_price_now"/>
 
@@ -128,10 +131,10 @@
                 android:textStyle="bold"
                 android:textAlignment="center"
                 android:gravity="center"
-                android:layout_marginBottom="16dp"
+                android:layout_marginTop="16dp"
                 app:layout_constraintStart_toStartOf="@id/tv_number_price_now"
                 app:layout_constraintEnd_toEndOf="@id/tv_number_price_now"
-                app:layout_constraintBottom_toTopOf="@+id/tv_price_now"/>
+                app:layout_constraintTop_toBottomOf="@id/tv_buy_out"/>
 
             <TextView
                 android:id="@+id/tv_buy_out"
@@ -140,9 +143,9 @@
                 android:text="@string/buy_out"
                 android:textStyle="bold"
                 android:textSize="16sp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginStart="10dp"
-                app:layout_constraintBottom_toTopOf="@id/tv_number_buy_out"
+                app:layout_constraintTop_toBottomOf="@id/tv_number_start_bid"
                 app:layout_constraintStart_toStartOf="@id/tv_number_price_now"
                 app:layout_constraintEnd_toEndOf="@id/tv_number_price_now"/>
 
@@ -157,10 +160,10 @@
                 android:textStyle="bold"
                 android:textAlignment="center"
                 android:gravity="center"
-                android:layout_marginBottom="16dp"
+                android:layout_marginTop="16dp"
                 app:layout_constraintStart_toStartOf="@id/tv_number_price_now"
                 app:layout_constraintEnd_toEndOf="@id/tv_number_price_now"
-                app:layout_constraintBottom_toTopOf="@+id/tv_buy_out"/>
+                app:layout_constraintTop_toBottomOf="@+id/tv_start_bid"/>
 
             <TextView
                 android:id="@+id/tv_start_bid"
@@ -169,11 +172,11 @@
                 android:text="@string/start_bid"
                 android:textStyle="bold"
                 android:textSize="16sp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginStart="10dp"
-                app:layout_constraintBottom_toTopOf="@id/tv_number_start_bid"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="@id/tv_number_price_now"
                 app:layout_constraintEnd_toEndOf="@id/tv_number_price_now"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
