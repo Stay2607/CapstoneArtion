@@ -114,4 +114,7 @@
     <string name="alert_text">Anda yakin ingin cancel auction ?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="buy_out_">Buy Out : </string>
+    <string name="highest_bid">Highest Bid : </string>
+    <string name="price_">Price : </string>
 </resources>
