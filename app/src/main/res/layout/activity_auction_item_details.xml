@@ -50,6 +50,7 @@
         android:textSize="16sp"
         android:fontFamily="sans-serif-medium"
         app:layout_constraintEnd_toEndOf="@id/auction_item_image"
+        app:layout_constraintBottom_toBottomOf="@id/tv_title"
         app:layout_constraintTop_toTopOf="parent"
         />
 
