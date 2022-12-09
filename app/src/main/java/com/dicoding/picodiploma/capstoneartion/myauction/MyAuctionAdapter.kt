@@ -54,7 +54,7 @@ class MyAuctionAdapter(private val listProduct: ArrayList<AuctionItem>) :
                     .into(imageView)
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context, AuctionItemDetails::class.java)
-                    intent.putExtra(AuctionItemDetails.USERNAME_NAME, user.owner)
+                    intent.putExtra(AuctionItemDetails.ITEM_ID, user.itemId)
                     itemView.context.startActivity(intent)
                 }
             }

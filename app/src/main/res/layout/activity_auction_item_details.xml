@@ -7,6 +7,28 @@
     tools:context=".detail.AuctionItemDetails">
 
     <TextView
+        android:id="@+id/tv_time_remaining"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/time_remaining"
+        android:fontFamily="sans-serif-light"
+        android:textSize="18sp"
+        app:layout_constraintTop_toTopOf="@+id/btn_join_auction"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="24dp"/>
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="00:00"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_join_auction"
+        app:layout_constraintStart_toStartOf="@id/tv_time_remaining"
+        app:layout_constraintEnd_toEndOf="@id/tv_time_remaining"/>
+
+    <TextView
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -28,6 +50,7 @@
         android:textSize="16sp"
         android:fontFamily="sans-serif-medium"
         app:layout_constraintEnd_toEndOf="@id/auction_item_image"
+        app:layout_constraintBottom_toBottomOf="@id/tv_title"
         app:layout_constraintTop_toTopOf="parent"
         />
 
@@ -43,11 +66,12 @@
         android:contentDescription="@string/auction_image" />
 
     <TextView
-        android:id="@+id/content_description"
+        android:id="@+id/tv_description"
         android:layout_width="0dp"
         android:layout_height="75dp"
         android:layout_marginTop="10dp"
         android:text="@string/content_description"
+        android:textAlignment="center"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@id/auction_item_image"
         app:layout_constraintEnd_toEndOf="@id/auction_item_image"
@@ -62,28 +86,16 @@
         android:background="@drawable/rounded_ui"
         android:backgroundTint="#93CE8A"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="24dp"/>
-
-    <TextView
-        android:id="@+id/tv_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="00:00"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@id/btn_join_auction"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="24dp"/>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
         android:fillViewport="true"
-        app:layout_constraintTop_toBottomOf="@id/content_description"
+        app:layout_constraintTop_toBottomOf="@id/tv_description"
         app:layout_constraintBottom_toBottomOf="parent">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

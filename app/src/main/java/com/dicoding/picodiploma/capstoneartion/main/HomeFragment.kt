@@ -57,6 +57,7 @@ class HomeFragment : Fragment() {
                     for (auctionItem in snapshot.children) {
 
                         val item = auctionItem.getValue(AuctionItem::class.java)
+                        listProduct.clear()
                         listProduct.add(item!!)
                     }
                     showRecyclerList()
@@ -75,6 +76,7 @@ class HomeFragment : Fragment() {
     private fun showRecyclerList() {
         rvProduct = binding!!.recyclerView
         rvProduct.setHasFixedSize(true)
+        list.clear()
         list.addAll(listProduct)
         rvProduct.layoutManager = LinearLayoutManager(context)
         val listHeroAdapter = MyAuctionAdapter(list)

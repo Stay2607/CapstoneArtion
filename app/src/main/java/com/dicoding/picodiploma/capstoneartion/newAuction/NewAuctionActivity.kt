@@ -104,6 +104,7 @@ class NewAuctionActivity : AppCompatActivity() {
                         val category = radioButton.text.toString()
                         setToFireStorage(photo, postId!!)
                         val item = AuctionItem(
+                            postId,
                             owner,
                             ownerId,
                             title,
