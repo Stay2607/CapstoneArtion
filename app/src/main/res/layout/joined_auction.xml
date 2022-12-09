@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="320dp"
             android:background="@drawable/rounded_ui"
-            android:backgroundTint="@color/bluegray"
+            android:backgroundTint="@color/white"
             android:elevation="30dp">
 
             <ImageView
