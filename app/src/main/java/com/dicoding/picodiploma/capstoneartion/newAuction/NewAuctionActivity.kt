@@ -57,10 +57,12 @@ class NewAuctionActivity : AppCompatActivity() {
                 val radioGroup = binding.radioGroup.checkedRadioButtonId
                 val photo = selectedImg!!
                 val owner = user?.displayName.toString()
+                val ownerId = user?.uid!!
                 val title = binding.etWorkTitle.text.toString()
                 val description = binding.etDescriptionWork.text.toString()
                 val startingPrice = binding.etStartingPrice.text.toString()
                 val buyoutPrice = binding.etBuyoutPrice.text.toString()
+                val priceIncrement = binding.etPriceIncrement.text.toString()
                 val day = binding.etAuctionDay.text.toString()
                 val hour = binding.etAuctionHour.text.toString()
                 val currentPrice = startingPrice
@@ -78,10 +80,13 @@ class NewAuctionActivity : AppCompatActivity() {
                     day.isEmpty() -> binding.etAuctionDay.error = getString(R.string.field_required)
                     hour.isEmpty() -> binding.etAuctionHour.error =
                         getString(R.string.field_required)
+                    priceIncrement.isEmpty() -> binding.etPriceIncrement.error = getString(R.string.field_required)
 
                     startingPrice.isNotValidNumber() -> binding.etStartingPrice.error =
                         getString(R.string.must_be_number)
                     buyoutPrice.isNotValidNumber() -> binding.etBuyoutPrice.error =
+                        getString(R.string.must_be_number)
+                    priceIncrement.isNotValidNumber() -> binding.etPriceIncrement.error =
                         getString(R.string.must_be_number)
                     day.isNotValidNumber() -> binding.etBuyoutPrice.error =
                         getString(R.string.must_be_number)
@@ -99,6 +104,7 @@ class NewAuctionActivity : AppCompatActivity() {
                         setToFireStorage(photo, postId!!)
                         val item = AuctionItem(
                             owner,
+                            ownerId,
                             title,
                             description,
                             storageUri,
@@ -106,7 +112,9 @@ class NewAuctionActivity : AppCompatActivity() {
                             startingPrice.toInt(),
                             buyoutPrice.toInt(),
                             currentPrice.toInt(),
-                            timeCounter
+                            priceIncrement.toInt(),
+                            timeCounter,
+                            ""
                         )
                         itemRef.setValue(item).addOnSuccessListener {
 

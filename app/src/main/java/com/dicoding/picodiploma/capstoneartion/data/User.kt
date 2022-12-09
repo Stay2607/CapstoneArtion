@@ -1,12 +1,14 @@
 package com.dicoding.picodiploma.capstoneartion.data
 
+import android.net.Uri
 import com.google.firebase.database.IgnoreExtraProperties
 
 @IgnoreExtraProperties
 data class User(
+    val uid: String,
     val username: String,
     val email: String,
     val password: String?,
     val location: String?,
-    val isLogin: Boolean
+    val avatar: String?,
 )

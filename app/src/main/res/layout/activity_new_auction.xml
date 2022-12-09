@@ -224,8 +224,34 @@
             android:inputType="number"
             android:textColor="@color/black"
             android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@id/tv_starting_price"
+            app:layout_constraintStart_toEndOf="@id/tv_price_increment"
             app:layout_constraintTop_toBottomOf="@id/tv_add_price" />
+
+        <TextView
+            android:id="@+id/tv_price_increment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="15dp"
+            android:text="Price Increment"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/et_price_increment"
+            app:layout_constraintStart_toStartOf="@id/tv_add_price"
+            app:layout_constraintTop_toTopOf="@id/et_price_increment" />
+
+        <EditText
+            android:id="@+id/et_price_increment"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:autofillHints="0"
+            android:hint="@string/arrange"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/tv_price_increment"
+            app:layout_constraintTop_toBottomOf="@id/et_buyout_price" />
 
         <TextView
             android:id="@+id/tv_buyout_price"
@@ -250,7 +276,7 @@
             android:inputType="number"
             android:textColor="@color/black"
             android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@id/tv_starting_price"
+            app:layout_constraintStart_toEndOf="@id/tv_price_increment"
             app:layout_constraintTop_toBottomOf="@id/et_starting_price" />
 
         <TextView

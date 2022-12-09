@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,12 +19,14 @@ import com.dicoding.picodiploma.capstoneartion.myauction.MyAuctionAdapter
 import com.dicoding.picodiploma.capstoneartion.setting.SettingActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
 
 class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding
     private lateinit var auctionAdapter: MyAuctionAdapter
+    private lateinit var db: FirebaseDatabase
     private lateinit var rvProduct: RecyclerView
     private val list = ArrayList<AuctionItem>()
 
@@ -33,6 +36,7 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         auth = Firebase.auth
+        db = FirebaseDatabase.getInstance()
         btnSetting()
         showUser()
         showRecyclerList()
@@ -46,26 +50,23 @@ class ProfileFragment : Fragment() {
     }
 
     private fun showUser() {
-        val user = Firebase.auth.currentUser
-        user?.let {
-            val name = user.displayName
-            val email = user.email
-            binding?.profileName?.text = name.toString()
-            val photo = user.photoUrl
-
-            Log.d("photo", photo.toString())
-            Log.d("name", name.toString())
-            if (photo != null) {
-                binding?.profileAvatar?.let { it1 ->
-                    Glide.with(this)
-                        .load(photo)
-                        .circleCrop()
-                        .into(it1)
+        val user = db.getReference("User").child(auth.currentUser!!.uid)
+        val name = auth.currentUser!!.displayName.toString()
+        binding?.profileName?.text = name
+        user.get().addOnSuccessListener {
+            if (it.exists()) {
+                val location = it.child("location").value.toString()
+                binding?.profileRegional?.text = location
+                val photo = it.child("avatar").value.toString()
+                if (photo.isNotEmpty()) {
+                    binding?.profileAvatar?.let { it1 ->
+                        Glide.with(this)
+                            .load(photo.toUri())
+                            .circleCrop()
+                            .into(it1)
+                    }
                 }
             }
-
-            val emailVerif = user.isEmailVerified
-            val uid = user.uid
         }
     }
 
@@ -91,7 +92,7 @@ class ProfileFragment : Fragment() {
             val time = 123
 //            val dataPhoto = resources.obtainTypedArray(R.array.data_photo)
             val listHero = ArrayList<AuctionItem>()
-            val hero = AuctionItem(owner, title, description, photoUrl, category, starting, buyout, current, time)
+            val hero = AuctionItem(owner, "",title, description, photoUrl, category, starting, buyout, current, 123,time, "")
             listHero.add(hero)
             return listHero
         }

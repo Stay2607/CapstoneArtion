@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.picodiploma.capstoneartion.R
+import com.dicoding.picodiploma.capstoneartion.data.User
 import com.dicoding.picodiploma.capstoneartion.databinding.ActivityLoginBinding
 import com.dicoding.picodiploma.capstoneartion.main.HomeActivity
 import com.dicoding.picodiploma.capstoneartion.register.RegisterActivity
@@ -22,17 +23,21 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var loginViewModel: LoginViewModel
     private lateinit var googleSignInClient: GoogleSignInClient
+    private lateinit var db: FirebaseDatabase
     private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
+
+        db = FirebaseDatabase.getInstance()
         setContentView(binding.root)
         setupView()
 
@@ -134,6 +139,17 @@ class LoginActivity : AppCompatActivity() {
 
     private fun updateUI(currentUser: FirebaseUser?) {
         if (currentUser != null) {
+            val usr = auth.currentUser!!
+            val itemRef = db.getReference(TABLE_USER).child(usr.uid)
+            val user = User(
+                usr.uid,
+                usr.displayName.toString(),
+                usr.email.toString(),
+                binding.edtPassword.text.toString(),
+                "",
+                usr.photoUrl.toString()
+            )
+            itemRef.setValue(user)
             startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
             finish()
         }
@@ -154,5 +170,6 @@ class LoginActivity : AppCompatActivity() {
 
     companion object {
         private const val TAG = "EmailPassword"
+        private const val TABLE_USER = "User"
     }
 }

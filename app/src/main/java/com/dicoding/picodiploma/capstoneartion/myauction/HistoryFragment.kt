@@ -49,21 +49,11 @@ class HistoryFragment : Fragment() {
 			val current = 123
 			val time = 123
 //            val dataPhoto = resources.obtainTypedArray(R.array.data_photo)
-			val listHero = ArrayList<AuctionItem>()
-			val hero = AuctionItem(
-				owner,
-				title,
-				description,
-				photoUrl,
-				category,
-				starting,
-				buyout,
-				current,
-				time
-			)
-			listHero.add(hero)
-			return listHero
-		}
+            val listHero = ArrayList<AuctionItem>()
+            val hero = AuctionItem(owner, "",title, description, photoUrl, category, starting, buyout, current, 123,time, "")
+            listHero.add(hero)
+            return listHero
+        }
 
 	private fun showRecyclerList() {
 		rvProduct.layoutManager = LinearLayoutManager(context)
