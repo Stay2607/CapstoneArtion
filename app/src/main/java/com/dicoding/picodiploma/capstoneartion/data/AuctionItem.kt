@@ -7,6 +7,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 @IgnoreExtraProperties
 data class AuctionItem(
+    val itemId: String = "",
     val owner: String = "",
     val ownerId: String = "",
     val title: String = "",
