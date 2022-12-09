@@ -40,5 +40,6 @@ class NameEditText : AppCompatEditText {
 
         })
     }
+
     private fun CharSequence.isValidName() = !isNullOrEmpty() && !this.contains("[0-9]".toRegex())
 }

@@ -1,16 +1,13 @@
 package com.dicoding.picodiploma.capstoneartion.myauction
 
-import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.dicoding.picodiploma.capstoneartion.R
 import com.dicoding.picodiploma.capstoneartion.data.AuctionItem
-import com.dicoding.picodiploma.capstoneartion.databinding.FragmentAuctionBinding
 import com.dicoding.picodiploma.capstoneartion.databinding.FragmentBidBinding
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -75,7 +72,8 @@ class BidFragment : Fragment() {
         val listHeroAdapter = MyAuctionAdapter(list)
         rvProduct.adapter = listHeroAdapter
     }
-    companion object{
+
+    companion object {
         const val TABLE_AUCTION_ITEMS = "AuctionItems"
     }
 }

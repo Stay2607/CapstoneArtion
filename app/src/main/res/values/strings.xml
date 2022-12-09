@@ -106,4 +106,6 @@
     <string name="search_in_artion">Search in Artion</string>
     <string name="search_icon">search icon</string>
     <string name="username">Username</string>
+    <string name="notification_button">Notification Button</string>
+    <string name="auction_result">Auction result</string>
 </resources>

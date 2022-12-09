@@ -31,7 +31,7 @@ class PaymentFragment : Fragment() {
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    private fun initView(){
+    private fun initView() {
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
 //        val lisProduct = MyAuctionAdapter()
     }

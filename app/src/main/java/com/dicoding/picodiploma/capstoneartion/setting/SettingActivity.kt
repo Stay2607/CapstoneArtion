@@ -52,5 +52,6 @@ class SettingActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun setFragment(fragment: Fragment) =
-        supportFragmentManager.beginTransaction().replace(R.id.setting_frame, fragment, "fragment").addToBackStack("fragment").commit()
+        supportFragmentManager.beginTransaction().replace(R.id.setting_frame, fragment, "fragment")
+            .addToBackStack("fragment").commit()
 }

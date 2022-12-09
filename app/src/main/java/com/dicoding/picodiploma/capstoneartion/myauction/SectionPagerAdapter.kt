@@ -6,7 +6,8 @@ import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.dicoding.picodiploma.capstoneartion.main.MyAuctionFragment
 
-class SectionsPagerAdapter(fm: FragmentManager, lifecycle: Lifecycle) : FragmentStateAdapter(fm,lifecycle) {
+class SectionsPagerAdapter(fm: FragmentManager, lifecycle: Lifecycle) :
+    FragmentStateAdapter(fm, lifecycle) {
     override fun getItemCount(): Int {
         return 3
     }

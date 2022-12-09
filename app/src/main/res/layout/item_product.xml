@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="16dp"
+    android:layout_margin="12dp"
     app:cardCornerRadius="14dp">
 
     <LinearLayout
@@ -88,7 +89,7 @@
             <Button
                 android:id="@+id/bid_button"
                 android:layout_width="50dp"
-                android:layout_height="25dp"
+                android:layout_height="48dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/rounded_ui"
                 android:backgroundTint="@color/light_gray"
@@ -115,7 +116,7 @@
             <Button
                 android:id="@+id/buyout_button"
                 android:layout_width="50dp"
-                android:layout_height="25dp"
+                android:layout_height="48dp"
                 android:layout_marginEnd="15dp"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/rounded_ui"
@@ -125,19 +126,8 @@
                 android:textColor="@color/bluegray"
                 android:textSize="11sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-            <!--        <ProgressBar-->
-            <!--            android:id="@+id/progresBar"-->
-            <!--            android:layout_width="wrap_content"-->
-            <!--            android:layout_height="wrap_content"-->
-            <!--            android:visibility="visible"-->
-            <!--            app:layout_constraintBottom_toBottomOf="parent"-->
-            <!--            app:layout_constraintEnd_toEndOf="parent"-->
-            <!--            app:layout_constraintStart_toStartOf="parent"-->
-            <!--            app:layout_constraintTop_toTopOf="parent"-->
-            <!--            app:layout_constraintVertical_bias="0.386" />-->
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:ignore="TextContrastCheck" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </LinearLayout>
 </androidx.cardview.widget.CardView>
