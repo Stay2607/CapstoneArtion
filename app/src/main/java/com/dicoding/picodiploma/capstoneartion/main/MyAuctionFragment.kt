@@ -17,6 +17,11 @@ class MyAuctionFragment : Fragment() {
 
     private var _binding: FragmentMyAuctionBinding? = null
     private val binding get() = _binding
+    private val TAB_TITLES = arrayOf(
+        "My Auction",
+        "My Bid",
+        "History"
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,22 +34,16 @@ class MyAuctionFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val sectionsPagerAdapter = SectionsPagerAdapter(this)
-        val viewPager: ViewPager2 = binding!!.viewPager
-        viewPager.adapter = sectionsPagerAdapter
-        val tabs: TabLayout = binding!!.tabs
-        TabLayoutMediator(tabs, viewPager) { tab, position ->
-            tab.text = resources.getString(TAB_TITLES[position])
-        }.attach()
+        initView()
     }
 
-    companion object {
-        @StringRes
-        private val TAB_TITLES = intArrayOf(
-            R.string.tab_auction_1,
-            R.string.tab_auction_2,
-            R.string.tab_auction_3
-        )
+    private fun initView(){
+        val viewPager = binding!!.viewPager
+        val tabLayout = binding!!.tabs
+        val adapter = SectionsPagerAdapter(parentFragmentManager, lifecycle)
+        viewPager.adapter = adapter
+        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+            tab.text = TAB_TITLES[position]
+        }.attach()
     }
 }

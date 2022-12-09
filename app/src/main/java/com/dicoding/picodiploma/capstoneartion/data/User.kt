@@ -1,6 +1,5 @@
 package com.dicoding.picodiploma.capstoneartion.data
 
-import android.net.Uri
 import com.google.firebase.database.IgnoreExtraProperties
 
 @IgnoreExtraProperties

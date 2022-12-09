@@ -4,8 +4,8 @@ import android.os.Parcelable
 import com.google.firebase.database.IgnoreExtraProperties
 import kotlinx.parcelize.Parcelize
 
-@IgnoreExtraProperties
 @Parcelize
+@IgnoreExtraProperties
 data class AuctionItem(
     val owner: String,
     val ownerId: String,

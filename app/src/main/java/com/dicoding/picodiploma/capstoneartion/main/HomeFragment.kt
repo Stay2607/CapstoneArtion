@@ -13,7 +13,9 @@ import com.dicoding.picodiploma.capstoneartion.R
 import com.dicoding.picodiploma.capstoneartion.data.AuctionItem
 import com.dicoding.picodiploma.capstoneartion.databinding.FragmentAuctionBinding
 import com.dicoding.picodiploma.capstoneartion.databinding.FragmentHomeBinding
+import com.dicoding.picodiploma.capstoneartion.detail.AuctionItemDetails
 import com.dicoding.picodiploma.capstoneartion.myauction.MyAuctionAdapter
+import com.dicoding.picodiploma.capstoneartion.myauction.SectionsPagerAdapter
 import com.dicoding.picodiploma.capstoneartion.newAuction.NewAuctionActivity
 
 class HomeFragment : Fragment() {
@@ -39,10 +41,6 @@ class HomeFragment : Fragment() {
             val intent = Intent(activity, NewAuctionActivity::class.java)
             startActivity(intent)
         }
-        rvProduct = binding!!.recyclerView.findViewById(R.id.recyclerView)
-        rvProduct.setHasFixedSize(true)
-
-        list.addAll(listHeroes)
         showRecyclerList()
     }
 
@@ -50,38 +48,37 @@ class HomeFragment : Fragment() {
         const val TABLE_AUCTION_ITEMS = "AuctionItems"
     }
 
-//    @SuppressLint("NotifyDataSetChanged")
-//    private fun initView(){
-//        auctionAdapter = MyAuctionAdapter()
-//        binding!!.recyclerView.apply {
-//            layoutManager = LinearLayoutManager(context)
-//            adapter = auctionAdapter
-//        }
-//        auctionAdapter.(favoriteUser)
-//    }
 
-    private val listHeroes: ArrayList<AuctionItem>
+    private val listProduct: ArrayList<AuctionItem>
         get() {
-            val owner = "resources.getStringArray(R.array.data_name)"
-            val title = "resources.etStringArray(R.array.data_description)"
-            val description = "resources.getStringArray(R.array.data_description)"
-            val photoUrl = "resources.ggetStringArray(R.array.data_description)"
-            val category = "resources.getStringArray(R.array.data_description)"
+            val owner = "Rudy Atmadja"
+            val title = "Karya Lukis"
+            val description = "Karya ini dibuat dengan menggunakan metode .....Karya ini dibuat dengan menggunakan metode ....." +
+                    "Karya ini dibuat dengan menggunakan metode .....Karya ini dibuat dengan menggunakan metode .....Karya ini dibuat dengan menggunakan metode ....."
+            val photoUrl = ""
+            val category = "2D"
             val starting = 123
             val buyout = 123
             val current = 123
-            val increment = 123
             val time = 123
-//            val dataPhoto = resources.obtainTypedArray(R.array.data_photo)
-            val listHero = ArrayList<AuctionItem>()
-            val hero = AuctionItem(owner, "", title, description, photoUrl, category, starting, buyout, current, increment, time, "")
-            listHero.add(hero)
-            return listHero
+            val listProduct = ArrayList<AuctionItem>()
+            val product = AuctionItem(owner, "",title, description, photoUrl, category, starting, buyout, current, 123,time, "")
+            listProduct.add(product)
+            return listProduct
         }
 
     private fun showRecyclerList() {
+        rvProduct = binding!!.recyclerView
+        rvProduct.setHasFixedSize(true)
+        list.addAll(listProduct)
         rvProduct.layoutManager = LinearLayoutManager(context)
         val listHeroAdapter = MyAuctionAdapter(list)
         rvProduct.adapter = listHeroAdapter
+//        val activity = activity as AuctionItemDetails
+//        auctionAdapter = MyAuctionAdapter(listProduct)
+//        binding!!.recyclerView.apply {
+//            layoutManager = LinearLayoutManager(activity)
+//            adapter = auctionAdapter
+//        }
     }
 }

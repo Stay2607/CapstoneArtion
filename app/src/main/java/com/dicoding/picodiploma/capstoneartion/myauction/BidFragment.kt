@@ -32,36 +32,31 @@ class BidFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        rvProduct = binding!!.recyclerView.findViewById(R.id.recyclerView)
-        rvProduct.setHasFixedSize(true)
-
-        list.addAll(listHeroes)
         showRecyclerList()
     }
 
-    private val listHeroes: ArrayList<AuctionItem>
+    private val listProduct: ArrayList<AuctionItem>
         get() {
-            val owner = "resources.getStringArray(R.array.data_name)"
-            val ownerId = ""
-            val title = "resources.etStringArray(R.array.data_description)"
-            val description = "resources.getStringArray(R.array.data_description)"
-            val photoUrl = "resources.ggetStringArray(R.array.data_description)"
-            val category = "resources.getStringArray(R.array.data_description)"
+            val owner = "Rudy Atmadja"
+            val title = "Karya Lukis"
+            val description = "Karya ini dibuat dengan menggunakan metode .....Karya ini dibuat dengan menggunakan metode ....." +
+                    "Karya ini dibuat dengan menggunakan metode .....Karya ini dibuat dengan menggunakan metode .....Karya ini dibuat dengan menggunakan metode ....."
+            val photoUrl = ""
+            val category = "2D"
             val starting = 123
             val buyout = 123
             val current = 123
             val time = 123
-            val winner = ""
-            val increment = 123
-//            val dataPhoto = resources.obtainTypedArray(R.array.data_photo)
-            val listHero = ArrayList<AuctionItem>()
-            val hero = AuctionItem(owner, ownerId, title, description, photoUrl, category, starting, buyout, current, increment, time, winner)
-            listHero.add(hero)
-            return listHero
+            val listProduct = ArrayList<AuctionItem>()
+            val product = AuctionItem(owner, "",title, description, photoUrl, category, starting, buyout, current, 123,time, "")
+            listProduct.add(product)
+            return listProduct
         }
 
     private fun showRecyclerList() {
+        rvProduct = binding!!.recyclerView
+        rvProduct.setHasFixedSize(true)
+        list.addAll(listProduct)
         rvProduct.layoutManager = LinearLayoutManager(context)
         val listHeroAdapter = MyAuctionAdapter(list)
         rvProduct.adapter = listHeroAdapter

@@ -1,22 +1,23 @@
 package com.dicoding.picodiploma.capstoneartion.myauction
 
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.dicoding.picodiploma.capstoneartion.main.MyAuctionFragment
 
-class SectionsPagerAdapter(fragments: MyAuctionFragment) : FragmentStateAdapter(fragments) {
+class SectionsPagerAdapter(fm: FragmentManager, lifecycle: Lifecycle) : FragmentStateAdapter(fm,lifecycle) {
     override fun getItemCount(): Int {
         return 3
     }
 
     override fun createFragment(position: Int): Fragment {
-        var fragment: Fragment? = null
         when (position) {
-            0 -> fragment = AuctionFragment()
-            1 -> fragment = BidFragment()
-            2 -> fragment = HistoryFragment()
+            0 -> return AuctionFragment()
+            1 -> return BidFragment()
+            2 -> return HistoryFragment()
         }
-        return fragment as Fragment
+        return MyAuctionFragment()
     }
 
 }
