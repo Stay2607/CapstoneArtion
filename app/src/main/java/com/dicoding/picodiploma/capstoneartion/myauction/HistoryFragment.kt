@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dicoding.picodiploma.capstoneartion.R
 import com.dicoding.picodiploma.capstoneartion.data.AuctionItem
-import com.dicoding.picodiploma.capstoneartion.databinding.FragmentAuctionBinding
 import com.dicoding.picodiploma.capstoneartion.databinding.FragmentHistoryBinding
 
 class HistoryFragment : Fragment() {
@@ -53,7 +52,7 @@ class HistoryFragment : Fragment() {
             val time = 123
 //            val dataPhoto = resources.obtainTypedArray(R.array.data_photo)
             val listHero = ArrayList<AuctionItem>()
-            val hero = AuctionItem(owner, title, description, photoUrl, category, starting, buyout, current, time)
+            val hero = AuctionItem(owner, "",title, description, photoUrl, category, starting, buyout, current, 123, time, "")
             listHero.add(hero)
             return listHero
         }

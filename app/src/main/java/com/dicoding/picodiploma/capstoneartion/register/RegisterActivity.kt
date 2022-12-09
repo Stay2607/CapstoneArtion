@@ -10,6 +10,8 @@ import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import com.dicoding.picodiploma.capstoneartion.R
+import com.dicoding.picodiploma.capstoneartion.data.User
 import com.dicoding.picodiploma.capstoneartion.databinding.ActivityRegisterBinding
 import com.dicoding.picodiploma.capstoneartion.login.LoginActivity
 import com.dicoding.picodiploma.capstoneartion.main.HomeActivity
@@ -21,23 +23,25 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
-    private lateinit var googleSignInClient: GoogleSignInClient
+    private lateinit var db: FirebaseDatabase
     private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
+
+        db = FirebaseDatabase.getInstance()
+
         setContentView(binding.root)
         setupView()
         btnLogin()
 
         auth = Firebase.auth
-
-        binding.signInButton.setOnClickListener { signIn() }
 
         creteAccount()
 
@@ -45,76 +49,53 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun creteAccount() {
         binding.button.setOnClickListener {
-            val username = binding.edtPhone.text.toString()
+            val username = binding.edtUsername.text.toString()
             val email = binding.edtEmail.text.toString()
             val password = binding.edtPassword.text.toString()
-            auth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this) { task ->
-                    if (task.isSuccessful) {
-                        Log.d(TAG, "createUserWithEmail:success")
-                        val user = auth.currentUser
-                        val profileUpdates =
-                            UserProfileChangeRequest.Builder().setDisplayName(username).build()
-                        user?.updateProfile(profileUpdates)
-                        updateUI(user)
-                    } else {
-                        Log.w(TAG, "createUserWithEmail:failure", task.exception)
-                        Toast.makeText(
-                            baseContext, "Authentication failed.",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        updateUI(null)
-                    }
+            when{
+                username.isEmpty() -> binding.edtUsername.error = getString(R.string.field_required)
+                else -> {
+                    auth.createUserWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(this) { task ->
+                            if (task.isSuccessful) {
+                                Log.d(TAG, "createUserWithEmail:success")
+                                val user = auth.currentUser
+                                val profileUpdates =
+                                    UserProfileChangeRequest.Builder().setDisplayName(username).build()
+                                user?.updateProfile(profileUpdates)?.addOnCompleteListener{
+                                    updateUI(user)
+                                }
+                            } else {
+                                Log.w(TAG, "createUserWithEmail:failure", task.exception)
+                                Toast.makeText(
+                                    baseContext, "Authentication failed.",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                                updateUI(null)
+                            }
+                        }
                 }
+            }
         }
     }
 
     private fun updateUI(currentUser: FirebaseUser?) {
         if (currentUser != null) {
+            val usr = auth.currentUser!!
+            val itemRef = db.getReference(TABLE_USER).child(usr.uid)
+            val user = User(
+                usr.uid,
+                usr.displayName.toString(),
+                usr.email.toString(),
+                binding.edtPassword.text.toString(),
+                "",
+                usr.photoUrl.toString()
+            )
+            itemRef.setValue(user)
             startActivity(Intent(this@RegisterActivity, HomeActivity::class.java))
             finish()
         }
     }
-
-    private fun signIn() {
-        val signInIntent = googleSignInClient.signInIntent
-        resultLauncher.launch(signInIntent)
-    }
-
-    private var resultLauncher = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) { result ->
-        if (result.resultCode == Activity.RESULT_OK) {
-            val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
-            try {
-                // Google Sign In was successful, authenticate with Firebase
-                val account = task.getResult(ApiException::class.java)!!
-                Log.d(TAG, "firebaseAuthWithGoogle:" + account.id)
-                firebaseAuthWithGoogle(account.idToken!!)
-            } catch (e: ApiException) {
-                // Google Sign In failed, update UI appropriately
-                Log.w(TAG, "Google sign in failed", e)
-            }
-        }
-    }
-
-    private fun firebaseAuthWithGoogle(idToken: String) {
-        val credential = GoogleAuthProvider.getCredential(idToken, null)
-        auth.signInWithCredential(credential)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
-                    Log.d(TAG, "signInWithCredential:success")
-                    val user = auth.currentUser
-                    updateUI(user)
-                } else {
-                    // If sign in fails, display a message to the user.
-                    Log.w(TAG, "signInWithCredential:failure", task.exception)
-                    updateUI(null)
-                }
-            }
-    }
-
 
     private fun setupView() {
         @Suppress("DEPRECATION")
@@ -131,6 +112,7 @@ class RegisterActivity : AppCompatActivity() {
 
     companion object {
         private const val TAG = "EmailPassword"
+        private const val TABLE_USER = "User"
     }
 
     private fun btnLogin() {

@@ -70,10 +70,11 @@ class HomeFragment : Fragment() {
             val starting = 123
             val buyout = 123
             val current = 123
+            val increment = 123
             val time = 123
 //            val dataPhoto = resources.obtainTypedArray(R.array.data_photo)
             val listHero = ArrayList<AuctionItem>()
-            val hero = AuctionItem(owner, title, description, photoUrl, category, starting, buyout, current, time)
+            val hero = AuctionItem(owner, "", title, description, photoUrl, category, starting, buyout, current, increment, time, "")
             listHero.add(hero)
             return listHero
         }

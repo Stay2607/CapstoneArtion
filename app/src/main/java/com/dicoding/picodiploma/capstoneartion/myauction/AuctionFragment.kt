@@ -41,6 +41,7 @@ class AuctionFragment : Fragment() {
     private val listHeroes: ArrayList<AuctionItem>
         get() {
             val owner = "resources.getStringArray(R.array.data_name)"
+            val ownerId = ""
             val title = "resources.etStringArray(R.array.data_description)"
             val description = "resources.getStringArray(R.array.data_description)"
             val photoUrl = "resources.ggetStringArray(R.array.data_description)"
@@ -48,10 +49,12 @@ class AuctionFragment : Fragment() {
             val starting = 123
             val buyout = 123
             val current = 123
+            val increment = 123
             val time = 123
+            val winner = ""
 //            val dataPhoto = resources.obtainTypedArray(R.array.data_photo)
             val listHero = ArrayList<AuctionItem>()
-            val hero = AuctionItem(owner, title, description, photoUrl, category, starting, buyout, current, time)
+            val hero = AuctionItem(owner, ownerId,title, description, photoUrl, category, starting, buyout, current, increment, time, winner)
             listHero.add(hero)
             return listHero
         }

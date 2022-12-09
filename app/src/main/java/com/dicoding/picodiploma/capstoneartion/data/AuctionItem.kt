@@ -8,6 +8,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class AuctionItem(
     val owner: String,
+    val ownerId: String,
     val title: String,
     val description: String,
     val photoUrl: String,
@@ -15,5 +16,7 @@ data class AuctionItem(
     val startingPrice: Int,
     val buyoutPrice: Int,
     val currentPrice: Int,
-    val timeCounter: Int
+    val priceIncrement: Int,
+    val timeCounter: Int,
+    val winner: String?
 ) : Parcelable

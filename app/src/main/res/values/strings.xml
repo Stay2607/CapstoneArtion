@@ -13,7 +13,7 @@
     <string name="title_my_auction">My Auction</string>
     <string name="title_profile">Profile</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="have_account">Have account?</string>
+    <string name="have_account">Have account? </string>
     <string name="login_here">Login Here</string>
     <string name="buyout_price">Buyout price</string>
     <string name="bid">Bid</string>
@@ -105,4 +105,5 @@
     <string name="search">Search in Artion</string>
     <string name="search_in_artion">Search in Artion</string>
     <string name="search_icon">search icon</string>
+    <string name="username">Username</string>
 </resources>
