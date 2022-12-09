@@ -17,6 +17,10 @@ import com.dicoding.picodiploma.capstoneartion.detail.AuctionItemDetails
 import com.dicoding.picodiploma.capstoneartion.myauction.MyAuctionAdapter
 import com.dicoding.picodiploma.capstoneartion.myauction.SectionsPagerAdapter
 import com.dicoding.picodiploma.capstoneartion.newAuction.NewAuctionActivity
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
@@ -24,6 +28,8 @@ class HomeFragment : Fragment() {
     private lateinit var auctionAdapter: MyAuctionAdapter
     private lateinit var rvProduct: RecyclerView
     private val list = ArrayList<AuctionItem>()
+    private lateinit var listProduct: ArrayList<AuctionItem>
+    private lateinit var db: FirebaseDatabase
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,6 +37,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        db = FirebaseDatabase.getInstance()
         return binding!!.root
     }
 
@@ -41,31 +48,34 @@ class HomeFragment : Fragment() {
             val intent = Intent(activity, NewAuctionActivity::class.java)
             startActivity(intent)
         }
-        showRecyclerList()
+
+        listProduct = arrayListOf()
+        getListProduct()
+
     }
 
-    companion object {
-        const val TABLE_AUCTION_ITEMS = "AuctionItems"
+    private fun getListProduct() {
+        db.getReference(TABLE_AUCTION_ITEMS).addValueEventListener(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+
+                if (snapshot.exists()) {
+                    for (auctionItem in snapshot.children) {
+
+                        val item = auctionItem.getValue(AuctionItem::class.java)
+                        listProduct.add(item!!)
+                    }
+                    showRecyclerList()
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                //nothing to do
+            }
+
+
+        })
     }
 
-
-    private val listProduct: ArrayList<AuctionItem>
-        get() {
-            val owner = "Rudy Atmadja"
-            val title = "Karya Lukis"
-            val description = "Karya ini dibuat dengan menggunakan metode .....Karya ini dibuat dengan menggunakan metode ....." +
-                    "Karya ini dibuat dengan menggunakan metode .....Karya ini dibuat dengan menggunakan metode .....Karya ini dibuat dengan menggunakan metode ....."
-            val photoUrl = ""
-            val category = "2D"
-            val starting = 123
-            val buyout = 123
-            val current = 123
-            val time = 123
-            val listProduct = ArrayList<AuctionItem>()
-            val product = AuctionItem(owner, "",title, description, photoUrl, category, starting, buyout, current, 123,time, "")
-            listProduct.add(product)
-            return listProduct
-        }
 
     private fun showRecyclerList() {
         rvProduct = binding!!.recyclerView
@@ -80,5 +90,9 @@ class HomeFragment : Fragment() {
 //            layoutManager = LinearLayoutManager(activity)
 //            adapter = auctionAdapter
 //        }
+    }
+
+    companion object {
+        const val TABLE_AUCTION_ITEMS = "AuctionItems"
     }
 }

@@ -10,6 +10,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dicoding.picodiploma.capstoneartion.R
 import com.dicoding.picodiploma.capstoneartion.data.AuctionItem
 import com.dicoding.picodiploma.capstoneartion.databinding.FragmentAuctionBinding
+import com.dicoding.picodiploma.capstoneartion.main.HomeFragment
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class AuctionFragment : Fragment() {
 
@@ -17,6 +22,9 @@ class AuctionFragment : Fragment() {
     private val binding get() = _binding
     private lateinit var auctionAdapter: MyAuctionAdapter
     private lateinit var rvProduct: RecyclerView
+    private lateinit var listProduct: ArrayList<AuctionItem>
+    private lateinit var db: FirebaseDatabase
+
     private val list = ArrayList<AuctionItem>()
 
     override fun onCreateView(
@@ -25,31 +33,39 @@ class AuctionFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         _binding = FragmentAuctionBinding.inflate(inflater, container, false)
+        db = FirebaseDatabase.getInstance()
         return binding!!.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        showRecyclerList()
+
+        listProduct = arrayListOf()
+        getListProduct()
     }
 
-    private val listProduct: ArrayList<AuctionItem>
-        get() {
-            val owner = "Rudy Atmadja"
-            val title = "Karya Lukis"
-            val description = "Karya ini dibuat dengan menggunakan metode .....Karya ini dibuat dengan menggunakan metode ....." +
-                    "Karya ini dibuat dengan menggunakan metode .....Karya ini dibuat dengan menggunakan metode .....Karya ini dibuat dengan menggunakan metode ....."
-            val photoUrl = ""
-            val category = "2D"
-            val starting = 123
-            val buyout = 123
-            val current = 123
-            val time = 123
-            val listProduct = ArrayList<AuctionItem>()
-            val product = AuctionItem(owner, "",title, description, photoUrl, category, starting, buyout, current, 123,time, "")
-            listProduct.add(product)
-            return listProduct
-        }
+    private fun getListProduct() {
+        db.getReference(TABLE_AUCTION_ITEMS).addValueEventListener(object :
+            ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+
+                if (snapshot.exists()) {
+                    for (auctionItem in snapshot.children) {
+
+                        val item = auctionItem.getValue(AuctionItem::class.java)
+                        listProduct.add(item!!)
+                    }
+                    showRecyclerList()
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                //nothing to do
+            }
+
+
+        })
+    }
 
     private fun showRecyclerList() {
         rvProduct = binding!!.recyclerView
@@ -58,5 +74,9 @@ class AuctionFragment : Fragment() {
         rvProduct.layoutManager = LinearLayoutManager(context)
         val listHeroAdapter = MyAuctionAdapter(list)
         rvProduct.adapter = listHeroAdapter
+    }
+
+    companion object{
+        const val TABLE_AUCTION_ITEMS = "AuctionItems"
     }
 }
