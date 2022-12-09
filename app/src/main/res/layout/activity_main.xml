@@ -5,12 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blue_diplomatic"
-    tools:context=".MainActivity">
+    tools:context=".main.MainActivity">
 
     <ImageView
         android:id="@+id/imageLogo"
         android:layout_width="246dp"
         android:layout_height="570dp"
+        android:contentDescription="@string/app_logo"
         android:src="@drawable/ic_logo_white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,15 +19,13 @@
 
     <ImageView
         android:id="@+id/imageName"
-        android:layout_width="412dp"
-        android:layout_height="134dp"
-        android:layout_marginTop="35dp"
+        android:layout_width="match_parent"
+        android:layout_height="135dp"
+
+        android:contentDescription="@string/app_name"
         android:src="@drawable/ic_artion_name_white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageLogo"
-        app:layout_constraintVertical_bias="1.0" />
-
+        app:layout_constraintTop_toBottomOf="@+id/imageLogo" />
 </androidx.constraintlayout.widget.ConstraintLayout>

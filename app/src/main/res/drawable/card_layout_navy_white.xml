@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <corners
+                android:bottomLeftRadius="130dp"
+                android:bottomRightRadius="130dp" />
+            <solid android:color="#19000000" />
+        </shape>
+    </item>
+    <item android:bottom="30dp">
+        <shape android:shape="rectangle">
+            <corners
+                android:bottomLeftRadius="150dp"
+                android:bottomRightRadius="150dp" />
+            <solid android:color="@color/white" />
+        </shape>
+    </item>
+    <item
+        android:width="2230dp"
+        android:drawable="@drawable/background_navy_wave" />
+</layer-list>

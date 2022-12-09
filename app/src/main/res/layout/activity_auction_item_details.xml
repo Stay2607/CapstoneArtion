@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".detail.AuctionItemDetails">
+
+    <TextView
+        android:id="@+id/tv_time_remaining"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/time_remaining"
+        android:fontFamily="sans-serif-light"
+        android:textSize="18sp"
+        app:layout_constraintTop_toTopOf="@+id/btn_join_auction"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="24dp"/>
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="00:00"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_join_auction"
+        app:layout_constraintStart_toStartOf="@id/tv_time_remaining"
+        app:layout_constraintEnd_toEndOf="@id/tv_time_remaining"/>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        tools:text="@string/title"
+        android:textColor="@color/bluegray"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@id/auction_item_image"/>
+
+    <TextView
+        android:id="@+id/tv_artist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        tools:text="@string/artist"
+        android:textColor="@color/bluegray"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif-medium"
+        app:layout_constraintEnd_toEndOf="@id/auction_item_image"
+        app:layout_constraintBottom_toBottomOf="@id/tv_title"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/auction_item_image"
+        android:layout_width="350dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/place_holder"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_artist"
+        android:contentDescription="@string/auction_image" />
+
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="0dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/content_description"
+        android:textAlignment="center"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/auction_item_image"
+        app:layout_constraintEnd_toEndOf="@id/auction_item_image"
+        app:layout_constraintTop_toBottomOf="@id/auction_item_image"/>
+
+    <Button
+        android:id="@+id/btn_join_auction"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="@string/join_auction"
+        android:textStyle="bold"
+        android:background="@drawable/rounded_ui"
+        android:backgroundTint="#93CE8A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="24dp"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/tv_description"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="380dp">
+            <TextView
+                android:id="@+id/tv_number_price_now"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_ui"
+                android:backgroundTint="@color/lighter_gray"
+                tools:text="Rp 1.350.000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_price_now"/>
+
+            <TextView
+                android:id="@+id/tv_price_now"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/price_now"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_number_buy_out"
+                app:layout_constraintStart_toStartOf="@id/tv_number_price_now"
+                app:layout_constraintEnd_toEndOf="@id/tv_number_price_now"/>
+
+            <TextView
+                android:id="@+id/tv_number_buy_out"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_ui"
+                android:backgroundTint="@color/lighter_gray"
+                tools:text="Rp 5.000.000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@id/tv_number_price_now"
+                app:layout_constraintEnd_toEndOf="@id/tv_number_price_now"
+                app:layout_constraintTop_toBottomOf="@id/tv_buy_out"/>
+
+            <TextView
+                android:id="@+id/tv_buy_out"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/buy_out"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_number_start_bid"
+                app:layout_constraintStart_toStartOf="@id/tv_number_price_now"
+                app:layout_constraintEnd_toEndOf="@id/tv_number_price_now"/>
+
+            <TextView
+                android:id="@+id/tv_number_start_bid"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_ui"
+                android:backgroundTint="@color/lighter_gray"
+                tools:text="Rp 5.000.000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@id/tv_number_price_now"
+                app:layout_constraintEnd_toEndOf="@id/tv_number_price_now"
+                app:layout_constraintTop_toBottomOf="@+id/tv_start_bid"/>
+
+            <TextView
+                android:id="@+id/tv_start_bid"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/start_bid"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="@id/tv_number_price_now"
+                app:layout_constraintEnd_toEndOf="@id/tv_number_price_now"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

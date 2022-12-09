@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "480370435746",
+    "firebase_url": "https://capstone-artion-default-rtdb.firebaseio.com",
     "project_id": "capstone-artion",
     "storage_bucket": "capstone-artion.appspot.com"
   },
@@ -13,6 +14,38 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "480370435746-295leppa9k2puanc5uclgmanr7jfhp01.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dicoding.picodiploma.capstoneartion",
+            "certificate_hash": "38633c51ec1c67c802f20b75a71f93bacf47c073"
+          }
+        },
+        {
+          "client_id": "480370435746-7ls5te55sdm8rkjrqaonvmnb1n457jdp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dicoding.picodiploma.capstoneartion",
+            "certificate_hash": "1b904136de3f6e39326af46c98c9a6a7c57beeb8"
+          }
+        },
+        {
+          "client_id": "480370435746-k70f7kfve1soc62uavbkvbp6rlfded1i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dicoding.picodiploma.capstoneartion",
+            "certificate_hash": "b181feea8b5ed14d14ce299e70e2990722cf458a"
+          }
+        },
+        {
+          "client_id": "480370435746-ma116n7gmie7c20i5cmd2gf3iu3b3e01.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dicoding.picodiploma.capstoneartion",
+            "certificate_hash": "f060b5d4a3f5246875ce672f6e406a4725f170a1"
+          }
+        },
         {
           "client_id": "480370435746-4dctia6a0t1gpa1vuk40g3rbmplon77u.apps.googleusercontent.com",
           "client_type": 3
