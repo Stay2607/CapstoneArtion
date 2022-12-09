@@ -4,7 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.dicoding.picodiploma.capstoneartion.main.MyAuctionFragment
 
-class SectionsPagerAdapter(fragment: MyAuctionFragment) : FragmentStateAdapter(fragment) {
+class SectionsPagerAdapter(fragments: MyAuctionFragment) : FragmentStateAdapter(fragments) {
     override fun getItemCount(): Int {
         return 3
     }
