@@ -1,9 +1,7 @@
-package com.dicoding.picodiploma.capstoneartion
+package com.dicoding.picodiploma.capstoneartion.main
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.picodiploma.capstoneartion.databinding.ActivityMainBinding
 import com.dicoding.picodiploma.capstoneartion.login.LoginActivity
@@ -20,41 +18,24 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        auth = Firebase.auth
-        val firebaseUser = auth.currentUser
+        checkCurrentUser()
 
         binding.imageLogo.setOnClickListener {
-            startActivity(Intent(this, LoginActivity::class.java))
+            startActivity(Intent(this, HomeActivity::class.java))
+            finish()
         }
-        
+    }
+
+    private fun checkCurrentUser() {
+        val firebaseUser = Firebase.auth.currentUser
+
         //Intent to Login or Register
-        /*if (firebaseUser == null){
+        if (firebaseUser == null) {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
             return
-        }*/
-
-    }
-
-    /*override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        val inflater = menuInflater
-        inflater.inflate(R.menu.main_menu, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.sign_out_menu -> {
-                signOut()
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
+        } else {
+            startActivity(Intent(this, HomeActivity::class.java))
         }
-    }*/
-
-    private fun signOut() {
-        auth.signOut()
-        startActivity(Intent(this, LoginActivity::class.java))
-        finish()
     }
 }
