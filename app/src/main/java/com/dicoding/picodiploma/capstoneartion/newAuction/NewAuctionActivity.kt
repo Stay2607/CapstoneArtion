@@ -57,7 +57,6 @@ class NewAuctionActivity : AppCompatActivity() {
     private fun createAuctionBtn() {
         val loading = Loading()
         binding.createAuctionButton.setOnClickListener {
-            loading.showLoading(true, binding.progBar)
             val user = auth.currentUser
             val uid = user!!.uid
             val itemRef = db.getReference(TABLE_AUCTION_ITEMS).push()
@@ -135,11 +134,9 @@ class NewAuctionActivity : AppCompatActivity() {
                             myAuctionRef.setValue(item)
                         }
                         itemRef.setValue(item)
-                        loading.showLoading(false, binding.progBar)
                     }
                 }
             } else {
-                loading.showLoading(false, binding.progBar)
                 Toast.makeText(
                     this@NewAuctionActivity,
                     getString(R.string.image_required),
@@ -147,7 +144,6 @@ class NewAuctionActivity : AppCompatActivity() {
                 ).show()
             }
         }
-        loading.showLoading(false, binding.progBar)
     }
 
     //Buat set storage

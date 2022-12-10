@@ -60,6 +60,7 @@ class HistoryFragment : Fragment() {
                         listProduct.add(item!!)
                     }
                     showRecyclerList()
+                    binding!!.situation.visibility = View.GONE
                 } else {
                     loading.showLoading(false, binding!!.progBar)
                     binding!!.situation.visibility = View.VISIBLE

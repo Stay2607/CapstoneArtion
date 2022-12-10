@@ -64,6 +64,7 @@ class BidFragment : Fragment() {
                     }
                     showRecyclerList()
                     loading.showLoading(false, binding!!.progBar)
+                    binding!!.situation.visibility = View.GONE
                 } else {
                     loading.showLoading(false, binding!!.progBar)
                     binding!!.situation.visibility = View.VISIBLE

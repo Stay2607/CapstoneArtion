@@ -121,7 +121,7 @@
     <string name="cancel_auction">Cancel Auction!</string>
     <string name="subtitle_cancel">Are you sure want to cancel this auction?</string>
     <string name="buy_out_price">Buy out price</string>
-    <string name="there_s_no_auction">There\'s no Auction</string>
-    <string name="there_s_no_bid">There\'s no Bid</string>
-    <string name="there_s_no_history">There\'s no History</string>
+    <string name="there_s_no_auction">There\'s no Auction yet</string>
+    <string name="there_s_no_bid">There\'s no Bid yet</string>
+    <string name="there_s_no_history">There\'s no History yet</string>
 </resources>
