@@ -11,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import com.dicoding.picodiploma.capstoneartion.R
 import com.dicoding.picodiploma.capstoneartion.data.AuctionItem
 import com.dicoding.picodiploma.capstoneartion.databinding.ActivityNewAuctionBinding
+import com.dicoding.picodiploma.capstoneartion.loading.Loading
 import com.dicoding.picodiploma.capstoneartion.main.HomeActivity
 import com.dicoding.picodiploma.capstoneartion.utils.Helper
 import com.google.firebase.auth.FirebaseAuth
@@ -38,6 +39,9 @@ class NewAuctionActivity : AppCompatActivity() {
         binding = ActivityNewAuctionBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+        //loading.showLoading(false, binding.progBar)
+
         db = FirebaseDatabase.getInstance()
         auth = Firebase.auth
 
@@ -50,7 +54,9 @@ class NewAuctionActivity : AppCompatActivity() {
     }
 
     private fun createAuctionBtn() {
+        val loading = Loading()
         binding.createAuctionButton.setOnClickListener {
+            loading.showLoading(true, binding.progBar)
             val user = auth.currentUser
             val uid = user!!.uid
             val itemRef = db.getReference(TABLE_AUCTION_ITEMS).push()
@@ -129,6 +135,7 @@ class NewAuctionActivity : AppCompatActivity() {
                     }
                 }
             } else {
+                loading.showLoading(false, binding.progBar)
                 Toast.makeText(
                     this@NewAuctionActivity,
                     getString(R.string.image_required),
@@ -136,6 +143,7 @@ class NewAuctionActivity : AppCompatActivity() {
                 ).show()
             }
         }
+        loading.showLoading(false, binding.progBar)
     }
 
     //Buat set storage
