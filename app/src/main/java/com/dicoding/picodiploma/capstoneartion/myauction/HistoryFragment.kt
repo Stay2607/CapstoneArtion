@@ -46,7 +46,7 @@ class HistoryFragment : Fragment() {
 
     private fun getListProduct() {
         val userId = auth.currentUser?.uid
-        db.getReference(PaymentActivity.TABLE_USER).child(userId!!).child(PaymentActivity.HISTORY).addValueEventListener(object :
+        db.getReference(TABLE_USER).child(userId!!).child(HISTORY).addValueEventListener(object :
             ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
 
@@ -78,6 +78,7 @@ class HistoryFragment : Fragment() {
     }
 
     companion object {
-        const val TABLE_AUCTION_ITEMS = "AuctionItems"
+        const val TABLE_USER = "User"
+        const val HISTORY = "History"
     }
 }
