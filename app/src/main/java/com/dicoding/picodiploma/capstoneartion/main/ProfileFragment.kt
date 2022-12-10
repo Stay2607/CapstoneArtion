@@ -84,6 +84,7 @@ class ProfileFragment : Fragment() {
     }
 
     private fun getListProduct() {
+        showLoading(true)
         val userId = auth.currentUser!!.uid
         db.getReference(AuctionFragment.TABLE_USER).child(userId).child(AuctionFragment.AUCTION).addValueEventListener(object :
             ValueEventListener {
@@ -95,6 +96,7 @@ class ProfileFragment : Fragment() {
                         list.clear()
                         listProduct.add(item!!)
                     }
+                    showLoading(false)
                     showRecyclerList()
                 }
             }
@@ -114,6 +116,14 @@ class ProfileFragment : Fragment() {
         rvProduct.layoutManager = LinearLayoutManager(context)
         val listProductAdapter = MyAuctionAdapter(list)
         rvProduct.adapter = listProductAdapter
+    }
+
+    private fun showLoading(x: Boolean){
+        if (x) {
+            binding?.loading?.visibility = View.VISIBLE
+        } else {
+            binding?.loading?.visibility = View.GONE
+        }
     }
 
     companion object {

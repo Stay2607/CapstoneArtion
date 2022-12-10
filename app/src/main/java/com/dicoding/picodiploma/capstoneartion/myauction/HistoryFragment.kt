@@ -45,6 +45,7 @@ class HistoryFragment : Fragment() {
     }
 
     private fun getListProduct() {
+        showLoading(true)
         val userId = auth.currentUser?.uid
         db.getReference(TABLE_USER).child(userId!!).child(HISTORY).addValueEventListener(object :
             ValueEventListener {
@@ -56,6 +57,7 @@ class HistoryFragment : Fragment() {
                         list.clear()
                         listProduct.add(item!!)
                     }
+                    showLoading(false)
                     showRecyclerList()
                 }
             }
@@ -75,6 +77,14 @@ class HistoryFragment : Fragment() {
         rvProduct.layoutManager = LinearLayoutManager(context)
         val listProductAdapter = MyAuctionAdapter(list)
         rvProduct.adapter = listProductAdapter
+    }
+
+    private fun showLoading(x: Boolean){
+        if (x) {
+            binding?.loading?.visibility = View.VISIBLE
+        } else {
+            binding?.loading?.visibility = View.GONE
+        }
     }
 
     companion object {

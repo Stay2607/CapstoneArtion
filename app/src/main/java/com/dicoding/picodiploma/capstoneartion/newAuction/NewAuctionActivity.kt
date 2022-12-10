@@ -1,6 +1,9 @@
 package com.dicoding.picodiploma.capstoneartion.newAuction
 
+import android.app.Dialog
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.widget.RadioButton
@@ -148,6 +151,13 @@ class NewAuctionActivity : AppCompatActivity() {
 
     //Buat set storage
     private fun setToFireStorage(imageUri: Uri, postId: String) {
+        val dialogBinding = layoutInflater.inflate(R.layout.add_auction_loading_dialog, null)
+        val myDialog = Dialog(this@NewAuctionActivity)
+        myDialog.setContentView(dialogBinding)
+
+        myDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        myDialog.show()
+
         val formatter = SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.getDefault())
         val now = Date()
         val fileName = formatter.format(now)
@@ -165,6 +175,7 @@ class NewAuctionActivity : AppCompatActivity() {
                 itemRef.child(postId).child("photoUrl").setValue(storageUri)
                 myAuctionRef.child(postId).child("photoUrl").setValue(storageUri)
 
+                myDialog.dismiss()
                 val intent = Intent(this, HomeActivity::class.java)
                 intent.flags =
                     Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK

@@ -48,16 +48,16 @@ class HomeFragment : Fragment() {
     }
 
     private fun getListProduct() {
+        showLoading(true)
         db.getReference(TABLE_AUCTION_ITEMS).addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-
                 if (snapshot.exists()) {
                     for (auctionItem in snapshot.children) {
-
                         val item = auctionItem.getValue(AuctionItem::class.java)
                         list.clear()
                         listProduct.add(item!!)
                     }
+                    showLoading(false)
                     showRecyclerList()
                 }
             }
@@ -79,6 +79,15 @@ class HomeFragment : Fragment() {
         val listHeroAdapter = MyAuctionAdapter(list)
         rvProduct.adapter = listHeroAdapter
     }
+
+    private fun showLoading(x: Boolean){
+        if (x) {
+            binding?.loading?.visibility = View.VISIBLE
+        } else {
+            binding?.loading?.visibility = View.GONE
+        }
+    }
+
 
     companion object {
         const val TABLE_AUCTION_ITEMS = "AuctionItems"
