@@ -96,8 +96,10 @@ class ProfileFragment : Fragment() {
                         list.clear()
                         listProduct.add(item!!)
                     }
-                    showLoading(false)
                     showRecyclerList()
+                    showLoading(false)
+                } else {
+                    showLoading(false)
                 }
             }
 
