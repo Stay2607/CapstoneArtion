@@ -88,11 +88,11 @@
     <string name="content_tab_bid">My Bid</string>
     <string name="content_tab_auction">My Auction</string>
     <string name="content_tab_history">History</string>
-    <string name="field_required">Field tidak boleh kosong!</string>
-    <string name="must_be_number">Field ini harus diisi dengan angka!</string>
-    <string name="image_required">Masukkan gambar telebih dahulu!</string>
-    <string name="choose_catagory">Pilih kategori!</string>
-    <string name="warn_buy_out_over_start_price">Buy out price harus lebih besar daripada starting price!</string>
+    <string name="field_required">Field cannot be empty!</string>
+    <string name="must_be_number">This field must be filled with numbers!</string>
+    <string name="image_required">Pelase, Insert picture first!</string>
+    <string name="choose_catagory">Select a category!</string>
+    <string name="warn_buy_out_over_start_price">Buy out price must be greater than the starting price!</string>
     <string name="_2d_category_button">2D category button</string>
     <string name="_3d_category_button">3D category button</string>
     <string name="start_bid">START BID</string>
@@ -121,4 +121,7 @@
     <string name="cancel_auction">Cancel Auction!</string>
     <string name="subtitle_cancel">Are you sure want to cancel this auction?</string>
     <string name="buy_out_price">Buy out price</string>
+    <string name="there_s_no_auction">There\'s no Auction</string>
+    <string name="there_s_no_bid">There\'s no Bid</string>
+    <string name="there_s_no_history">There\'s no History</string>
 </resources>

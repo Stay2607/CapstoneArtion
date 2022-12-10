@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dicoding.picodiploma.capstoneartion.data.AuctionItem
 import com.dicoding.picodiploma.capstoneartion.databinding.FragmentHistoryBinding
-import com.dicoding.picodiploma.capstoneartion.payment.PaymentActivity
+import com.dicoding.picodiploma.capstoneartion.loading.Loading
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
@@ -45,6 +45,9 @@ class HistoryFragment : Fragment() {
     }
 
     private fun getListProduct() {
+        val loading = Loading()
+        loading.showLoading(true, binding!!.progBar)
+        binding!!.situation.visibility = View.GONE
         val userId = auth.currentUser?.uid
         db.getReference(TABLE_USER).child(userId!!).child(HISTORY).addValueEventListener(object :
             ValueEventListener {
@@ -57,6 +60,9 @@ class HistoryFragment : Fragment() {
                         listProduct.add(item!!)
                     }
                     showRecyclerList()
+                } else {
+                    loading.showLoading(false, binding!!.progBar)
+                    binding!!.situation.visibility = View.VISIBLE
                 }
             }
 

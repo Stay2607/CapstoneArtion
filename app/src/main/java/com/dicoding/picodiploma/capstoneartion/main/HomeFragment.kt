@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dicoding.picodiploma.capstoneartion.data.AuctionItem
 import com.dicoding.picodiploma.capstoneartion.databinding.FragmentHomeBinding
+import com.dicoding.picodiploma.capstoneartion.loading.Loading
 import com.dicoding.picodiploma.capstoneartion.myauction.MyAuctionAdapter
 import com.dicoding.picodiploma.capstoneartion.newAuction.NewAuctionActivity
 import com.google.firebase.database.DataSnapshot
@@ -48,6 +49,8 @@ class HomeFragment : Fragment() {
     }
 
     private fun getListProduct() {
+        val loading = Loading()
+        loading.showLoading(true, binding!!.progBar)
         db.getReference(TABLE_AUCTION_ITEMS).addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
 
@@ -59,6 +62,7 @@ class HomeFragment : Fragment() {
                         listProduct.add(item!!)
                     }
                     showRecyclerList()
+                    loading.showLoading(false, binding!!.progBar)
                 }
             }
 
