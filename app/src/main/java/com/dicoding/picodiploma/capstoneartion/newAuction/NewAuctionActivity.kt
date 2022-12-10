@@ -60,8 +60,8 @@ class NewAuctionActivity : AppCompatActivity() {
             if (selectedImg != null) {
                 val radioGroup = binding.radioGroup.checkedRadioButtonId
                 val photo = selectedImg!!
-                val owner = user?.displayName.toString()
-                val ownerId = user?.uid!!
+                val owner = user.displayName.toString()
+                val ownerId = user.uid
                 val title = binding.etWorkTitle.text.toString()
                 val description = binding.etDescriptionWork.text.toString()
                 val startingPrice = binding.etStartingPrice.text.toString()
@@ -147,7 +147,7 @@ class NewAuctionActivity : AppCompatActivity() {
         val itemRef = db.getReference(TABLE_AUCTION_ITEMS)
         val myAuctionRef = db.getReference(USER_TABLE).child(user!!.uid).child(AUCTION)
         val storageReference =
-            FirebaseStorage.getInstance().getReference("ImageFolder").child(user!!.uid)
+            FirebaseStorage.getInstance().getReference("ImageFolder").child(user.uid)
                 .child(fileName)
         storageReference.putFile(imageUri).addOnSuccessListener {
             storageReference.downloadUrl.addOnSuccessListener { uri ->

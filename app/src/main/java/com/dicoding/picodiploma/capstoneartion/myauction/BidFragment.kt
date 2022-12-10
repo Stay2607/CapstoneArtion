@@ -82,6 +82,5 @@ class BidFragment : Fragment() {
     companion object {
         const val TABLE_USER = "User"
         const val BID = "Bid"
-        const val TABLE_AUCTION_ITEMS = "AuctionItems"
     }
 }
