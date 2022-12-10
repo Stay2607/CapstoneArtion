@@ -120,4 +120,5 @@
     <string name="danger_sign">DANGER SIGN</string>
     <string name="cancel_auction">Cancel Auction!</string>
     <string name="subtitle_cancel">Are you sure want to cancel this auction?</string>
+    <string name="buy_out_price">Buy out price</string>
 </resources>

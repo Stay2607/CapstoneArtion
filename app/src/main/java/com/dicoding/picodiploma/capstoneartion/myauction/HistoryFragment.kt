@@ -9,15 +9,20 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dicoding.picodiploma.capstoneartion.data.AuctionItem
 import com.dicoding.picodiploma.capstoneartion.databinding.FragmentHistoryBinding
+import com.dicoding.picodiploma.capstoneartion.payment.PaymentActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.ktx.Firebase
 
 class HistoryFragment : Fragment() {
     private var _binding: FragmentHistoryBinding? = null
     private val binding get() = _binding
     private lateinit var db: FirebaseDatabase
+    private lateinit var auth: FirebaseAuth
     private lateinit var rvProduct: RecyclerView
     private lateinit var listProduct: ArrayList<AuctionItem>
     private val list = ArrayList<AuctionItem>()
@@ -29,6 +34,7 @@ class HistoryFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentHistoryBinding.inflate(inflater, container, false)
         db = FirebaseDatabase.getInstance()
+        auth = Firebase.auth
         return binding!!.root
     }
 
@@ -39,7 +45,8 @@ class HistoryFragment : Fragment() {
     }
 
     private fun getListProduct() {
-        db.getReference(BidFragment.TABLE_AUCTION_ITEMS).addValueEventListener(object :
+        val userId = auth.currentUser?.uid
+        db.getReference(PaymentActivity.TABLE_USER).child(userId!!).child(PaymentActivity.HISTORY).addValueEventListener(object :
             ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
 

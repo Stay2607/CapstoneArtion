@@ -16,6 +16,7 @@ import com.dicoding.picodiploma.capstoneartion.R
 import com.dicoding.picodiploma.capstoneartion.data.AuctionItem
 import com.dicoding.picodiploma.capstoneartion.databinding.ActivityAuctionItemDetailsBinding
 import com.dicoding.picodiploma.capstoneartion.main.HomeActivity
+import com.dicoding.picodiploma.capstoneartion.payment.PaymentActivity
 import com.dicoding.picodiploma.capstoneartion.utils.Helper.rupiah
 import com.dicoding.picodiploma.capstoneartion.utils.Helper.toHour
 import com.google.firebase.auth.FirebaseAuth
@@ -24,6 +25,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+
 
 class AuctionItemDetails : AppCompatActivity() {
     private lateinit var binding: ActivityAuctionItemDetailsBinding
@@ -122,6 +124,20 @@ class AuctionItemDetails : AppCompatActivity() {
                                 tvBidPrice.text = rupiah((priceNow.toInt() + inc.toInt()).toString().toDouble())
                                 tvBuyout.text = rupiah(buyOut.toDouble())
                                 Glide.with(this).load(photo.toUri()).into(ivImage)
+
+                                btnBuyout.setOnClickListener {
+                                    val item = ArrayList<String>()
+                                    item.add(owner)
+                                    item.add(title)
+                                    item.add(itemCategory)
+                                    item.add(buyOut)
+                                    item.add(photo)
+                                    item.add(itemId)
+                                    item.add(uid!!)
+                                    val intent = Intent(this@AuctionItemDetails, PaymentActivity::class.java)
+                                    intent.putStringArrayListExtra(PaymentActivity.ITEM, item)
+                                    startActivity(intent)
+                                }
 
                                 btnBid.setOnClickListener {
                                     priceNow = (priceNow.toInt() + inc.toInt()).toString()
