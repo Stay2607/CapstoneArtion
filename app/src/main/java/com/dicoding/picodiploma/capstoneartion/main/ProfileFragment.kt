@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.dicoding.picodiploma.capstoneartion.data.AuctionItem
 import com.dicoding.picodiploma.capstoneartion.databinding.FragmentProfileBinding
+import com.dicoding.picodiploma.capstoneartion.myauction.AuctionFragment
 import com.dicoding.picodiploma.capstoneartion.myauction.MyAuctionAdapter
 import com.dicoding.picodiploma.capstoneartion.setting.SettingActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -59,7 +60,7 @@ class ProfileFragment : Fragment() {
                 val location = it.child("location").value.toString()
                 binding?.profileRegional?.text = location
                 val photo = it.child("avatar").value.toString()
-                if (photo.isNotEmpty()) {
+                if (photo.length > 5) {
                     binding?.profileAvatar?.let { it1 ->
                         Glide.with(this)
                             .load(photo.toUri())
@@ -81,7 +82,8 @@ class ProfileFragment : Fragment() {
     }
 
     private fun getListProduct() {
-        db.getReference(TABLE_AUCTION_ITEMS).addValueEventListener(object :
+        val userId = auth.currentUser!!.uid
+        db.getReference(AuctionFragment.TABLE_USER).child(userId).child(AuctionFragment.AUCTION).addValueEventListener(object :
             ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
