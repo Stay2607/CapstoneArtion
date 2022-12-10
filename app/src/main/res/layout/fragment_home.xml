@@ -6,6 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".main.HomeFragment">
 
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/prog_bar"
+        android:layout_width="340dp"
+        android:layout_height="70dp"
+        android:layout_centerInParent="true"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/black"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.526" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
@@ -90,13 +106,4 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/add_auction_button_home"
         tools:listitem="@layout/item_product" />
-
-    <ProgressBar
-        android:id="@+id/loading"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        app:layout_constraintTop_toTopOf="@id/recyclerView"
-        app:layout_constraintStart_toStartOf="@id/recyclerView"
-        app:layout_constraintEnd_toEndOf="@id/recyclerView"
-        app:layout_constraintBottom_toBottomOf="@id/recyclerView"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

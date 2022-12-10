@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dicoding.picodiploma.capstoneartion.data.AuctionItem
 import com.dicoding.picodiploma.capstoneartion.databinding.FragmentHomeBinding
+import com.dicoding.picodiploma.capstoneartion.loading.Loading
 import com.dicoding.picodiploma.capstoneartion.myauction.MyAuctionAdapter
 import com.dicoding.picodiploma.capstoneartion.newAuction.NewAuctionActivity
 import com.google.firebase.database.DataSnapshot
@@ -48,17 +49,20 @@ class HomeFragment : Fragment() {
     }
 
     private fun getListProduct() {
-        showLoading(true)
+        val loading = Loading()
+        loading.showLoading(true, binding!!.progBar)
         db.getReference(TABLE_AUCTION_ITEMS).addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
+
                 if (snapshot.exists()) {
                     for (auctionItem in snapshot.children) {
+
                         val item = auctionItem.getValue(AuctionItem::class.java)
                         list.clear()
                         listProduct.add(item!!)
                     }
-                    showLoading(false)
                     showRecyclerList()
+                    loading.showLoading(false, binding!!.progBar)
                 }
             }
 
@@ -79,15 +83,6 @@ class HomeFragment : Fragment() {
         val listHeroAdapter = MyAuctionAdapter(list)
         rvProduct.adapter = listHeroAdapter
     }
-
-    private fun showLoading(x: Boolean){
-        if (x) {
-            binding?.loading?.visibility = View.VISIBLE
-        } else {
-            binding?.loading?.visibility = View.GONE
-        }
-    }
-
 
     companion object {
         const val TABLE_AUCTION_ITEMS = "AuctionItems"

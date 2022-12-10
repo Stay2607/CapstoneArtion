@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dicoding.picodiploma.capstoneartion.data.AuctionItem
 import com.dicoding.picodiploma.capstoneartion.databinding.FragmentBidBinding
+import com.dicoding.picodiploma.capstoneartion.loading.Loading
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
@@ -46,7 +47,9 @@ class BidFragment : Fragment() {
     }
 
     private fun getListProduct() {
-        showLoading(true)
+        val loading = Loading()
+        loading.showLoading(true, binding!!.progBar)
+        binding!!.situation.visibility = View.GONE
         val userId = auth.currentUser!!.uid
         db.getReference(TABLE_USER).child(userId).child(BID).addValueEventListener(object :
             ValueEventListener {
@@ -59,8 +62,11 @@ class BidFragment : Fragment() {
                         list.clear()
                         listProduct.add(item!!)
                     }
-                    showLoading(false)
                     showRecyclerList()
+                    loading.showLoading(false, binding!!.progBar)
+                } else {
+                    loading.showLoading(false, binding!!.progBar)
+                    binding!!.situation.visibility = View.VISIBLE
                 }
             }
 
@@ -79,14 +85,6 @@ class BidFragment : Fragment() {
         rvProduct.layoutManager = LinearLayoutManager(context)
         val listProductAdapter = MyAuctionAdapter(list)
         rvProduct.adapter = listProductAdapter
-    }
-
-    private fun showLoading(x: Boolean){
-        if (x) {
-            binding?.loading?.visibility = View.VISIBLE
-        } else {
-            binding?.loading?.visibility = View.GONE
-        }
     }
 
     companion object {

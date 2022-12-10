@@ -43,8 +43,6 @@ class NewAuctionActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        //loading.showLoading(false, binding.progBar)
-
         db = FirebaseDatabase.getInstance()
         auth = Firebase.auth
 
@@ -81,6 +79,7 @@ class NewAuctionActivity : AppCompatActivity() {
                 val currentPrice = startingPrice
 
                 when {
+
                     title.isEmpty() -> binding.etWorkTitle.error =
                         getString(R.string.field_required)
                     description.isEmpty() -> binding.etDescriptionWork.error =
@@ -112,6 +111,7 @@ class NewAuctionActivity : AppCompatActivity() {
 
 
                     else -> {
+
                         val timeCounter: Int = getTimeCounter(day.toInt(), hour.toInt())
                         radioButton = findViewById(radioGroup)
                         val category = radioButton.text.toString()
@@ -135,6 +135,7 @@ class NewAuctionActivity : AppCompatActivity() {
                             myAuctionRef.setValue(item)
                         }
                         itemRef.setValue(item)
+                        loading.showLoading(false, binding.progBar)
                     }
                 }
             } else {
