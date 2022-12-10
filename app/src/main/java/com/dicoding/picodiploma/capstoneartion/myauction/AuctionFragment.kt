@@ -50,7 +50,6 @@ class AuctionFragment : Fragment() {
     private fun getListProduct() {
         val loading = Loading()
         loading.showLoading(true, binding!!.progBar)
-        binding!!.situation.visibility = View.GONE
         val userId = auth.currentUser!!.uid
         db.getReference(TABLE_USER).child(userId).child(AUCTION).addValueEventListener(object :
             ValueEventListener {
