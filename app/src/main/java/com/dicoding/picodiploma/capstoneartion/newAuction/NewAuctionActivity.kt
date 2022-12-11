@@ -130,7 +130,7 @@ class NewAuctionActivity : AppCompatActivity() {
                             timeCounter,
                             ""
                         )
-                        lifecycleScope.launch{
+                        lifecycleScope.launch {
                             myAuctionRef.setValue(item)
                         }
                         itemRef.setValue(item)

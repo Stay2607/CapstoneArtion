@@ -1,9 +1,9 @@
 package com.dicoding.picodiploma.capstoneartion.payment
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.net.toUri
 import com.bumptech.glide.Glide
 import com.dicoding.picodiploma.capstoneartion.databinding.ActivityPaymentBinding
@@ -52,36 +52,51 @@ class PaymentActivity : AppCompatActivity() {
     }
 
     private fun payNow(auctionId: String?, userId: String?, ownerId: String?) {
-        db.getReference(TABLE_AUCTION_ITEM).child(auctionId!!).addValueEventListener(object : ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists()) {
-                    db.getReference(TABLE_USER).child(userId!!).child(HISTORY).child(auctionId).setValue(snapshot.value).addOnCompleteListener {
-                        db.getReference(FINISHED).child(auctionId).setValue(snapshot.value).addOnCompleteListener {
-                            db.getReference(TABLE_USER).child(ownerId!!).child(HISTORY).child(auctionId).setValue(snapshot.value).addOnCompleteListener {
-                                db.getReference(TABLE_AUCTION_ITEM).child(auctionId).removeValue().addOnCompleteListener {
-                                    db.getReference(TABLE_USER).child(ownerId).child(AUCTION).child(auctionId).removeValue().addOnCompleteListener{
-                                        val intent = Intent(this@PaymentActivity, HomeActivity::class.java)
-                                        intent.flags =
-                                            Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
-                                        startActivity(intent)
-                                        finish()
-                                        Toast.makeText(this@PaymentActivity, "Payment Success", Toast.LENGTH_SHORT).show()
-                                    }
+        db.getReference(TABLE_AUCTION_ITEM).child(auctionId!!)
+            .addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (snapshot.exists()) {
+                        db.getReference(TABLE_USER).child(userId!!).child(HISTORY).child(auctionId)
+                            .setValue(snapshot.value).addOnCompleteListener {
+                            db.getReference(FINISHED).child(auctionId).setValue(snapshot.value)
+                                .addOnCompleteListener {
+                                    db.getReference(TABLE_USER).child(ownerId!!).child(HISTORY)
+                                        .child(auctionId).setValue(snapshot.value)
+                                        .addOnCompleteListener {
+                                            db.getReference(TABLE_AUCTION_ITEM).child(auctionId)
+                                                .removeValue().addOnCompleteListener {
+                                                db.getReference(TABLE_USER).child(ownerId)
+                                                    .child(AUCTION).child(auctionId).removeValue()
+                                                    .addOnCompleteListener {
+                                                        val intent = Intent(
+                                                            this@PaymentActivity,
+                                                            HomeActivity::class.java
+                                                        )
+                                                        intent.flags =
+                                                            Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+                                                        startActivity(intent)
+                                                        finish()
+                                                        Toast.makeText(
+                                                            this@PaymentActivity,
+                                                            "Payment Success",
+                                                            Toast.LENGTH_SHORT
+                                                        ).show()
+                                                    }
+                                            }
+                                        }
                                 }
-                            }
                         }
                     }
                 }
-            }
 
-            override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
-            }
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
 
-        })
+            })
     }
 
-    companion object{
+    companion object {
         const val ITEM = "item"
         const val TABLE_AUCTION_ITEM = "AuctionItems"
         const val TABLE_USER = "User"

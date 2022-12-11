@@ -41,7 +41,7 @@ class ProfileFragment : Fragment() {
         auth = Firebase.auth
         db = FirebaseDatabase.getInstance()
         btnSetting()
-        lifecycleScope.launch{ showUser() }
+        lifecycleScope.launch { showUser() }
         listProduct = arrayListOf()
         getListProduct()
     }
@@ -86,28 +86,29 @@ class ProfileFragment : Fragment() {
     private fun getListProduct() {
         showLoading(true)
         val userId = auth.currentUser!!.uid
-        db.getReference(AuctionFragment.TABLE_USER).child(userId).child(AuctionFragment.AUCTION).addValueEventListener(object :
-            ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists()) {
-                    for (auctionItem in snapshot.children) {
+        db.getReference(AuctionFragment.TABLE_USER).child(userId).child(AuctionFragment.AUCTION)
+            .addValueEventListener(object :
+                ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (snapshot.exists()) {
+                        for (auctionItem in snapshot.children) {
 
-                        val item = auctionItem.getValue(AuctionItem::class.java)
-                        list.clear()
-                        listProduct.add(item!!)
+                            val item = auctionItem.getValue(AuctionItem::class.java)
+                            list.clear()
+                            listProduct.add(item!!)
+                        }
+                        showRecyclerList()
+                        showLoading(false)
+                    } else {
+                        showLoading(false)
                     }
-                    showRecyclerList()
-                    showLoading(false)
-                } else {
-                    showLoading(false)
                 }
-            }
 
-            override fun onCancelled(error: DatabaseError) {
-                //nothing to do
-            }
+                override fun onCancelled(error: DatabaseError) {
+                    //nothing to do
+                }
 
-        })
+            })
     }
 
     private fun showRecyclerList() {
@@ -120,7 +121,7 @@ class ProfileFragment : Fragment() {
         rvProduct.adapter = listProductAdapter
     }
 
-    private fun showLoading(x: Boolean){
+    private fun showLoading(x: Boolean) {
         if (x) {
             binding?.loading?.visibility = View.VISIBLE
         } else {

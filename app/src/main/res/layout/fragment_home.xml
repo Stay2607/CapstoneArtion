@@ -39,8 +39,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/bt_notification"
-            app:layout_constraintTop_toTopOf="parent">
-        </com.google.android.material.textfield.TextInputLayout>
+            app:layout_constraintTop_toTopOf="parent"></com.google.android.material.textfield.TextInputLayout>
 
         <ImageView
             android:id="@+id/bt_notification"

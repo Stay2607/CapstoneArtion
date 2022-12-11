@@ -53,8 +53,8 @@ class AuctionItemDetails : AppCompatActivity() {
             item.get().addOnSuccessListener {
                 if (it.exists()) {
                     setUi(it)
-                }else{
-                    historyItem.get().addOnSuccessListener {it2 ->
+                } else {
+                    historyItem.get().addOnSuccessListener { it2 ->
                         if (it2.exists()) {
                             setUi(it2)
                         }
@@ -127,7 +127,7 @@ class AuctionItemDetails : AppCompatActivity() {
                     }
                 }
 
-            }else{
+            } else {
                 setOnClickListener {
                     val dialogBinding = layoutInflater.inflate(R.layout.joined_auction, null)
                     val myDialog = Dialog(this@AuctionItemDetails)
@@ -178,10 +178,11 @@ class AuctionItemDetails : AppCompatActivity() {
                             timeCounter.toInt(),
                             userId
                         )
-                        lifecycleScope.launch{
+                        lifecycleScope.launch {
                             item.setValue(auctionItem)
                             userBid.setValue(auctionItem).addOnSuccessListener {
-                                val intent = Intent(this@AuctionItemDetails, HomeActivity::class.java)
+                                val intent =
+                                    Intent(this@AuctionItemDetails, HomeActivity::class.java)
                                 intent.flags =
                                     Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
                                 startActivity(intent)
