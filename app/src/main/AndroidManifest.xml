@@ -23,6 +23,13 @@
         android:theme="@style/Theme.CapstoneArtion"
         tools:targetApi="31">
         <activity
+            android:name=".detail.AuctionItemDetailsHistory"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".payment.PaymentActivity"
             android:exported="false">
             <meta-data

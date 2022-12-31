@@ -31,8 +31,8 @@ object Helper {
         return System.currentTimeMillis()
     }
 
-    fun convertDateToLong(date: String): Long {
+    fun convertDateToLong(date: String): Long? {
         val df = SimpleDateFormat("yyyy.MM.dd HH:mm", Locale.getDefault())
-        return df.parse(date).time
+        return df.parse(date)?.time
     }
 }

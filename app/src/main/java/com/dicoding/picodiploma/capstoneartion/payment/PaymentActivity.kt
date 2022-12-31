@@ -58,34 +58,35 @@ class PaymentActivity : AppCompatActivity() {
                     if (snapshot.exists()) {
                         db.getReference(TABLE_USER).child(userId!!).child(HISTORY).child(auctionId)
                             .setValue(snapshot.value).addOnCompleteListener {
-                            db.getReference(FINISHED).child(auctionId).setValue(snapshot.value)
-                                .addOnCompleteListener {
-                                    db.getReference(TABLE_USER).child(ownerId!!).child(HISTORY)
-                                        .child(auctionId).setValue(snapshot.value)
-                                        .addOnCompleteListener {
-                                            db.getReference(TABLE_AUCTION_ITEM).child(auctionId)
-                                                .removeValue().addOnCompleteListener {
-                                                db.getReference(TABLE_USER).child(ownerId)
-                                                    .child(AUCTION).child(auctionId).removeValue()
-                                                    .addOnCompleteListener {
-                                                        val intent = Intent(
-                                                            this@PaymentActivity,
-                                                            HomeActivity::class.java
-                                                        )
-                                                        intent.flags =
-                                                            Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
-                                                        startActivity(intent)
-                                                        finish()
-                                                        Toast.makeText(
-                                                            this@PaymentActivity,
-                                                            "Payment Success",
-                                                            Toast.LENGTH_SHORT
-                                                        ).show()
+                                db.getReference(FINISHED).child(auctionId).setValue(snapshot.value)
+                                    .addOnCompleteListener {
+                                        db.getReference(TABLE_USER).child(ownerId!!).child(HISTORY)
+                                            .child(auctionId).setValue(snapshot.value)
+                                            .addOnCompleteListener {
+                                                db.getReference(TABLE_AUCTION_ITEM).child(auctionId)
+                                                    .removeValue().addOnCompleteListener {
+                                                        db.getReference(TABLE_USER).child(ownerId)
+                                                            .child(AUCTION).child(auctionId)
+                                                            .removeValue()
+                                                            .addOnCompleteListener {
+                                                                val intent = Intent(
+                                                                    this@PaymentActivity,
+                                                                    HomeActivity::class.java
+                                                                )
+                                                                intent.flags =
+                                                                    Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+                                                                startActivity(intent)
+                                                                finish()
+                                                                Toast.makeText(
+                                                                    this@PaymentActivity,
+                                                                    "Payment Success",
+                                                                    Toast.LENGTH_SHORT
+                                                                ).show()
+                                                            }
                                                     }
                                             }
-                                        }
-                                }
-                        }
+                                    }
+                            }
                     }
                 }
 

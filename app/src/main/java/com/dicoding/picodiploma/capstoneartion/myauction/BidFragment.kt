@@ -19,7 +19,6 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.ktx.Firebase
 
 class BidFragment : Fragment() {
-
     private var _binding: FragmentBidBinding? = null
     private val binding get() = _binding
     private lateinit var rvProduct: RecyclerView

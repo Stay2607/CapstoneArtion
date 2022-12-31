@@ -55,7 +55,6 @@ class LoginActivity : AppCompatActivity() {
         binding.signInButton.setOnClickListener { signIn() }
         btnRegister()
         btnLogin()
-
     }
 
     private fun btnLogin() {
@@ -64,7 +63,7 @@ class LoginActivity : AppCompatActivity() {
             val pass = binding.edtPassword.text.toString()
             if (email == "" || pass == "") {
                 Toast.makeText(
-                    baseContext, "Login failed.",
+                    baseContext, getString(R.string.login_failed),
                     Toast.LENGTH_SHORT
                 ).show()
             } else {
@@ -76,7 +75,7 @@ class LoginActivity : AppCompatActivity() {
                             updateUI(user)
                         } else {
                             Toast.makeText(
-                                baseContext, "Email or Password Wrong.",
+                                baseContext, getString(R.string.email_or_pass_wrong),
                                 Toast.LENGTH_SHORT
                             ).show()
                             Log.w(TAG, "createUserWithEmail:failure", task.exception)

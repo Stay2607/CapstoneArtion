@@ -38,7 +38,6 @@ class RegisterActivity : AppCompatActivity() {
         auth = Firebase.auth
 
         creteAccount()
-
     }
 
     private fun creteAccount() {
@@ -48,6 +47,8 @@ class RegisterActivity : AppCompatActivity() {
             val password = binding.edtPassword.text.toString()
             when {
                 username.isEmpty() -> binding.edtUsername.error = getString(R.string.field_required)
+                email.isEmpty() -> binding.edtEmail.error = getString(R.string.field_required)
+                password.isEmpty() -> binding.edtPassword.error = getString(R.string.field_required)
                 else -> {
                     auth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(this) { task ->

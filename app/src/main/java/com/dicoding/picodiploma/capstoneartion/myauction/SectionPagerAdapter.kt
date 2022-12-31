@@ -20,5 +20,4 @@ class SectionsPagerAdapter(fm: FragmentManager, lifecycle: Lifecycle) :
         }
         return MyAuctionFragment()
     }
-
 }

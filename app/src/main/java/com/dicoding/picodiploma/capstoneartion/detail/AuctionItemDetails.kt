@@ -27,7 +27,6 @@ import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-
 class AuctionItemDetails : AppCompatActivity() {
     private lateinit var binding: ActivityAuctionItemDetailsBinding
     private lateinit var db: FirebaseDatabase

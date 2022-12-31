@@ -51,7 +51,6 @@ class NewAuctionActivity : AppCompatActivity() {
 
         createAuctionBtn()
         imgBtn()
-
     }
 
     private fun createAuctionBtn() {
@@ -78,7 +77,6 @@ class NewAuctionActivity : AppCompatActivity() {
                 val currentPrice = startingPrice
 
                 when {
-
                     title.isEmpty() -> binding.etWorkTitle.error =
                         getString(R.string.field_required)
                     description.isEmpty() -> binding.etDescriptionWork.error =
@@ -108,9 +106,7 @@ class NewAuctionActivity : AppCompatActivity() {
                     startingPrice.toInt() >= buyoutPrice.toInt() -> binding.etBuyoutPrice.error =
                         getString(R.string.warn_buy_out_over_start_price)
 
-
                     else -> {
-
                         val timeCounter: Int = getTimeCounter(day.toInt(), hour.toInt())
                         radioButton = findViewById(radioGroup)
                         val category = radioButton.text.toString()

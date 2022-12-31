@@ -35,12 +35,13 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:background="@drawable/bg_edit_text"
-        android:hint="@string/emailAndPhone"
+        android:hint="@string/email"
         android:inputType="textEmailAddress"
         android:padding="16dp"
         android:translationZ="0dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/textEmail"
+        tools:ignore="DuplicateSpeakableTextCheck" />
 
     <TextView
         android:id="@+id/textPassword"
@@ -48,7 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Password"
+        android:text="@string/password"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtEmail" />
 
@@ -69,8 +70,8 @@
             android:hint="@string/password"
             android:inputType="textPassword"
             android:padding="16dp"
-            android:translationZ="0dp" />
-
+            android:translationZ="0dp"
+            tools:ignore="SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -113,17 +114,19 @@
             android:id="@+id/notAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Don't have account?" />
+            android:text="@string/don_t_have_account" />
 
         <TextView
             android:id="@+id/registerHere"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
             android:clickable="true"
             android:focusable="true"
-            android:text=" Register Here"
+            android:text="@string/register_here"
             android:textColor="@color/blue_bering_sea"
             android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="63dp" />
     </LinearLayout>

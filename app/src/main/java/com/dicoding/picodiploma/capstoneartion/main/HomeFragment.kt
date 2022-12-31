@@ -38,12 +38,10 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding?.addAuctionButtonHome?.setOnClickListener {
             val intent = Intent(activity, NewAuctionActivity::class.java)
             startActivity(intent)
         }
-
         listProduct = arrayListOf()
         getListProduct()
     }
@@ -53,10 +51,8 @@ class HomeFragment : Fragment() {
         loading.showLoading(true, binding!!.progBar)
         db.getReference(TABLE_AUCTION_ITEMS).addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-
                 if (snapshot.exists()) {
                     for (auctionItem in snapshot.children) {
-
                         val item = auctionItem.getValue(AuctionItem::class.java)
                         list.clear()
                         listProduct.add(item!!)
@@ -65,12 +61,9 @@ class HomeFragment : Fragment() {
                     loading.showLoading(false, binding!!.progBar)
                 }
             }
-
             override fun onCancelled(error: DatabaseError) {
                 //nothing to do
             }
-
-
         })
     }
 

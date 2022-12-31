@@ -7,7 +7,6 @@
     <string name="password">Password</string>
     <string name="btnRegister">Register</string>
     <string name="btnLogin">Login</string>
-    <string name="emailAndPhone">Email or Phone Number</string>
     <string name="title_activity_bottom_navigation">BottomNavigation</string>
     <string name="title_home">Home</string>
     <string name="title_my_auction">My Auction</string>
@@ -90,7 +89,7 @@
     <string name="content_tab_history">History</string>
     <string name="field_required">Field cannot be empty!</string>
     <string name="must_be_number">This field must be filled with numbers!</string>
-    <string name="image_required">Pelase, Insert picture first!</string>
+    <string name="image_required">Please, Insert picture first!</string>
     <string name="choose_catagory">Select a category!</string>
     <string name="warn_buy_out_over_start_price">Buy out price must be greater than the starting price!</string>
     <string name="_2d_category_button">2D category button</string>
@@ -124,4 +123,7 @@
     <string name="there_s_no_auction">There\'s no Auction yet</string>
     <string name="there_s_no_bid">There\'s no Bid yet</string>
     <string name="there_s_no_history">There\'s no History yet</string>
+    <string name="email_or_pass_wrong">Email or Password Wrong.</string>
+    <string name="login_failed">Login failed.</string>
+    <string name="final_price">FINAL PRICE</string>
 </resources>

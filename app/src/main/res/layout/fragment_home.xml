@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".main.HomeFragment">
 
-
     <com.google.android.material.progressindicator.CircularProgressIndicator
         android:id="@+id/prog_bar"
         android:layout_width="340dp"
@@ -33,12 +32,11 @@
             android:layout_width="0dp"
             android:layout_height="45dp"
             android:layout_marginStart="25dp"
-            android:background="@drawable/rounded_thick_ui"
             android:layout_marginEnd="15dp"
-
+            android:background="@drawable/rounded_thick_ui"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/bt_notification"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"></com.google.android.material.textfield.TextInputLayout>
 
         <ImageView
@@ -62,8 +60,8 @@
         android:backgroundTint="@color/bluegray"
         android:contentDescription="@string/_3d_category_button"
         android:src="@drawable/ic_place_holder"
-        app:layout_constraintEnd_toEndOf="parent"
         android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
         tools:ignore="RedundantDescriptionCheck" />
 
@@ -76,9 +74,9 @@
         android:backgroundTint="@color/bluegray"
         android:contentDescription="@string/_2d_category_button"
         android:src="@drawable/ic_place_holder"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        android:visibility="gone"
         tools:ignore="RedundantDescriptionCheck" />
 
     <Button

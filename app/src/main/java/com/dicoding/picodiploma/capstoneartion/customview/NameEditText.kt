@@ -31,6 +31,7 @@ class NameEditText : AppCompatEditText {
                 val name = s.toString()
                 when {
                     !name.isValidName() -> error = "Name is incorrect"
+                    name.isBlank() -> error = "Field is empty"
                 }
             }
 

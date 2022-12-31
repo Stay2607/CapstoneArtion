@@ -54,53 +54,55 @@
         android:id="@+id/btn_pay_now"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="32dp"
         android:background="@drawable/rounded_ui"
         android:backgroundTint="@color/bluegray"
         android:text="@string/pay_now"
         android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/tv_payment_buyout_price_number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_payment_buyout_price" />
 
     <TextView
         android:id="@+id/tv_payment_buyout_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginBottom="6dp"
         android:fontFamily="sans-serif-light"
         android:text="@string/buy_out_price"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btn_pay_now" />
+        app:layout_constraintBottom_toTopOf="@+id/tv_payment_buyout_price_number"
+        app:layout_constraintEnd_toEndOf="@+id/tv_payment_buyout_price_number"
+        app:layout_constraintStart_toStartOf="@+id/tv_payment_buyout_price_number" />
 
     <TextView
         android:id="@+id/tv_payment_buyout_price_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="50dp"
         android:textColor="@color/red_pink"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_pay_now"
-        app:layout_constraintEnd_toEndOf="@id/tv_payment_buyout_price"
-        app:layout_constraintStart_toStartOf="@id/tv_payment_buyout_price"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:text="Rp. 100.000" />
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="6dp"
+        android:layout_marginTop="10dp"
         app:cardCornerRadius="14dp"
-        app:layout_constraintTop_toBottomOf="@id/divider">
+        app:layout_constraintTop_toBottomOf="@id/divider"
+        tools:layout_editor_absoluteX="12dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="125dp"
+            android:layout_margin="10dp"
             android:background="@drawable/rounded_ui"
             android:backgroundTint="@color/bluegray"
             android:elevation="30dp">
@@ -143,14 +145,13 @@
                 android:id="@+id/tv_payment_category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:text="@string/category"
                 android:textColor="@color/white"
-                android:textSize="14sp"
+                android:textSize="12sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/iv_payment_imageView"
-                app:layout_constraintStart_toStartOf="@+id/tv_payment_artist" />
-
-
+                app:layout_constraintStart_toStartOf="@+id/tv_payment_artist"
+                app:layout_constraintTop_toBottomOf="@+id/tv_payment_artist" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

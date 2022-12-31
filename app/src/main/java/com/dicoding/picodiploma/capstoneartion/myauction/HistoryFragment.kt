@@ -52,7 +52,6 @@ class HistoryFragment : Fragment() {
         db.getReference(TABLE_USER).child(userId!!).child(HISTORY).addValueEventListener(object :
             ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-
                 if (snapshot.exists()) {
                     for (auctionItem in snapshot.children) {
                         val item = auctionItem.getValue(AuctionItem::class.java)
@@ -70,7 +69,6 @@ class HistoryFragment : Fragment() {
             override fun onCancelled(error: DatabaseError) {
                 //nothing to do
             }
-
         })
     }
 
