@@ -102,7 +102,6 @@ class NewAuctionActivity : AppCompatActivity() {
                         getString(R.string.must_be_number)
                     hour.isNotValidNumber() -> binding.etAuctionHour.error =
                         getString(R.string.must_be_number)
-
                     startingPrice.toInt() >= buyoutPrice.toInt() -> binding.etBuyoutPrice.error =
                         getString(R.string.warn_buy_out_over_start_price)
 
