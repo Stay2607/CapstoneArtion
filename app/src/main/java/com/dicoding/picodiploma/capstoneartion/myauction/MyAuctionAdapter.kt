@@ -55,6 +55,4 @@ class MyAuctionAdapter(private val listProduct: ArrayList<AuctionItem>) :
             }
         }
     }
-
 }
-

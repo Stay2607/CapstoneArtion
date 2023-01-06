@@ -28,5 +28,6 @@
     <color name="transparant">#00000000</color>
     <color name="ice_blue">#dde2e3</color>
     <color name="red_pink">#DA7CA3</color>
+    <color name="brown">#b37c57</color>
 
 </resources>

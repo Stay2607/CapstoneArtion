@@ -106,16 +106,16 @@ class RegisterActivity : AppCompatActivity() {
         supportActionBar?.hide()
     }
 
-    companion object {
-        private const val TAG = "EmailPassword"
-        private const val TABLE_USER = "User"
-    }
-
     private fun btnLogin() {
         binding.loginHere.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
         }
+    }
+
+    companion object {
+        private const val TAG = "EmailPassword"
+        private const val TABLE_USER = "User"
     }
 }

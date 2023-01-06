@@ -91,7 +91,6 @@ class NewAuctionActivity : AppCompatActivity() {
                         getString(R.string.field_required)
                     priceIncrement.isEmpty() -> binding.etPriceIncrement.error =
                         getString(R.string.field_required)
-
                     startingPrice.isNotValidNumber() -> binding.etStartingPrice.error =
                         getString(R.string.must_be_number)
                     buyoutPrice.isNotValidNumber() -> binding.etBuyoutPrice.error =
@@ -180,7 +179,6 @@ class NewAuctionActivity : AppCompatActivity() {
             Toast.makeText(this, "Upload Failed!", Toast.LENGTH_SHORT).show()
         }
     }
-
 
     //Intent Gallery Launcher
     private val launcherIntentGallery = registerForActivityResult(

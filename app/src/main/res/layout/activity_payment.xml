@@ -8,12 +8,11 @@
 
     <ImageView
         android:id="@+id/profile_card"
-        android:layout_width="match_parent"
-        android:layout_height="411dp"
+        android:layout_width="408dp"
+        android:layout_height="344dp"
         android:contentDescription="@string/profile_card"
         android:src="@drawable/card_layout_white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,12 +20,12 @@
         android:id="@+id/qr_code"
         android:layout_width="250dp"
         android:layout_height="250dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="80dp"
         android:contentDescription="@string/QR_Code"
         android:src="@drawable/qr_code"
+        app:layout_constraintBottom_toBottomOf="@+id/profile_card"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/profile_card" />
 
     <TextView
         android:id="@+id/detail_name"
@@ -54,7 +53,7 @@
         android:id="@+id/btn_pay_now"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/rounded_ui"
         android:backgroundTint="@color/bluegray"
         android:text="@string/pay_now"
@@ -110,7 +109,7 @@
             <ImageView
                 android:id="@+id/iv_payment_imageView"
                 android:layout_width="100dp"
-                android:layout_height="70dp"
+                android:layout_height="80dp"
                 android:layout_marginStart="20dp"
                 android:contentDescription="@string/product_photo"
                 android:src="@color/white"
@@ -145,7 +144,7 @@
                 android:id="@+id/tv_payment_category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/category"
                 android:textColor="@color/white"
                 android:textSize="12sp"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blue_diplomatic"
-    tools:context=".main.MainActivity">
+    tools:context=".splashscreen.SplashScreen">
 
     <ImageView
         android:id="@+id/imageLogo"
@@ -21,7 +21,6 @@
         android:id="@+id/imageName"
         android:layout_width="match_parent"
         android:layout_height="135dp"
-
         android:contentDescription="@string/app_name"
         android:src="@drawable/ic_artion_name_white"
         app:layout_constraintBottom_toBottomOf="parent"

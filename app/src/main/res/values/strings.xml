@@ -12,11 +12,11 @@
     <string name="title_my_auction">My Auction</string>
     <string name="title_profile">Profile</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="have_account">Have account? </string>
+    <string name="have_account">Already have account? </string>
     <string name="login_here">Login Here</string>
     <string name="buyout_price">Buyout price</string>
     <string name="bid">Bid</string>
-    <string name="bid_price">Bid price</string>
+    <string name="bid_price">Bid Price</string>
     <string name="running_time">Running time</string>
     <string name="buyout">Buyout</string>
     <string name="artist">Artist</string>
@@ -50,18 +50,18 @@
     <string name="content_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
     <string name="create_auction">Create Auction</string>
     <string name="add_photo">+ Add Photo</string>
-    <string name="title_of_the_work">Title of the work *</string>
+    <string name="title_of_the_work">Title of the work</string>
     <string name="enter_a_title_of_the_work">Enter a title of the work</string>
-    <string name="description_of_the_work">Description of the work *</string>
+    <string name="description_of_the_work">Description of the work</string>
     <string name="enter_a_work_description">Enter a Work Description</string>
     <string name="_2d">2D</string>
     <string name="_3d">3D</string>
-    <string name="price">Price *</string>
+    <string name="price">Price</string>
     <string name="starting_at">Starting at</string>
     <string name="arrange">Arrange</string>
     <string name="buyout_at">Buyout at</string>
-    <string name="time_range">Time Range *</string>
-    <string name="category_title">Category *</string>
+    <string name="time_range">Time Range</string>
+    <string name="category_title">Category</string>
     <string name="_1_days">1 Days</string>
     <string name="_3_days">3 Days</string>
     <string name="_7_days">7 Days</string>
@@ -126,4 +126,6 @@
     <string name="email_or_pass_wrong">Email or Password Wrong.</string>
     <string name="login_failed">Login failed.</string>
     <string name="final_price">FINAL PRICE</string>
+    <string name="login_title">login title</string>
+    <string name="enter_title">Enter the title</string>
 </resources>
